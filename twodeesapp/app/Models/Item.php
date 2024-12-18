@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+
+    protected $fillable = ["name", "release_date", "category_id"]; //Technique to enable mass assignment.
 }

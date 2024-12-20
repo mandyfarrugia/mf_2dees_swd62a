@@ -13,6 +13,9 @@ class Item extends Model
 
     //Establishing a relationship between Item and Category model (one-to-many relationship whereby one category can be assigned to many items).
     public function categories() {
-        return $this->hasMany(Category::class);
+        /* In this case, belongsTo assumes a one-to-one/many relationship between source and target table,
+           the foreign key constraint should already exist in the source table (in this case, the Item table) to link to the common attribute within the target table 
+           (in our case, the attribute within the Category model). */
+        return $this->belongsTo(Category::class);
     }
 }

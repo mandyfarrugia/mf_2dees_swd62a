@@ -19,8 +19,12 @@ Route::get('/', function () {
 
 Route::get('/items', function() {
     return "<h1>All items</h1>";
-});
+})->name('items.index');
+
+Route::get('/items/create', function() {
+    return "<h1>Add new item</h1>";
+})->name('items.create');
 
 Route::get('/items/{id}', function($id) {
     return App\Models\Item::find($id);
-}); 
+})->name('items.show');

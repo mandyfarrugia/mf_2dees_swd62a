@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/items', function() {
+    return "<h1>All items</h1>";
+});
+
+Route::get('/items/{id}', function($id) {
+    return App\Models\Item::find($id);
+}); 

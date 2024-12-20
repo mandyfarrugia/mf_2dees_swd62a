@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/items', function() {
-    return "<h1>All items</h1>";
+    return view('items.index');
 })->name('items.index');
 
 Route::get('/items/create', function() {

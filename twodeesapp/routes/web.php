@@ -22,9 +22,10 @@ Route::get('/items', function() {
 })->name('items.index');
 
 Route::get('/items/create', function() {
-    return "<h1>Add new item</h1>";
+    return view('items.create');
 })->name('items.create');
 
 Route::get('/items/{id}', function($id) {
-    return App\Models\Item::find($id);
+    $item = App\Models\Item::find($id);
+    return view('items.show', compact('item'));
 })->name('items.show');

@@ -22,28 +22,30 @@
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Company</th>
+                      <th scope="col">ID</th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Release Date</th>
+                      <th scope="col">Category</th>
                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Alfred</td>
-                      <td>Kuhlman</td>
-                      <td>alfred@test.com</td>
-                      <td>Company one</td>
-                      <td width="150">
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
+                    @if($items->count())
+                      @foreach($items as $index => $item)
+                        <tr>
+                          <th scope="row">{{ $index + 1 }}</th>
+                          <td>{{ $item->name }}</td>
+                          <td>{{ $item->release_date }}</td>
+                          <td>{{ $item->category->name }}</td>
+                          <td width="150">
+                            <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                            <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                          </td>
+                        </tr>
+                      @endforeach
+                    @endif
+                    <!-- <tr>
                       <th scope="row">2</th>
                       <td>Frederick</td>
                       <td>Jerde</td>
@@ -90,7 +92,7 @@
                         <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                         <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                       </td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>

@@ -1965,6 +1965,11 @@ progress {
   margin-bottom: 0.5rem;
 }
 
+.form-group.row {
+  margin-bottom: 2%;
+}
+
+
 .col-form-label {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);

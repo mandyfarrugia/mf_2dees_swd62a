@@ -38,7 +38,7 @@
                           <td>{{ $item->release_date }}</td>
                           <td>{{ $item->category->name }}</td>
                           <td width="150">
-                            <a href="show.html" class="btn btn-sm btn-circle btn-info" title="Show"><i class="fa fa-eye"></i></a>
+                            <a href="{{ route('items.show') }}" class="btn btn-sm btn-circle btn-info" title="Show"><i class="fa fa-eye"></i></a>
                             <a href="form.html" class="btn btn-sm btn-circle btn-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                             <a href="#" class="btn btn-sm btn-circle btn-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                           </td>

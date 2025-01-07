@@ -4,10 +4,9 @@
         <div class="row">
             <div class="col">
                 <div class="input-group mb-3">
-                    <select class="custom-select">
-                        <option value="" selected>All Categories</option>
+                    <select id="filter_category_id" class="custom-select">
                         @foreach($categories as $id => $name)
-                            <option value="{{ $id }}">{{ $name }}</option>
+                            <option {{ $id == request('company_id') ? 'selected' : ''}} value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                     </select>
                 </div>

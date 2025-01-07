@@ -2,6 +2,9 @@
 
 @section('content')
     @php
+      /* An array of humoristic messages inspired by Discord, the Warhammer lore, and Gears of War.
+       * A random number (taking into consideration the boundaries of the array) will be generated,
+       * representing a randomly chosen message that will be displayed to explain that no items have been populated as of yet. */
       $emptyListMessages = array("Looks like this list is having a 'Do Not Disturb' moment. Try adding something!", 
         "Well, this list is a ghost town. Maybe it's time to summon some content?",
         "The list is empty, like the Orks' understanding of strategy - nonexistent!",
@@ -9,7 +12,7 @@
         "Alas, this list is as barren as the fields of Cadia after the 13th Black Crusade!",
         "This list is emptier than a Locust nest after a Hammer of Dawn strike.",
         "This list is as empty as a COG soldier's ammo after a firefight.",
-        "The items in this list must’ve gone for a chainsaw duel—leaving nothing behind");
+        "The items in this list must have gone for a chainsaw duel—leaving nothing behind");
 
         $randomisedIndex = rand(0, count($emptyListMessages) - 1);
         $randomMessage = $emptyListMessages[$randomisedIndex];

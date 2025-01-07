@@ -11031,3 +11031,7 @@ p {
 .address strong {
   font-size: 1.2rem;
 }
+
+.button-spacing {
+  margin-top: 2%;
+}

@@ -1,15 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- <h1>Add new item</h1>
-    <a href="{{ route('items.index') }}">Back to all items</a> -->
     <main class="py-5">
       <div class="container">
         <div class="row justify-content-md-center">
           <div class="col-md-8">
             <div class="card">
               <div class="card-header card-title">
-                <strong>Add New Contact</strong>
+                <strong>Add New Item</strong>
               </div>           
               <div class="card-body">
                 <div class="row">
@@ -30,12 +28,12 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="company_id" class="col-md-3 col-form-label">Category</label>
+                      <label for="category_id" class="col-md-3 col-form-label">Category</label>
                       <div class="col-md-9">
-                        <select name="company_id" id="company_id" class="form-control">
-                          <option selected disabled value="">Select Category</option>
-                          <option value="1">Video Games</option>
-                          <option value="2">Figurines</option>
+                        <select name="category_id" id="category_id" class="form-control">
+                          @foreach($categories as $id => $name)
+                            <option {{ $id == request('category_id') ? 'selected' : ''}} value="{{ $id }}">{{ $name }}</option>
+                          @endforeach
                         </select>
                       </div>
                     </div>

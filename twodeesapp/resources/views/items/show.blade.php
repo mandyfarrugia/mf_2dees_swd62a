@@ -12,9 +12,7 @@
                                 <span class="section-heading-upper">{{ $item->category->name }}</span>
                                 <span class="section-heading-lower">{{ $item->name }}</span>
                             </h2>
-                            <p>Released in {{ 
-                                $string_to
-                            }}</p>
+                            <p>Released in</p>
                             <div class="button-spacing">
                                 <button type="submit" class="btn btn-primary">Return to all items</button>
                             </div>

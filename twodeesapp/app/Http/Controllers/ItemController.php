@@ -22,7 +22,8 @@ class ItemController extends Controller
     }
 
     public function create() {
-        return view('items.create');
+        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
+        return view('items.create', compact('categories'));
     }
 
     public function show($id) {

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('release_date')->nullable(); //It might not always be known the date in which the item was released.
+            $table->date('release_date')->nullable(); //It might not always be known the date in which the item was released.
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

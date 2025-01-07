@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('imagePath')->nullable(); //It might not always be the case that a category is supported by an image, hence the nullable column definition.
             $table->timestamps();
         });
     }

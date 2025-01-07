@@ -5,10 +5,10 @@
             <div class="col">
                 <div class="input-group mb-3">
                     <select class="custom-select">
-                        <option value="" selected>All Companies</option>
-                        <option value="1">Company One</option>
-                        <option value="2">Company Two</option>
-                        <option value="3">Company Three</option>
+                        <option value="" selected>All Categories</option>
+                        @foreach($categories as $id => $name)
+                            <option value="{{ $id }}">{{ $name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

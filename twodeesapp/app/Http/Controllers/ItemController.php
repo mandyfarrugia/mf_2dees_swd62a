@@ -9,8 +9,9 @@ use App\Models\Category;
 class ItemController extends Controller
 {
     public function index() {
-        $categories = Category::all()->pluck('name', 'id');
+        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id');
         $items = Item::all();
+        //$items = Item::paginate(1);
         return view('items.index', compact('items', 'categories'));
     }
 

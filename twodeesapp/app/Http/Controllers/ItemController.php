@@ -9,8 +9,14 @@ use App\Models\Category;
 class ItemController extends Controller
 {
     public function index() {
-        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id');
-        $items = Item::all();
+        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
+
+        if(request('category_id') == null) {
+            $items = Item::all();
+        } else {
+            $items = Item::where('category_id', request('category_id'))->get();
+        }
+        
         //$items = Item::paginate(1);
         return view('items.index', compact('items', 'categories'));
     }

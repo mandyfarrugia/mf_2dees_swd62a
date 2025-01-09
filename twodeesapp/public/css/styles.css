@@ -11056,3 +11056,28 @@ p {
   font-size: 180%;
   letter-spacing: 20%;
 }
+
+.fa-brands.fa-github:hover {
+  color: #f05033;
+}
+
+.fa-brands.fa-discord:hover {
+  color: #5865F2;
+}
+
+.fa-brands.fa-instagram:hover {
+  color: #833ab4;
+}
+
+.fa-brands.fa-linkedin:hover {
+  color: #0077b7;
+}
+
+.fa-brands:hover {
+  transition: color 1.5s;
+}
+
+/* The :has CSS pseudo class in this case applies to any anchor elements whose descendant elements with the class fa-brands. */
+a:has(.fa-brands) {
+  text-decoration: none;
+}

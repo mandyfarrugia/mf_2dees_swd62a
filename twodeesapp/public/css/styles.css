@@ -11090,7 +11090,7 @@ a:has(.fa-brands) {
   filter: brightness(1.5); 
 }
 
-/* The :has CSS pseudo class in this case applies to an element with the CSS selector bg-faded.rounded.p-5 whose descendant elements embody paragraphs. */
-.bg-faded.rounded.p-5:has(p) {
+/* The :has CSS pseudo class in this case applies to an element with the CSS selector bg-faded.rounded.p-5 whose descendant elements embody paragraphs with an ID of about_paragraph. */
+.bg-faded.rounded.p-5:has(#about_paragraph) {
   text-align: justify;
 }

@@ -11089,3 +11089,8 @@ a:has(.fa-brands) {
 .img-fluid {
   filter: brightness(1.5); 
 }
+
+/* The :has CSS pseudo class in this case applies to an element with the CSS selector bg-faded.rounded.p-5 whose descendant elements embody paragraphs. */
+.bg-faded.rounded.p-5:has(p) {
+  text-align: justify;
+}

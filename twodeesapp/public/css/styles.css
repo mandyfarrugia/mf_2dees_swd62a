@@ -11050,3 +11050,9 @@ p {
 .fa-solid.fa-face-frown {
   font-size: 350%;
 }
+
+.fa-brands {
+  cursor: pointer;
+  font-size: 180%;
+  letter-spacing: 20%;
+}

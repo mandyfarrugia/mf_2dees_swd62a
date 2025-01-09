@@ -36,11 +36,12 @@
         @yield('content')
         <footer class="footer text-faded text-center py-5">
             <div class="container">
-                <p>
+                <div class="mb-3">
                     <i class="fa-brands fa-github"></i>
                     <i class="fa-brands fa-discord"></i>
                     <i class="fa-brands fa-instagram"></i>
-                </p>
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
                 <p class="m-0 small">Copyright &copy; TwoDees @php echo date("Y"); @endphp</p>
             </div>
         </footer>

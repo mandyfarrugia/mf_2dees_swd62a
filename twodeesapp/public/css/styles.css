@@ -11073,6 +11073,10 @@ p {
   color: #0077b7;
 }
 
+.fa-brands.fa-spotify:hover {
+  color: #1db954;
+}
+
 .fa-brands:hover {
   transition: color 1.5s;
 }
@@ -11080,4 +11084,8 @@ p {
 /* The :has CSS pseudo class in this case applies to any anchor elements whose descendant elements with the class fa-brands. */
 a:has(.fa-brands) {
   text-decoration: none;
+}
+
+.img-fluid {
+  filter: brightness(1.5); 
 }

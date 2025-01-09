@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content=""/>
         <meta name="author" content=""/>
         <title>TwoDees</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet"/>
@@ -37,7 +37,7 @@
         <footer class="footer text-faded text-center py-5">
             <div class="container">
                 @include('footer._platforms')
-                <p class="m-0 small">Copyright &copy; TwoDees @php echo date("Y"); @endphp</p>
+                <p class="m-0 small">Copyright &copy; TwoDees <?= date("Y"); ?></p>
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

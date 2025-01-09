@@ -36,20 +36,7 @@
         @yield('content')
         <footer class="footer text-faded text-center py-5">
             <div class="container">
-                <div class="mb-3">
-                    <a href="https://github.com/mandyfarrugia" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="https://discord.com/users/1130040838899118120" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-discord"></i>
-                    </a>
-                    <a href="https://www.instagram.com/eshalx01/" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mandy-farrugia-b2868528b/" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                </div>
+                @include('footer._platforms')
                 <p class="m-0 small">Copyright &copy; TwoDees @php echo date("Y"); @endphp</p>
             </div>
         </footer>

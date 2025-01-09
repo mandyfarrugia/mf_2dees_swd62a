@@ -1,0 +1,127 @@
+use App\Models\Category;
+use App\Models\Item;
+
+$figurines = Category::create(['name' => 'Figurine', 'imagePath' => 'image.png']);
+
+= App\Models\Category {#5164
+    name: "Figurine",
+    imagePath: "image.png",
+    updated_at: "2025-01-07 15:38:09",
+    created_at: "2025-01-07 15:38:09",
+    id: 1,
+  }
+
+$whsm2 = new Item();
+= App\Models\Item {#5136}
+
+$whsm2->name = "Warhammer 40,000 Space Marine 2";
+= "Warhammer 40,000 Space Marine 2"
+
+$whsm2->price = 67.00
+= 67.0
+
+$whsm2->release_date = "2024-09-05";
+= "2024-09-05"
+
+$whsm2->description = "Crush the Tyranid swarms. Defend humanity.";
+= "Crush the Tyranid swarms. Defend humanity."
+
+$whsm2->imagePath = "image.png";
+= "image.png"
+
+$videoGames = Category::create(['name' => 'Video Game', 'imagePath' => 'image.png']);
+= App\Models\Category {#6175
+    name: "Video Game",
+    imagePath: "image.png",
+    updated_at: "2025-01-07 16:00:44",
+    created_at: "2025-01-07 16:00:44",
+    id: 2,
+  }
+
+$videoGames->items()->save($whsm2);
+= App\Models\Item {#5136
+    name: "Warhammer 40,000 Space Marine 2",
+    price: 67.0,
+    release_date: "2024-09-05",
+    description: "Crush the Tyranid swarms. Defend humanity.",
+    imagePath: "image.png",
+    category_id: 2,
+    updated_at: "2025-01-07 16:01:09",
+    created_at: "2025-01-07 16:01:09",
+    id: 1,
+}
+
+$gamingConsoles = new Category();
+= App\Models\Category {#5152}
+
+$gamingConsoles->name = "Gaming Consoles";
+= "Gaming Consoles"
+
+$gamingConsoles->imagePath = "image.png";
+= "image.png"
+
+$gamingConsoles->save();
+= true
+
+$ps5 = new Item();
+= App\Models\Item {#6240}
+
+$ps5->name = "PlayStation 5";
+= "PlayStation 5"
+
+$ps5->price = 599.99;
+= 599.99
+
+$ps5->release_date = "2020-11-17";
+= "2020-11-17"
+
+$ps5->description = "The PS5 supports up to 8K output and promises 4K graphics at up to a 120Hz refresh rate.";
+= "The PS5 supports up to 8K output and promises 4K graphics at up to a 120Hz refresh rate."
+
+$gamingConsoles->items()->save($ps5);
+= App\Models\Item {#6240
+  name: "PlayStation 5",
+  price: 599.99,
+  release_date: "2020-11-17",
+  description: "The PS5 supports up to 8K output and promises 4K graphics at up to a 120Hz refresh rate.",
+  category_id: 3,
+  updated_at: "2025-01-08 08:18:59",
+  created_at: "2025-01-08 08:18:59",
+  id: 3,
+}
+
+> $figurines = Category::where('name', 'Figurines')->first();
+= App\Models\Category {#5142
+  id: 1,
+  name: "Figurines",
+  imagePath: "image.png",
+  created_at: "2025-01-07 15:38:09",
+  updated_at: "2025-01-07 16:04:42",
+}
+
+$razorback = new Item();
+= App\Models\Item {#6234}
+
+$razorback->name = "Warhammer 40,000 Space Marines Razorback";
+= "Warhammer 40,000 Space Marines Razorback"
+
+$razorback->price = 45;
+= 45
+
+$razorback->description = "The Razorback is a tracked, armoured vehicle used by Space Marine Chapters. Its design is based on the Rhino chassis.";
+= "The Razorback is a tracked, armoured vehicle used by Space Marine Chapters. Its design is based on the Rhino chassis."
+
+$razorback->release_date = "2019-02-07";
+= "2019-02-07"
+
+$figurines->items()->save($razorback);
+= App\Models\Item {#6234
+  name: "Warhammer 40,000 Space Marines Razorback",
+  price: 45,
+  description: "The Razorback is a tracked, armoured vehicle used by Space Marine Chapters. Its design is based on the Rhino chassis.",
+  release_date: "2019-02-07",
+  category_id: 1,
+  updated_at: "2025-01-08 08:50:04",
+  created_at: "2025-01-08 08:50:04",
+  id: 4,
+}

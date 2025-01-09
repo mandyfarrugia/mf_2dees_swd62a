@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('navigation.about') }}">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Items</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Store</a></li>
                     </ul>
@@ -36,6 +36,11 @@
         @yield('content')
         <footer class="footer text-faded text-center py-5">
             <div class="container">
+                <p>
+                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-discord"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </p>
                 <p class="m-0 small">Copyright &copy; TwoDees @php echo date("Y"); @endphp</p>
             </div>
         </footer>

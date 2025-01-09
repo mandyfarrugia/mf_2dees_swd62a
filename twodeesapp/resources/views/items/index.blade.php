@@ -25,14 +25,14 @@
                 <div class="card-header card-title">
                   <div class="d-flex align-items-center">
                     <h2 class="mb-0">All Items</h2>
-                    <div class="ml-auto">
+                    <div class="ml-auto" id="btn_placeholder">
                       <a href="{{ route('items.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
                     </div>
                   </div>
                 </div>
               <div class="card-body">
+                @include('items._filter')
                 @if($items->count())
-                  @include('items._filter')
                   <table class="table table-striped table-hover">
                     <thead>
                       <tr>
@@ -60,7 +60,8 @@
                     </tbody>
                   </table>
                 @else
-                  <p>{{ $randomMessage }}</p>
+                  <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
+                  <p style="text-align: center;">{{ $randomMessage }}</p>
                 @endif
               </div>
             </div>

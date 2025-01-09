@@ -10844,6 +10844,13 @@ p {
   color: #f6e1c5;
 }
 
+#release_date_sm {
+  color: #5a5a5a;
+  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+}
+
 .site-heading {
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -11034,4 +11041,12 @@ p {
 
 .button-spacing {
   margin-top: 2%;
+}
+
+#btn_placeholder {
+  margin-left: 2%;
+}
+
+.fa-solid.fa-face-frown {
+  font-size: 350%;
 }

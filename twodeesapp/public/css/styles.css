@@ -11130,7 +11130,3 @@ a:has(.fa-brands) {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
-#price_filter > label {
-  font-size: 85%;
-}

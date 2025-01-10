@@ -7,7 +7,8 @@
     @endphp
     <section class="page-section about-heading">
         <div class="container">
-            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset('assets/img/about.jpg') }}" alt="..." />
+            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset('assets/img/about.jpg') }}"
+                alt="..." />
             <div class="about-heading-content">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 mx-auto">
@@ -19,9 +20,12 @@
                             @php
                                 $price = $item->price;
                                 $mainCurrency = intval(floor($price));
-                                $fractionalCurrency = $price * 100 % 100;
+                                $fractionalCurrency = ($price * 100) % 100;
                             @endphp
-                            <h4><span id="currency_sign">&euro;</span><span id="main_currency">{{ $mainCurrency }}</span>.<span id="fractional_currency">{{ str_pad($fractionalCurrency, 2, 0, STR_PAD_RIGHT) }}</span></h4>
+                            <h4><span id="currency_sign">&euro;</span><span
+                                    id="main_currency">{{ $mainCurrency }}</span>.<span
+                                    id="fractional_currency">{{ str_pad($fractionalCurrency, 2, 0, STR_PAD_RIGHT) }}</span>
+                            </h4>
                             <p><small id="release_date_sm">Released on {{ $formattedReleaseDate }}</small></p>
                             <p>{{ $item->description }}</p>
                             <div class="button-spacing">

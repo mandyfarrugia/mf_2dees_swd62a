@@ -15,23 +15,23 @@ const handlePriceFilter = (event, minimum = 0, maximum) => {
     console.log(minimum);
     console.log(maximum);
 
-    if(maximum < minimum) {
+    if (maximum < minimum) {
         throw new Error('Maximum threshold cannot be less than minimum threshold!');
     }
 
-    window.location.href = attachQueryParametersToUrl({'min_price': minimum, 'max_price': maximum});
+    window.location.href = attachQueryParametersToUrl({ 'min_price': minimum, 'max_price': maximum });
 };
 
 const handleDateDropdownSelection = (event) => {
     const target = event.target;
     let selectedOrderId = target.value || target.options[target.selectedIndex].value;
-    window.location.href = attachQueryParametersToUrl({'date': selectedOrderId });
+    window.location.href = attachQueryParametersToUrl({ 'date': selectedOrderId });
 };
 
 const handleCategoryDropdownSelection = (event) => {
     const target = event.target;
     let selectedCategoryId = target.value || target.options[target.selectedIndex].value;
-    window.location.href = attachQueryParametersToUrl({'category_id': selectedCategoryId });
+    window.location.href = attachQueryParametersToUrl({ 'category_id': selectedCategoryId });
 };
 
 const attachEvent = (target, event, callback) => target.addEventListener(event, callback);
@@ -41,7 +41,7 @@ const dateFilterDropdown = document.getElementById('filter_date');
 
 const applyFilterBtn = document.getElementById('apply_filter_btn');
 
-if(categoryFilterDropdown !== null) {
+if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
         handleCategoryDropdownSelection(event);
     });

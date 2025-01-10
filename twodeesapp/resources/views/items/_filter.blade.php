@@ -34,7 +34,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="form-group">
-                        <a href="" class="btn btn-info">Apply filter</a>
+                        <a href="" class="btn btn-info" id="apply_filter_btn">Apply filter</a>
                     </div>
                 </div>
             </div>

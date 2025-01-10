@@ -11114,13 +11114,13 @@ a:has(.fa-brands) {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 6px 12px;
-  width: 40%;
+  width: 54%;
 }
 
 .form-control#min_price,
 .form-control#max_price {
   display: block;
-  width: 85%;
+  width: 86%;
   height: 34px;
   padding: 6px 12px;
   font-size: 85%;

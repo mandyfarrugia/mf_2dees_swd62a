@@ -39,6 +39,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Item</th>
                         <th scope="col">Release Date</th>
+                        <th scope="col">Price</th>
                         <th scope="col">Category</th>
                         <th scope="col">Actions</th>
                       </tr>
@@ -49,6 +50,7 @@
                             <th scope="row">{{ $index + 1 }}</th>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->release_date }}</td>
+                            <td>&euro;{{ $item->price }}</td>
                             <td>{{ $item->category->name }}</td>
                             <td width="150">
                               <a href="{{ route('items.show', $item->id) }}" class="btn btn-sm btn-circle btn-info" title="Show"><i class="fa fa-eye"></i></a>

@@ -21,7 +21,7 @@
                                 $mainCurrency = intval(floor($price));
                                 $fractionalCurrency = $price * 100 % 100;
                             @endphp
-                            <h4><span id="currency_sign">&euro;</span><span id="main_currency">{{ $mainCurrency }}</span>.<span id="fractional_currency">{{ $fractionalCurrency }}</span></h4>
+                            <h4><span id="currency_sign">&euro;</span><span id="main_currency">{{ $mainCurrency }}</span>.<span id="fractional_currency">{{ str_pad($fractionalCurrency, 2, 0, STR_PAD_RIGHT) }}</span></h4>
                             <p><small id="release_date_sm">Released on {{ $formattedReleaseDate }}</small></p>
                             <p>{{ $item->description }}</p>
                             <div class="button-spacing">

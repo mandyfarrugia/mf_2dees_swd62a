@@ -11095,8 +11095,14 @@ a:has(.fa-brands) {
   text-align: justify;
 }
 
+#currency_sign,
 #main_currency {
-  width: 200%;
+  font-size: 140%;
+  font-weight: 400;
+}
+
+#fractional_currency {
+  font-size: 100%;
 }
 
 .custom-select {

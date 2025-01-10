@@ -55,12 +55,20 @@
                             <th scope="row">{{ $index + 1 }}</th>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->release_date }}</td>
-                            <td>{{ $item->price }}</td>
+                            <td>&euro;{{ $item->price }}</td>
                             <td>{{ $item->category->name }}</td>
                             <td width="150">
-                              <a href="{{ route('items.show', $item->id) }}" class="btn btn-sm btn-circle btn-info" title="Show"><i class="fa fa-eye"></i></a>
-                              <a href="form.html" class="btn btn-sm btn-circle btn-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                              <a href="#" class="btn btn-sm btn-circle btn-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                              <div class="btn-group w-100" role="group">
+                                <a href="{{ route('items.show', $item->id) }}" class="btn btn-sm btn-circle btn-info d-block d-md-inline-block mb-2 mb-md-0" title="Show">
+                                  <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="form.html" class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0" title="Edit">
+                                  <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0" title="Delete" onclick="confirm('Are you sure?')">
+                                  <i class="fa fa-times"></i>
+                                </a>
+                              </div>
                             </td>
                           </tr>
                         @endforeach

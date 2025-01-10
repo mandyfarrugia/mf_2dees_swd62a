@@ -1,44 +1,40 @@
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col">
-                <div class="input-group mb-3">
-                    <select id="filter_category_id" class="custom-select">
-                        @foreach($categories as $id => $name)
-                            <option {{ $id == request('category_id') ? 'selected' : ''}} value="{{ $id }}">{{ $name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    @php
-                        $dateFilterOptions = array(null => "Filter by date",
-                            "asc" => "Date furthest from now",
-                            "desc" => "Dates closest to now");
-                    @endphp
-                    <select id="filter_date" class="custom-select">
-                        @foreach($dateFilterOptions as $order => $option)
-                            <option {{ $order == null ? 'disabled' : '' }} {{ $order == request('date') ? 'selected' : '' }} value="{{ $order }}">{{ $option }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="form-group" id="price_filter">
-                        <label>Minimum price</label>
-                        <input type="number" class="form-control" id="min_price"/>
-                    </div>
-                    <div class="form-group" id="price_filter">
-                        <label>Maximum price</label>
-                        <input type="number" class="form-control" id="max_price"/>
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="form-group">
-                        <a href="" class="btn btn-info" id="apply_filter_btn">Apply filter</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <div class="row p-3">
+    <div class="col-sm-6 col-md-3 mb-3">
+      <label for="filter_category_id">Category</label>
+      <select id="filter_category_id" class="form-control">
+        @foreach($categories as $id => $name)
+          <option {{ $id == request('category_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
+        @endforeach
+      </select>
     </div>
-</div>
-</div>
+    <div class="col-sm-6 col-md-3 mb-3">
+      @php
+        $dateFilterOptions = array(null => "Filter by date",
+            "asc" => "Date furthest from now",
+            "desc" => "Dates closest to now");
+        @endphp
+      <label for="filter_date">Date Filter</label>
+      <select id="filter_date" class="form-control">
+        @foreach($dateFilterOptions as $order => $option)
+          <option {{ $order == request('date') ? 'selected' : '' }} value="{{ $order }}">{{ $option }}</option>
+        @endforeach
+      </select>
+    </div>
+    
+    <!-- Reduced gap between Minimum Price and Maximum Price fields -->
+    <div class="col-sm-6 col-md-2 mb-3">
+      <label for="min_price">Minimum Price</label>
+      <input type="number" class="form-control" id="min_price"/>
+    </div>
+    <div class="col-sm-6 col-md-2 mb-3">
+      <label for="max_price">Maximum Price</label>
+      <input type="number" class="form-control" id="max_price"/>
+    </div>
+    
+    <div class="col-sm-6 col-md-2 mb-3 d-flex align-items-end">
+      <a href="" class="btn btn-info w-100" id="apply_filter_btn">Apply filter</a>
+    </div>
+
+  </div>
+  

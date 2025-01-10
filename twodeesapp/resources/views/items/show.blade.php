@@ -16,7 +16,14 @@
                                 <span class="section-heading-upper">{{ $item->category->name }}</span>
                                 <span class="section-heading-lower">{{ $item->name }}</span>
                             </h2>
+                            @php
+                                $price = $item->price;
+                                $mainCurrency = intval(floor($price));
+                                $fractionalCurrency = $price * 100 % 100;
+                            @endphp
+                            <h4>&euro;<span id="main_currency">{{ $mainCurrency }}</span>.{{ $fractionalCurrency }}</h4>
                             <p><small id="release_date_sm">Released on {{ $formattedReleaseDate }}</small></p>
+                            <p>{{ $item->description }}</p>
                             <div class="button-spacing">
                                 <a href="{{ route('items.index') }}" class="btn btn-primary">Return to all items</a>
                             </div>

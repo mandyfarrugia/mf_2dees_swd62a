@@ -17,10 +17,10 @@
                         <p id="about_paragraph">My programming journey commenced in November 2015 where I familiarised myself with programming lexicon using Java as part of the MATSEC O'Level programming coursework for the Computing unit, contributing to a Grade 1. This led me to further my studies at MCAST to pursue a career in software development, acquiring a Diploma in ICT <small>(MQF Level 3)</small> in 2019 and a Advanced Diploma in IT (Software Development) <small>(MQF Level 4)</small> in 2022. At the time of the development of this web application, I am following my second year of the Bachelor of Science (Honours) in Software Development.</p>
                         <p class="mb-0" id="about_paragraph">Since November 2022, I have been employed at the Ministry for the Economy, Enterprise and Strategic Projects (formerly Ministry for the Economy, European Funds and Lands) within the Information Management Unit. Duties include asset management (laptop and multifunction printers), end-user support, and website maintenance (namely Commerce Department, Malta Freeport, State Aid, NAB, RPC, and economy/ekonomija). Throughout the duration of the Stabbiltà scheme in 2024, I was responsible for the maintenance of its respective website.</p>
                         <p class="mt-3" id="about_paragraph">Since October 2021, I have provided free coding sessions related to object-oriented programming, C#, ASP.NET, web scraping using the Selenium library, PHP, Transact-SQL, and C as part of the annual European Code Week initiative.</p>
-                        <h4>Testimony to music-head statement</h4>
+                        <h4>Testimony to above music-head statement</h4>
                         <ul>
                             @php
-                                $artists = array('Alan Parsons Project' => 'alive',
+                                $artists = array('The Alan Parsons Project' => 'alive',
                                     'Amy Winehouse' => 'deceased',
                                     'Ofra Haza' => 'deceased',
                                     'Two Steps From Hell' => 'alive',
@@ -34,6 +34,8 @@
                                     'Sabaton' => 'alive',
                                     'Gloryhammer' => 'alive',
                                     'Colin Vearncombe/Black' => 'deceased');
+
+                                ksort($artists); //Sort associative array by keys in ascending order.
                             @endphp
 
                             @foreach($artists as $artist => $status)

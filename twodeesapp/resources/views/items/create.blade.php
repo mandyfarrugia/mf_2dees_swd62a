@@ -10,7 +10,7 @@
                 <strong>Add New Item</strong>
               </div>           
               <div class="card-body">
-                <form action="{{ route('items.store') }}" method="POST">
+                <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @include('items._form')
                 </form>

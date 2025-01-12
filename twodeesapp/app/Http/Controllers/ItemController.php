@@ -39,7 +39,7 @@ class ItemController extends Controller
         $request->validate([
             'name' => 'required',
             'price' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         dd($request->all());

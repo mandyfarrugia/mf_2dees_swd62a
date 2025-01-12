@@ -1,3 +1,13 @@
+const displayErrorAlert = (message) => {
+    const ALERT_DURATION_MILLISECONDS = 5000;
+    const containerAfterMain = document.querySelector('main.py-5 > .container');
+    const errorAlertDivElement = document.createElement('div');
+    errorAlertDivElement.setAttribute('class', 'alert alert-danger');
+    errorAlertDivElement.innerHTML = message;
+    containerAfterMain.prepend(errorAlertDivElement);
+    setTimeout(() => errorAlertDivElement.style.display = 'none', ALERT_DURATION_MILLISECONDS);
+};
+
 const attachQueryParametersToUrl = (parameters) => {
     const currentUrl = new URL(window.location.href);
     const queryParameters = new URLSearchParams(currentUrl.search);
@@ -11,12 +21,11 @@ const attachQueryParametersToUrl = (parameters) => {
     return currentUrl;
 };
 
-const handlePriceFilter = (event, minimum = 0, maximum) => {
-    console.log(minimum);
-    console.log(maximum);
-
+const handlePriceFilter = (minimum, maximum) => {
     if (maximum < minimum) {
-        throw new Error('Maximum threshold cannot be less than minimum threshold!');
+        let errorMessage = 'Maximum threshold cannot be less than minimum threshold!'
+        displayErrorAlert(errorMessage);
+        throw new Error(errorMessage);
     }
 
     window.location.href = attachQueryParametersToUrl({ 'min_price': minimum, 'max_price': maximum });
@@ -54,7 +63,6 @@ if (categoryFilterDropdown !== null) {
         event.preventDefault();
         const minPrice = document.getElementById('min_price').value;
         const maxPrice = document.getElementById('max_price').value;
-        console.log(event.target);
-        handlePriceFilter(event, minPrice, maxPrice);
+        handlePriceFilter(minPrice, maxPrice);
     });
 };

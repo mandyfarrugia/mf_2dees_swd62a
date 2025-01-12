@@ -61,12 +61,19 @@ if (categoryFilterDropdown !== null) {
 
     attachEvent(applyFilterBtn, 'click', (event) => {
         event.preventDefault();
-        const minPrice = parseFloat(document.getElementById('min_price').value);
-        const maxPrice = parseFloat(document.getElementById('max_price').value);
+
+        let minPrice = document.getElementById('min_price').value;
+        let maxPrice = document.getElementById('max_price').value;
+
+        if(minPrice === '') {
+            minPrice = 0;
+        }
+
+        minPrice = parseFloat(minPrice);
+        maxPrice = parseFloat(maxPrice);
 
         if(isNaN(minPrice) || isNaN(maxPrice)) {
-            alert('Wrong!');
-            return;
+            displayErrorAlert('Please ensure that prices are in numeric format!');
         }
         else {
             handlePriceFilter(minPrice, maxPrice);

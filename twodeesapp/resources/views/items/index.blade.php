@@ -33,11 +33,9 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-body p-0">
                             <!-- Include the filter form -->
                             @include('items._filter')
-
                             @if ($items->count())
                                 <div class="table-responsive"> <!-- Added table responsiveness -->
                                     <table class="table table-striped table-hover">

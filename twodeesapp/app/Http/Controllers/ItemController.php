@@ -38,7 +38,7 @@ class ItemController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'category_id' => 'required|exists:categories,id'
         ]);
 

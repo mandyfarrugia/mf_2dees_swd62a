@@ -1,18 +1,25 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group row">
-            <label for="item_name" class="col-md-3 col-form-label">Item Name</label>
+            <label for="name" class="col-md-3 col-form-label">Item Name</label>
             <div class="col-md-9">
-                <input type="text" name="item_name" id="item_name" class="form-control is-invalid">
-                <div class="invalid-feedback">
-                    Please enter a name to identify the item.
-                </div>
+                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror">
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
         </div>
         <div class="form-group row">
             <label for="price" class="col-md-3 col-form-label">Price</label>
             <div class="col-md-9">
-                <input type="number" name="price" id="price" class="form-control">
+                <input type="text" name="price" id="price" class="form-control @error('price') is-invalid @enderror"/>
+                @error('price')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
         </div>
         <div class="form-group row">
@@ -24,11 +31,16 @@
         <div class="form-group row">
             <label for="category_id" class="col-md-3 col-form-label">Category</label>
             <div class="col-md-9">
-                <select name="category_id" id="category_id" class="form-control">
+                <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
                     @foreach ($categories as $id => $name)
                         <option value="{{ $id }}">{{ $name }}</option>
                     @endforeach
                 </select>
+                @error('category_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
         </div>
         <hr>

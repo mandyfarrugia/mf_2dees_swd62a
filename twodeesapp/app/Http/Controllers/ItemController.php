@@ -9,7 +9,7 @@ use App\Models\Category;
 class ItemController extends Controller
 {
     public function index() {
-        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '0');
+        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
 
         $items = Item::query();
 

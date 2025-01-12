@@ -10,6 +10,12 @@
             </div>
         </div>
         <div class="form-group row">
+            <label for="price" class="col-md-3 col-form-label">Price</label>
+            <div class="col-md-9">
+                <input type="number" name="price" id="price" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="release_date" class="col-md-3 col-form-label">Release Date</label>
             <div class="col-md-9">
                 <input type="date" name="release_date" id="release_date" class="form-control">

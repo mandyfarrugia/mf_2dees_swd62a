@@ -36,6 +36,12 @@ class ItemController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'category_id' => 'required'
+        ]);
+
         dd($request->all());
     }
 

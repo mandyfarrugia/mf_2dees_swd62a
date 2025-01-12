@@ -90,7 +90,7 @@ $gamingConsoles->items()->save($ps5);
   id: 3,
 }
 
-> $figurines = Category::where('name', 'Figurines')->first();
+$figurines = Category::where('name', 'Figurines')->first();
 = App\Models\Category {#5142
   id: 1,
   name: "Figurines",

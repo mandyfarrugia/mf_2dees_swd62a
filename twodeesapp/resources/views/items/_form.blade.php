@@ -29,6 +29,18 @@
             </div>
         </div>
         <div class="form-group row">
+            <label for="description" class="col-md-3 col-form-label">Description</label>
+            <div class="col-md-9">
+                <textarea name="description" id="description" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="image_path" class="col-md-3 col-form-label">Image</label>
+            <div class="col-md-9">
+                <input type="file" name="image_path" id="image_path" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="category_id" class="col-md-3 col-form-label">Category</label>
             <div class="col-md-9">
                 <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">

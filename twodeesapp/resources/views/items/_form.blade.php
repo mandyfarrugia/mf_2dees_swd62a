@@ -20,8 +20,7 @@
             <div class="col-md-9">
                 <select name="category_id" id="category_id" class="form-control">
                     @foreach ($categories as $id => $name)
-                        <option {{ $id == request('category_id') ? 'selected' : '' }} value="{{ $id }}">
-                            {{ $name }}</option>
+                        <option value="{{ $id }}">{{ $name }}</option>
                     @endforeach
                 </select>
             </div>

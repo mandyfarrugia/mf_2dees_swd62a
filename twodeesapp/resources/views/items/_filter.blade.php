@@ -33,6 +33,6 @@
         <input type="number" class="form-control" id="max_price" />
     </div>
     <div class="col-sm-6 col-md-2 mb-3 d-flex align-items-end ml-md-0">
-        <a href="" class="btn btn-info w-100" id="apply_filter_btn">Apply filter</a>
+        <a href="" class="btn btn-info w-100" id="apply_filter_btn">Filter by price</a>
     </div>
 </div>

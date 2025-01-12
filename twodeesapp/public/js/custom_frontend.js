@@ -61,8 +61,15 @@ if (categoryFilterDropdown !== null) {
 
     attachEvent(applyFilterBtn, 'click', (event) => {
         event.preventDefault();
-        const minPrice = document.getElementById('min_price').value;
-        const maxPrice = document.getElementById('max_price').value;
-        handlePriceFilter(minPrice, maxPrice);
+        const minPrice = parseFloat(document.getElementById('min_price').value);
+        const maxPrice = parseFloat(document.getElementById('max_price').value);
+
+        if(isNaN(minPrice) || isNaN(maxPrice)) {
+            alert('Wrong!');
+            return;
+        }
+        else {
+            handlePriceFilter(minPrice, maxPrice);
+        }
     });
 };

@@ -35,6 +35,10 @@ class ItemController extends Controller
         return view('items.create', compact('categories'));
     }
 
+    public function store(Request $request) {
+        dd($request->all());
+    }
+
     public function show($id) {
         $item = Item::find($id);
         return view('items.show', compact('item'));

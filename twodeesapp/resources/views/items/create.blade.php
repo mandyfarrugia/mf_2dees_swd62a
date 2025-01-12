@@ -10,7 +10,7 @@
                 <strong>Add New Item</strong>
               </div>           
               <div class="card-body">
-                <form action="{{ route('items.store') }}">
+                <form action="{{ route('items.store') }}" method="POST">
                   @include('items._form')
                 </form>
               </div>

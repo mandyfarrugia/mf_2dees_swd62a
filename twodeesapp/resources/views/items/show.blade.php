@@ -7,7 +7,7 @@
     @endphp
     <section class="page-section about-heading">
         <div class="container">
-            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset('assets/img/about.jpg') }}"
+            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset($item->image_path) }}"
                 alt="..." />
             <div class="about-heading-content">
                 <div class="row">

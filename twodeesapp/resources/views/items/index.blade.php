@@ -21,6 +21,11 @@
     @endphp
     <main class="py-5">
         <div class="container">
+            @if($message = session('success'))
+                <div class="alert alert-success">
+                    {{ $message }}
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">

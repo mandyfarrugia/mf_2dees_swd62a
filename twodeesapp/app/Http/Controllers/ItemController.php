@@ -39,10 +39,26 @@ class ItemController extends Controller
         $request->validate([
             'name' => 'required|unique:items,name',
             'price' => 'required|numeric',
+            'image_path' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id'
         ]);
 
-        dd($request->all());
+        //If an image has been uploaded...
+        if($request->image_path != null) {
+            $imageFilename = time() . '.' . $request->image_path->extension();
+            $request->image_path->move(public_path('images'), $imageFilename);
+        }
+
+        $itemToCreate = new Item();
+        $itemToCreate->name = $request->name;
+        $itemToCreate->price = $request->price;
+        $itemToCreate->release_date = $request->release_date;
+        $itemToCreate->description = $request->description;
+        $itemToCreate->image_path = 'images/' . $imageFilename;
+        $itemToCreate->category_id = $request->category_id;
+        $itemToCreate->save();
+
+        return redirect()->route('items.index')->with('success', 'Item uploaded successfully!');
     }
 
     public function show($id) {

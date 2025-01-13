@@ -3,7 +3,7 @@
         <div class="form-group row">
             <label for="name" class="col-md-3 col-form-label">Item Name</label>
             <div class="col-md-9">
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror">
+                <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -14,7 +14,7 @@
         <div class="form-group row">
             <label for="price" class="col-md-3 col-form-label">Price</label>
             <div class="col-md-9">
-                <input type="text" name="price" id="price" class="form-control @error('price') is-invalid @enderror"/>
+                <input type="text" name="price" id="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror"/>
                 @error('price')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -25,19 +25,21 @@
         <div class="form-group row">
             <label for="release_date" class="col-md-3 col-form-label">Release Date</label>
             <div class="col-md-9">
-                <input type="date" name="release_date" id="release_date" class="form-control">
+                <input type="date" name="release_date" id="release_date" value="{{ old('release_date') }}" class="form-control">
             </div>
         </div>
         <div class="form-group row">
             <label for="description" class="col-md-3 col-form-label">Description</label>
             <div class="col-md-9">
-                <textarea name="description" id="description" class="form-control"></textarea>
+                <textarea name="description" id="description" class="form-control">
+                    {{ old('description') }}
+                </textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="image_path" class="col-md-3 col-form-label">Image</label>
             <div class="col-md-9">
-                <input type="file" name="image_path" id="image_path" class="form-control">
+                <input type="file" name="image_path" id="image_path" class="form-control"/>
             </div>
         </div>
         <div class="form-group row">
@@ -45,7 +47,7 @@
             <div class="col-md-9">
                 <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
                     @foreach ($categories as $id => $name)
-                        <option value="{{ $id }}">{{ $name }}</option>
+                        <option {{ $id == old('category_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
                     @endforeach
                 </select>
                 @error('category_id')

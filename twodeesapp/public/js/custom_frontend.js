@@ -8,6 +8,11 @@ const displayErrorAlert = (message) => {
     setTimeout(() => errorAlertDivElement.style.display = 'none', ALERT_DURATION_MILLISECONDS);
 };
 
+const reportError = (message) => {
+    displayErrorAlert(message);
+    throw new Error(message);
+};
+
 const attachQueryParametersToUrl = (parameters) => {
     const currentUrl = new URL(window.location.href);
     const queryParameters = new URLSearchParams(currentUrl.search);
@@ -23,7 +28,8 @@ const attachQueryParametersToUrl = (parameters) => {
 
 const handleSearch = (searchTerm) => {
     if(searchTerm == '') {
-        console.log('This is empty.');
+        let errorMessage = 'Nothing to see here... yet. Type something and we’ll make some magic happen!';
+        reportError(errorMessage);
     }
     else {
         window.location.href = attachQueryParametersToUrl({'search': searchTerm});
@@ -32,9 +38,8 @@ const handleSearch = (searchTerm) => {
 
 const handlePriceFilter = (minimum, maximum) => {
     if (maximum < minimum) {
-        let errorMessage = 'Maximum threshold cannot be less than minimum threshold!'
-        displayErrorAlert(errorMessage);
-        throw new Error(errorMessage);
+        let errorMessage = 'Maximum threshold cannot be less than minimum threshold!';
+        reportError(errorMessage);
     }
 
     window.location.href = attachQueryParametersToUrl({ 'min_price': minimum, 'max_price': maximum });

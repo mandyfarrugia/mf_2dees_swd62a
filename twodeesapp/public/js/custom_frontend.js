@@ -90,10 +90,7 @@ if (categoryFilterDropdown !== null) {
         }
     });
 
-    attachEvent(searchBtn, 'click', (event) => {
-        event.preventDefault();
-        handleSearch(searchInput.value);
-    });
+    attachEvent(searchBtn, 'click', () => handleSearch(searchInput.value));
 
     attachEvent(searchInput, 'keydown', (event) => {
         if(event.keyCode == 13) {

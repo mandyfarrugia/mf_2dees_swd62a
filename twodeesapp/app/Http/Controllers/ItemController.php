@@ -21,8 +21,12 @@ class ItemController extends Controller
             $items->orderBy('release_date', request('date'));
         }
 
-        if(request('min_price') != '' && request('max_price') != '') {
+        if(request('min_price') != null && request('max_price') != null) {
             $items->whereBetween('price', [request('min_price'), request('max_price')]);
+        }
+
+        if(request('search') != null) {
+            $items->where('name', 'like', '%' . request('search') . '%');
         }
 
         $items = $items->get();

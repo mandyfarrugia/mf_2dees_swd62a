@@ -58,6 +58,7 @@ const categoryFilterDropdown = document.getElementById('filter_category_id');
 const dateFilterDropdown = document.getElementById('filter_date');
 const applyFilterBtn = document.getElementById('apply_filter_btn');
 const searchBtn = document.getElementById('btn_search');
+const searchInput = document.getElementById('search_input');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -91,7 +92,10 @@ if (categoryFilterDropdown !== null) {
 
     attachEvent(searchBtn, 'click', (event) => {
         event.preventDefault();
-        const searchInput = document.getElementById('search_input');
         handleSearch(searchInput.value);
+    });
+
+    attachEvent(searchInput, 'keydown', (event) => {
+        console.log(event.keyCode == 13);
     });
 };

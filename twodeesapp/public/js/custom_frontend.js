@@ -25,6 +25,9 @@ const handleSearch = (searchTerm) => {
     if(searchTerm == '') {
         console.log('This is empty.');
     }
+    else {
+        window.location.href = attachQueryParametersToUrl({'search': searchTerm});
+    }
 }
 
 const handlePriceFilter = (minimum, maximum) => {

@@ -13,7 +13,7 @@ class ItemController extends Controller
 
         $items = Item::query();
 
-        if(request('category_id') != 0) {
+        if(request('category_id') != null) {
             $items->where('category_id', request('category_id'));
         }
 

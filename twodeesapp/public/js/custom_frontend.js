@@ -21,6 +21,12 @@ const attachQueryParametersToUrl = (parameters) => {
     return currentUrl;
 };
 
+const handleSearch = (searchTerm) => {
+    if(searchTerm == '') {
+        console.log('This is empty.');
+    }
+}
+
 const handlePriceFilter = (minimum, maximum) => {
     if (maximum < minimum) {
         let errorMessage = 'Maximum threshold cannot be less than minimum threshold!'
@@ -47,8 +53,8 @@ const attachEvent = (target, event, callback) => target.addEventListener(event, 
 
 const categoryFilterDropdown = document.getElementById('filter_category_id');
 const dateFilterDropdown = document.getElementById('filter_date');
-
 const applyFilterBtn = document.getElementById('apply_filter_btn');
+const searchBtn = document.getElementById('btn_search');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -78,5 +84,11 @@ if (categoryFilterDropdown !== null) {
         else {
             handlePriceFilter(minPrice, maxPrice);
         }
+    });
+
+    attachEvent(searchBtn, 'click', (event) => {
+        event.preventDefault();
+        const searchInput = document.getElementById('search_input');
+        handleSearch(searchInput.value);
     });
 };

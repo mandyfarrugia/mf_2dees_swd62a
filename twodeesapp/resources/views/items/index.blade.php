@@ -39,10 +39,11 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <!-- Include the filter form -->
+                            @include('items._search')
+                            <hr>
                             @include('items._filter')
                             @if ($items->count())
-                                <div class="table-responsive"> <!-- Added table responsiveness -->
+                                <div class="table-responsive">
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
@@ -85,7 +86,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                </div> <!-- End of table-responsive -->
+                                </div>
                             @else
                                 <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
                                 <p style="text-align: center;">{{ $randomMessage }}</p>

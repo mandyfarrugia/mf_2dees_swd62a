@@ -41,13 +41,13 @@ const handlePriceFilter = (minimum, maximum) => {
 };
 
 const handleDateDropdownSelection = (event) => {
-    const target = event.target;
+    let target = event.target;
     let selectedOrderId = target.value || target.options[target.selectedIndex].value;
     window.location.href = attachQueryParametersToUrl({ 'date': selectedOrderId });
 };
 
 const handleCategoryDropdownSelection = (event) => {
-    const target = event.target;
+    let target = event.target;
     let selectedCategoryId = target.value || target.options[target.selectedIndex].value;
     window.location.href = attachQueryParametersToUrl({ 'category_id': selectedCategoryId });
 };
@@ -96,6 +96,9 @@ if (categoryFilterDropdown !== null) {
     });
 
     attachEvent(searchInput, 'keydown', (event) => {
-        console.log(event.keyCode == 13);
+        if(event.keyCode == 13) {
+            let target = event.target;
+            handleSearch(target.value);
+        }
     });
 };

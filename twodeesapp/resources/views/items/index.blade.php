@@ -31,7 +31,18 @@
                     <div class="card">
                         <div class="card-header card-title">
                             <div class="d-flex align-items-center">
-                                <h2 class="mb-0">All Items</h2>
+                                <h2 class="mb-0">
+                                    @if(request('category_id') == null)
+                                        <span>All Items</span>
+                                    @else
+                                        @foreach($categories as $id => $name)
+                                            <span>
+                                                @if($id == request('category_id'))
+                                                    <span>All {{ $name }}</span>
+                                                @endif
+                                        @endforeach
+                                    @endif
+                                </h2>
                                 <div class="ml-auto" id="btn_placeholder">
                                     <a href="{{ route('items.create') }}" class="btn btn-success"><i
                                             class="fa fa-plus-circle"></i> Add New</a>

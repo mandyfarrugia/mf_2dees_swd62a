@@ -28,7 +28,7 @@ const attachQueryParametersToUrl = (parameters) => {
 
 const handleSearch = (searchTerm) => {
     if(searchTerm == '') {
-        let errorMessage = 'Nothing to see here... yet. Type something and we’ll make some magic happen!';
+        let errorMessage = 'Nothing to see here... yet. Type something and we will make some magic happen!';
         reportError(errorMessage);
     }
     else {

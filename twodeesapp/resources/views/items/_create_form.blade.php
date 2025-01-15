@@ -39,7 +39,12 @@
         <div class="form-group row">
             <label for="image_path" class="col-md-3 col-form-label">Image</label>
             <div class="col-md-9">
-                <input type="file" name="image_path" id="image_path" class="form-control"/>
+                <input type="file" name="image_path" id="image_path" class="form-control @error('image_path') is-invalid @enderror"/>
+                @error('image_path')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
         </div>
         <div class="form-group row">

@@ -21,6 +21,10 @@ class ItemController extends Controller
             $items->orderBy('release_date', request('release_date'));
         }
 
+        if(request('price') != null) {
+            $items->orderBy('price', request('price'));
+        }
+
         if(request('min_price') != null && request('max_price') != null) {
             $items->whereBetween('price', [request('min_price'), request('max_price')]);
         }

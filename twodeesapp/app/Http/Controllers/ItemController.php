@@ -47,18 +47,20 @@ class ItemController extends Controller
             'category_id' => 'required|exists:categories,id'
         ]);
 
-        //If an image has been uploaded...
-        if($request->image_path != null) {
-            $imageFilename = time() . '.' . $request->image_path->extension();
-            $request->image_path->move(public_path('images'), $imageFilename);
-        }
-
         $itemToCreate = new Item();
+
         $itemToCreate->name = $request->name;
         $itemToCreate->price = $request->price;
         $itemToCreate->release_date = $request->release_date;
         $itemToCreate->description = $request->description;
-        $itemToCreate->image_path = 'images/' . $imageFilename;
+
+        //If an image has been uploaded...
+        if($request->image_path != null) {
+            $imageFilename = time() . '.' . $request->image_path->extension();
+            $request->image_path->move(public_path('images'), $imageFilename);
+            $itemToCreate->image_path = 'images/' . $imageFilename;
+        }
+    
         $itemToCreate->category_id = $request->category_id;
         $itemToCreate->save();
 

@@ -50,7 +50,7 @@
                                             <tr>
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Item</th>
-                                                <th scope="col">Release Date</th>
+                                                <th scope="col">Release Date <i class="fa-solid fa-arrow-up"></i></th>
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Actions</th>

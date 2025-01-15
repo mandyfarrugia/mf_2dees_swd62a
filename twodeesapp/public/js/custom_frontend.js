@@ -138,10 +138,5 @@ if (categoryFilterDropdown !== null) {
             let queryParameter = formQueryParameterFromHeader(headerName);
             processSort(queryParameter, classesAssigned.at(1));
         });
-    })
-
-    // attachEvent(arrowFilterBtn, 'click', (event) => {
-    //     console.log(event.target.previousSibling.textContent.trim());
-    //     console.log(event.target.previousSibling.textContent.trim() == 'Release Date');
-    // });
+    });
 };

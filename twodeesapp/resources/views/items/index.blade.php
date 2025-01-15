@@ -61,7 +61,9 @@
                                                 <th scope="col">Item <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('item') == 'asc' || request('item') == null ? 'up' : (request('item') == 'desc' ? 'down' : '')  }}"></i></th>
                                                 <th scope="col">Release Date <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('release_date') == 'asc' || request('release_date') == null ? 'up' : (request('release_date') == 'desc' ? 'down' : '')  }}"></i></th>
                                                 <th scope="col">Price <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('price') == 'asc' || request('price') == null ? 'up' : (request('price') == 'desc' ? 'down' : '')  }}"></i></th>
-                                                <th scope="col">Category</th>
+                                                @if(request('category_id') == null)
+                                                    <th scope="col">Category</th>
+                                                @endif
                                                 <th scope="col">Actions</th>
                                             </tr>
                                         </thead>
@@ -71,7 +73,9 @@
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->release_date }}</td>
                                                     <td>&euro;{{ $item->price }}</td>
-                                                    <td>{{ $item->category->name }}</td>
+                                                    @if(request('category_id') == null)
+                                                        <td>{{ $item->category->name }}</td>
+                                                    @endif
                                                     <td width="150">
                                                         <div class="btn-group w-100" role="group">
                                                             <a href="{{ route('items.show', $item->id) }}"

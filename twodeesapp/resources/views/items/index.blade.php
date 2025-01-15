@@ -50,8 +50,8 @@
                                             <tr>
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Item</th>
-                                                <th scope="col">Release Date <i class="fa-solid fa-arrow-{{ request('date') == 'asc' || request('date') == null ? 'up' : (request('date') == 'desc' ? 'down' : '')  }}"></i></th>
-                                                <th scope="col">Price</th>
+                                                <th scope="col">Release Date <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('date') == 'asc' || request('date') == null ? 'up' : (request('date') == 'desc' ? 'down' : '')  }}"></i></th>
+                                                <th scope="col">Price <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('price_sort') == 'asc' || request('price_sort') == null ? 'up' : (request('price_sort') == 'desc' ? 'down' : '')  }}"></i></th>
                                                 <th scope="col">Category</th>
                                                 <th scope="col">Actions</th>
                                             </tr>

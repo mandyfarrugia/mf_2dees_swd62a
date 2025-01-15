@@ -65,6 +65,8 @@ const applyFilterBtn = document.getElementById('apply_filter_btn');
 const searchBtn = document.getElementById('btn_search');
 const searchInput = document.getElementById('search_input');
 
+const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
+
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
         handleCategoryDropdownSelection(event);
@@ -103,4 +105,14 @@ if (categoryFilterDropdown !== null) {
             handleSearch(target.value);
         }
     });
+
+    arrowFilterBtn.forEach((arrow) => {
+        let headerName = arrow.previousSibling.textContent.trim(); //Use trim() to remove extra whitespace as textContent tends to leave trailing whitespace at the end of the string when accessing previousSibling property.
+        console.log(headerName);
+    })
+
+    // attachEvent(arrowFilterBtn, 'click', (event) => {
+    //     console.log(event.target.previousSibling.textContent.trim());
+    //     console.log(event.target.previousSibling.textContent.trim() == 'Release Date');
+    // });
 };

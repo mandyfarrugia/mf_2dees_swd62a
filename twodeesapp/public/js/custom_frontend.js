@@ -8,6 +8,15 @@ const displayErrorAlert = (message) => {
     setTimeout(() => errorAlertDivElement.style.display = 'none', ALERT_DURATION_MILLISECONDS);
 };
 
+const lower = (header) => {
+    return header.toLowerCase();
+}
+
+const formQueryParameterFromHeader = (header) => {
+    let headerParts = header.split(' ');
+    return headerParts.map((part) => part.toLowerCase()).join('_');
+}
+
 const reportError = (message) => {
     displayErrorAlert(message);
     throw new Error(message);
@@ -56,6 +65,18 @@ const handleCategoryDropdownSelection = (event) => {
     let selectedCategoryId = target.value || target.options[target.selectedIndex].value;
     window.location.href = attachQueryParametersToUrl({ 'category_id': selectedCategoryId });
 };
+
+const processSort = (parameter, arrowDirection) => {
+    let sortValue = null;
+
+    if(arrowDirection === 'fa-arrow-up') {
+        sortValue = 'desc';
+    } else if(arrowDirection === 'fa-arrow-down') {
+        sortValue = 'asc';
+    }
+
+    window.location.href = attachQueryParametersToUrl({  })
+}
 
 const attachEvent = (target, event, callback) => target.addEventListener(event, callback);
 
@@ -107,8 +128,24 @@ if (categoryFilterDropdown !== null) {
     });
 
     arrowFilterBtn.forEach((arrow) => {
-        let headerName = arrow.previousSibling.textContent.trim(); //Use trim() to remove extra whitespace as textContent tends to leave trailing whitespace at the end of the string when accessing previousSibling property.
-        console.log(headerName);
+        attachEvent(arrow, 'click', (event) => {
+            let target = event.target;
+            let classesAssigned = Array.from(target.classList);
+            let headerName = target.previousSibling.textContent.trim(); //Use trim() to remove extra whitespace as textContent tends to leave trailing whitespace at the end of the string when accessing previousSibling property.
+
+            console.log(formQueryParameterFromHeader(headerName));
+
+            switch(headerName) {
+                case 'Item':
+                    break;
+                case 'Release Date':
+                    break;
+                case 'Price':
+                    break;
+                case 'Category':
+                    break;
+            }
+        });
     })
 
     // attachEvent(arrowFilterBtn, 'click', (event) => {

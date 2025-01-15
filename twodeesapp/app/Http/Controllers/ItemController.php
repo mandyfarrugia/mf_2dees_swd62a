@@ -21,6 +21,10 @@ class ItemController extends Controller
             $items->orderBy('release_date', request('release_date'));
         }
 
+        if(request('item') != null) {
+            $items->orderBy('name', request('item'));
+        }
+
         if(request('price') != null) {
             $items->orderBy('price', request('price'));
         }

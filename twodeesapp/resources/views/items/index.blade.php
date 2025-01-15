@@ -48,7 +48,6 @@
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
                                                 <th scope="col">Item <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('item') == 'asc' || request('item') == null ? 'up' : (request('item') == 'desc' ? 'down' : '')  }}"></i></th>
                                                 <th scope="col">Release Date <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('release_date') == 'asc' || request('release_date') == null ? 'up' : (request('release_date') == 'desc' ? 'down' : '')  }}"></i></th>
                                                 <th scope="col">Price <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('price') == 'asc' || request('price') == null ? 'up' : (request('price') == 'desc' ? 'down' : '')  }}"></i></th>
@@ -59,7 +58,6 @@
                                         <tbody>
                                             @foreach ($items as $index => $item)
                                                 <tr>
-                                                    <th scope="row">{{ $index + 1 }}</th>
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->release_date }}</td>
                                                     <td>&euro;{{ $item->price }}</td>

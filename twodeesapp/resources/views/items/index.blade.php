@@ -36,10 +36,9 @@
                                         <span>All Items</span>
                                     @else
                                         @foreach($categories as $id => $name)
-                                            <span>
-                                                @if($id == request('category_id'))
-                                                    <span>All {{ $name }}</span>
-                                                @endif
+                                            @if($id == request('category_id'))
+                                                <span>All {{ $name }}</span>
+                                            @endif
                                         @endforeach
                                     @endif
                                 </h2>

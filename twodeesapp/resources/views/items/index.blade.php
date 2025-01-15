@@ -67,7 +67,7 @@
                                                     <td width="150">
                                                         <div class="btn-group w-100" role="group">
                                                             <a href="{{ route('items.show', $item->id) }}"
-                                                                class="btn btn-sm btn-circle btn-info d-block d-md-inline-block mb-2 mb-md-0"
+                                                                class="btn btn-sm btn-circle btn-primary d-block d-md-inline-block mb-2 mb-md-0"
                                                                 title="Show">
                                                                 <i class="fa fa-eye"></i>
                                                             </a>

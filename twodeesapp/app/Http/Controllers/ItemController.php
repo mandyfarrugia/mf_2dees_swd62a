@@ -17,8 +17,8 @@ class ItemController extends Controller
             $items->where('category_id', request('category_id'));
         }
 
-        if(request('date') != null) {
-            $items->orderBy('release_date', request('date'));
+        if(request('release_date') != null) {
+            $items->orderBy('release_date', request('release_date'));
         }
 
         if(request('min_price') != null && request('max_price') != null) {

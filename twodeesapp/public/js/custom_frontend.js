@@ -8,8 +8,8 @@ const displayErrorAlert = (message) => {
     setTimeout(() => errorAlertDivElement.style.display = 'none', ALERT_DURATION_MILLISECONDS);
 };
 
-const lower = (header) => {
-    return header.toLowerCase();
+const lower = (value) => {
+    return value.toLowerCase();
 }
 
 const formQueryParameterFromHeader = (header) => {
@@ -57,7 +57,7 @@ const handlePriceFilter = (minimum, maximum) => {
 const handleDateDropdownSelection = (event) => {
     let target = event.target;
     let selectedOrderId = target.value || target.options[target.selectedIndex].value;
-    window.location.href = attachQueryParametersToUrl({ 'date': selectedOrderId });
+    window.location.href = attachQueryParametersToUrl({ 'release_date': selectedOrderId });
 };
 
 const handleCategoryDropdownSelection = (event) => {
@@ -69,13 +69,16 @@ const handleCategoryDropdownSelection = (event) => {
 const processSort = (parameter, arrowDirection) => {
     let sortValue = null;
 
+    console.log(arrowDirection);
+
     if(arrowDirection === 'fa-arrow-up') {
         sortValue = 'desc';
     } else if(arrowDirection === 'fa-arrow-down') {
         sortValue = 'asc';
     }
 
-    window.location.href = attachQueryParametersToUrl({  })
+    console.log({[parameter]: sortValue});
+    window.location.href = attachQueryParametersToUrl({[parameter]: sortValue});
 }
 
 const attachEvent = (target, event, callback) => target.addEventListener(event, callback);
@@ -132,19 +135,8 @@ if (categoryFilterDropdown !== null) {
             let target = event.target;
             let classesAssigned = Array.from(target.classList);
             let headerName = target.previousSibling.textContent.trim(); //Use trim() to remove extra whitespace as textContent tends to leave trailing whitespace at the end of the string when accessing previousSibling property.
-
-            console.log(formQueryParameterFromHeader(headerName));
-
-            switch(headerName) {
-                case 'Item':
-                    break;
-                case 'Release Date':
-                    break;
-                case 'Price':
-                    break;
-                case 'Category':
-                    break;
-            }
+            let queryParameter = formQueryParameterFromHeader(headerName);
+            processSort(queryParameter, classesAssigned.at(1));
         });
     })
 

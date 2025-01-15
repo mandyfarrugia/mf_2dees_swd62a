@@ -12937,3 +12937,14 @@ a:has(.fa-brands) {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.fa-arrow-up,
+.fa-arrow-down {
+  cursor: pointer;
+}
+
+.fa-arrow-up:hover,
+.fa-arrow-down:hover {
+  color: #e6a756 !important;
+  transition: color 1s;
+}

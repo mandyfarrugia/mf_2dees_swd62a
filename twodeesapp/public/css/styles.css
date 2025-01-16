@@ -649,6 +649,7 @@ progress {
 }
 
 .img-fluid {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   max-width: 100%;
   height: auto;
 }
@@ -12615,7 +12616,7 @@ fieldset:disabled .btn {
 }
 
 body {
-  background: linear-gradient(135deg, #0a2531, #1f4f72, #2b6f8f, #0a2531);
+  background: linear-gradient(135deg, #4c7080, #324d64, #6a8a9e);
 }
 
 p {
@@ -12890,10 +12891,6 @@ p {
 /* The :has CSS pseudo class in this case applies to any anchor elements whose descendant elements with the class fa-brands. */
 a:has(.fa-brands) {
   text-decoration: none;
-}
-
-.img-fluid {
-  filter: brightness(1.5);
 }
 
 /* The :has CSS pseudo class in this case applies to an element with the CSS selector bg-faded.rounded.p-5 whose descendant elements embody paragraphs with an ID of about_paragraph. */

@@ -3,7 +3,21 @@
 @section('content')
 <section class="page-section about-heading">
     <div class="container">
-        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset('assets/img/halo_ce_ann.jpg') }}" alt="..." />
+        <?php
+            $galleryFolder = 'gallery';
+            $images = array();
+
+            $imageFolderPath = public_path($galleryFolder);
+            $files = File::allFiles($imageFolderPath);
+
+            foreach($files as $file) {
+                array_push($images, $file->getRelativePathname());
+            }
+
+            $randomisedIndex = rand(0, count($images) - 1);
+            $randomImage = $galleryFolder . '/' . $images[$randomisedIndex];
+        ?>
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset($randomImage) }}" alt="..." />
         <div class="about-heading-content">
             <div class="row">
                 <div class="col-xl-9 col-lg-10 mx-auto">

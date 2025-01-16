@@ -22,10 +22,10 @@
                 <div class="col-xl-9 mx-auto">
                     <div class="cta-inner bg-faded text-center rounded">
                         <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Calling all local gaming enthusiasts and businesses!</span>
+                            <span class="section-heading-upper">Calling all local gaming enthusiasts and businesses! 🇲🇹</span>
                             <span class="section-heading-lower">All for one</span>
                         </h2>
-                        <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
+                        <p class="mb-0">Let's foster a sense of community among gamers and create unique and memorable experiences that benefit everyone involved. This website is a testament to our eargerness to contribute to the growth and success of our shared gaming culture.</p>
                     </div>
                 </div>
             </div>

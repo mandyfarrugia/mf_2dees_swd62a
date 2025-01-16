@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -36,8 +36,8 @@
                                 href="{{ route('items.index') }}">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                 href="{{ route('navigation.about') }}">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Items</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Store</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="#">Categories</a></li>
                     </ul>
                 </div>
             </div>

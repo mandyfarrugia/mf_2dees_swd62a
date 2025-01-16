@@ -46,7 +46,7 @@
         <footer class="footer text-faded text-center py-5">
             <div class="container">
                 @include('footer._platforms')
-                <p class="m-0 small">Copyright &copy; TwoDees <?= date('Y') ?></p>
+                <p class="m-0 small">&copy; <?= date('Y') ?> TwoDees by Mandy Farrugia | All rights reserved</p>
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

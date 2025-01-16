@@ -3,7 +3,7 @@
 @section('content')
 <section class="page-section about-heading">
     <div class="container">
-        <?php
+        @php
             $galleryFolder = 'gallery';
             $images = array();
 
@@ -16,7 +16,7 @@
 
             $randomisedIndex = rand(0, count($images) - 1);
             $randomImage = $galleryFolder . '/' . $images[$randomisedIndex];
-        ?>
+        @endphp
         <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset($randomImage) }}" alt="..." />
         <div class="about-heading-content">
             <div class="row">
@@ -26,7 +26,13 @@
                             <span class="section-heading-upper">Hello from Malta! 🇲🇹</span>
                             <span class="section-heading-lower">About TwoDees</span>
                         </h2>
-                        <p id="about_paragraph">I am Mandy Farrugia, aged <?= intval(date('Y', time() - strtotime('2001-12-05'))) - 1970 ?> (born 5 December 2001), massive foodie and music-head, and hailing from an island in the Mediterranean sea where the four seasons and privacy are a distant dream, and if you have not gotten the hint already, I have a penchant for Warhammer and gaming. When I am not reimaging assets and providing end-user support for a living or tinkering (pun-intended) with software development technologies, my notion of a personal heaven would be a comfortable gaming chair while enjoying Gears of War (Epic Games > The Coalition), Warhammer 40,000 Space Marine, Halo (Bungie Inc. > 343 Industries), Visage, Outlast, Red Dead Redemeption, and Dead Space... and last but not least, Turkish Döner kebab complemented by garlic &amp; yoghurt sauce and pita bread.</p>
+                        @php
+                            $dateOfBirth = '2001-12-05';
+                            $dobUnixTimestamp = strtotime($dateOfBirth);
+                            $age = intval(date('Y', time() - $dobUnixTimestamp)) - 1970;
+                            $formattedDob = date('j F Y', $dobUnixTimestamp);
+                        @endphp
+                        <p id="about_paragraph">I am Mandy Farrugia, aged <?= $age ?> (born <?= $formattedDob ?>), massive foodie and music-head, and hailing from an island in the Mediterranean sea where the four seasons and privacy are a distant dream, and if you have not gotten the hint already, I have a penchant for Warhammer and gaming. When I am not reimaging assets and providing end-user support for a living or tinkering (pun-intended) with software development technologies, my notion of a personal heaven would be a comfortable gaming chair while enjoying Gears of War (Epic Games > The Coalition), Warhammer 40,000 Space Marine, Halo (Bungie Inc. > 343 Industries), Visage, Outlast, Red Dead Redemeption, and Dead Space... and last but not least, Turkish Döner kebab complemented by garlic &amp; yoghurt sauce and pita bread.</p>
                         <p id="about_paragraph">My programming journey commenced in November 2015 where I familiarised myself with programming lexicon using Java as part of the MATSEC O'Level programming coursework for the Computing unit, contributing to a Grade 1. This led me to further my studies at MCAST to pursue a career in software development, acquiring a Diploma in ICT <small>(MQF Level 3)</small> in 2019 and a Advanced Diploma in IT (Software Development) <small>(MQF Level 4)</small> in 2022. At the time of the development of this web application, I am following my second year of the Bachelor of Science (Honours) in Software Development.</p>
                         <p class="mb-0" id="about_paragraph">Since November 2022, I have been employed at the Ministry for the Economy, Enterprise and Strategic Projects (formerly Ministry for the Economy, European Funds and Lands) within the Information Management Unit. Duties include asset management (laptops and multifunction printers), end-user support, and website maintenance (namely Commerce Department, Malta Freeport, State Aid, NAB, RPC, and economy/ekonomija). Throughout the duration of the Stabbiltà scheme in 2024, I was responsible for the maintenance of its respective website.</p>
                         <p class="mt-3" id="about_paragraph">Since October 2021, I have provided free coding sessions related to object-oriented programming, C#, ASP.NET, web scraping using the Selenium library, PHP, Transact-SQL, and C as part of the annual European Code Week initiative.</p>

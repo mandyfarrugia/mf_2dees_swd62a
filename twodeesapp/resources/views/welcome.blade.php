@@ -37,8 +37,8 @@
                 <div class="product-item-title d-flex">
                     <div class="bg-faded p-5 d-flex ms-auto rounded">
                         <h2 class="section-heading mb-0">
-                            <span class="section-heading-upper"></span>
-                            <span class="section-heading-lower">Bulk Speciality Blends</span>
+                            <span class="section-heading-upper">It's a good day to play. When everyone plays, we all win.</span>
+                            <span class="section-heading-lower">Microsoft Xbox <small>(2001)</small></span>
                         </h2>
                     </div>
                 </div>

@@ -43,8 +43,9 @@ class ItemController extends Controller
     }
 
     public function create() {
+        $item = new Item();
         $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
-        return view('items.create', compact('categories'));
+        return view('items.create', compact('categories', 'item'));
     }
 
     /**
@@ -80,7 +81,7 @@ class ItemController extends Controller
         $itemToCreate->name = $request->name;
         $itemToCreate->price = $request->price;
         $itemToCreate->release_date = $request->release_date;
-        $itemToCreate->description = $request->description;
+        $itemToCreate->description = trim($request->description);
 
         //If an image has been uploaded...
         if($request->image_path != null) {

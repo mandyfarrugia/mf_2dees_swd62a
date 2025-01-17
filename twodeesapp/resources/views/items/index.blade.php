@@ -25,7 +25,7 @@
                 <div class="alert alert-success">
                     {{ $message }}
                 </div>
-            @if($message = session('error'))
+            @elseif($message = session('error'))
                 <div class="alert alert-danger">
                     {{ $message }}
                 </div>
@@ -101,6 +101,10 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                            <form id="form_delete" action="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                            </form>
                                         </tbody>
                                     </table>
                                 </div>

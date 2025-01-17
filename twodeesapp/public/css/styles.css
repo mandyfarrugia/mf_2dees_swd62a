@@ -12944,3 +12944,7 @@ a:has(.fa-brands) {
   color: #e6a756 !important;
   transition: color 1s;
 }
+
+#form_delete {
+  display: none;
+}

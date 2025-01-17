@@ -139,13 +139,28 @@ if (categoryFilterDropdown !== null) {
     deleteBtns.forEach((deleteBtn) => {
         deleteBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            if(confirm('Are you sure?')) {
-                let action = event.target.getAttribute('href');
-                console.log(action);
-                let form = document.getElementById('form_delete');
-                form.setAttribute('action', action);
-                form.submit();
-            }
+
+            $.confirm({
+                title: 'Delete Confirmation',
+                content: 'Once deleted, this action cannot be undone. Are you sure you want to proceed?',
+                buttons: {
+                    confirm: {
+                        text: 'Yes',
+                        btnClass: 'btn-green',
+                        action: function() {
+                            let action = deleteBtn.getAttribute('href');
+                            let form = document.getElementById('form_delete');
+                            form.setAttribute('action', action);
+                            form.submit();
+                        }
+                    },
+                    cancel: {
+                        text: 'No',
+                        btnClass: 'btn-red',
+                        keys: ['n']
+                    }
+                }
+            });
         });
     });
 };

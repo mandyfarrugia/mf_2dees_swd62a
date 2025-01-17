@@ -12,7 +12,7 @@ const lower = (value) => value.toLowerCase();
 
 const formQueryParameterFromHeader = (header) => {
     let headerParts = header.split(' ');
-    return headerParts.map((part) => part.toLowerCase()).join('_');
+    return headerParts.map(lower).join('_');
 }
 
 const reportError = (message) => {
@@ -67,15 +67,12 @@ const handleCategoryDropdownSelection = (event) => {
 const processSort = (parameter, arrowDirection) => {
     let sortValue = null;
 
-    console.log(arrowDirection);
-
     if(arrowDirection === 'fa-arrow-up') {
         sortValue = 'desc';
     } else if(arrowDirection === 'fa-arrow-down') {
         sortValue = 'asc';
     }
 
-    console.log({[parameter]: sortValue});
     window.location.href = attachQueryParametersToUrl({[parameter]: sortValue});
 }
 

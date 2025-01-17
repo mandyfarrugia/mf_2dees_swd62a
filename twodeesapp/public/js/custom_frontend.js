@@ -147,6 +147,7 @@ if (categoryFilterDropdown !== null) {
                     confirm: {
                         text: 'Yes',
                         btnClass: 'btn-green',
+                        keys: ['y'],
                         action: () => {
                             let action = deleteBtn.getAttribute('href');
                             let form = document.getElementById('form_delete');

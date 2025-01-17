@@ -147,7 +147,7 @@ if (categoryFilterDropdown !== null) {
                     confirm: {
                         text: 'Yes',
                         btnClass: 'btn-green',
-                        action: function() {
+                        action: () => {
                             let action = deleteBtn.getAttribute('href');
                             let form = document.getElementById('form_delete');
                             form.setAttribute('action', action);
@@ -157,7 +157,10 @@ if (categoryFilterDropdown !== null) {
                     cancel: {
                         text: 'No',
                         btnClass: 'btn-red',
-                        keys: ['n']
+                        keys: ['n'],
+                        action: () => {
+                            return;
+                        }
                     }
                 }
             });

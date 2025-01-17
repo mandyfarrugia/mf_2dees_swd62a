@@ -8,9 +8,7 @@ const displayErrorAlert = (message) => {
     setTimeout(() => errorAlertDivElement.remove(), ALERT_DURATION_MILLISECONDS); 
 };
 
-const lower = (value) => {
-    return value.toLowerCase();
-}
+const lower = (value) => value.toLowerCase();
 
 const formQueryParameterFromHeader = (header) => {
     let headerParts = header.split(' ');

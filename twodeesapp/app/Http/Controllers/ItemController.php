@@ -125,7 +125,7 @@ class ItemController extends Controller
         $itemToUpdate = Item::find($id);
 
         if($request->hasFile('image_path')) {
-            if($itemToUpdate->image_path && file_exists(public_path('images/' . $itemToUpdate->image_path))) {
+            if($itemToUpdate->image_path && file_exists(public_path($itemToUpdate->image_path))) {
                 unlink(public_path($itemToUpdate->image_path));
             }
 

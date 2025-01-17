@@ -47,12 +47,32 @@ class ItemController extends Controller
         return view('items.create', compact('categories'));
     }
 
+    /**
+     * The store controller action is used to process and validate data furnished by the user. Upon submitting of the form, the browser will send a HTTP request to the server, with the data sent to the request body since the form uses POST method, which will be handled by this controller action as defined in the route. The data must respect a set of validation rules specified within this action. If validation check passes, the data will be stored in the database and the user will be redirected to the list of items with a success message. Otherwise, the user will be redirected to the form to provide the necessary data again.
+     * @param \Illuminate\Http\Request $request The Request parameter provides access and information related to data provided by the user.
+     * @return \Illuminate\Http\Response Upon successful validation checks and data processing, the user will be redirected to the list of items with a success message. Otherwise, the user wil be directed back to the form with error messages indicating which validation rules were not met. */
     public function store(Request $request) {
+        /* Use the validate function within the $request parameter to set validation rules for data to be supplied by the user.
+         * The first argument represents validation rules such as required, unique, and type of data accepted.
+         * Validation rules for an attribute are delimited by a pipe symbol, thus one can set as many rules necessary at a time for one attribute.
+         * The second argument representing custom message for each validation rule for a particular attribute.
+         * Therefore, for one attribute, you can set a custom message for each rule set, such as one for required and another for unique. */
         $request->validate([
             'name' => 'required|unique:items,name',
             'price' => 'required|numeric',
             'image_path' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id'
+        ], 
+        [
+            'name.required' => 'Please enter the name of the item',
+            'name.unique' => 'An item with the same name already exists!',
+            'price.required' => 'Please enter the price of the item',
+            'price.numeric' => 'The price must be a number',
+            'image_path.image' => 'The file must be an image',
+            'image_path.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif',
+            'image_path.max' => 'The image must be smaller than 2MB',
+            'category_id.required' => 'Please select a category',
+            'category_id.exists' => 'The selected category does not exist'
         ]);
 
         $itemToCreate = new Item();

@@ -83,7 +83,7 @@
                                                                 title="Show">
                                                                 <i class="fa fa-eye"></i>
                                                             </a>
-                                                            <a href="form.html"
+                                                            <a href="{{ route('items.edit', $item->id) }}"
                                                                 class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0"
                                                                 title="Edit">
                                                                 <i class="fa fa-edit"></i>

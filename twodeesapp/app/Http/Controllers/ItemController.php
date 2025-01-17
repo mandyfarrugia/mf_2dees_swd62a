@@ -99,4 +99,11 @@ class ItemController extends Controller
         $item = Item::find($id);
         return view('items.show', compact('item'));
     }
+
+    public function edit($id) 
+    {
+        $item = Item::find($id);
+        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
+        return view('items.edit', compact('categories', 'item'));     
+    }
 }

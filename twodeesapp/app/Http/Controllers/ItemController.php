@@ -50,7 +50,7 @@ class ItemController extends Controller
     /**
      * The store controller action is used to process and validate data furnished by the user. Upon submitting of the form, the browser will send a HTTP request to the server, with the data sent to the request body since the form uses POST method, which will be handled by this controller action as defined in the route. The data must respect a set of validation rules specified within this action. If validation check passes, the data will be stored in the database and the user will be redirected to the list of items with a success message. Otherwise, the user will be redirected to the form to provide the necessary data again.
      * @param \Illuminate\Http\Request $request The Request parameter provides access and information related to data provided by the user.
-     * @return \Illuminate\Http\Response Upon successful validation checks and data processing, the user will be redirected to the list of items with a success message. Otherwise, the user wil be directed back to the form with error messages indicating which validation rules were not met. */
+     * @return \Illuminate\Http\RedirectResponse Upon successful validation checks and data processing, the user will be redirected to the list of items with a success message. Otherwise, the user wil be directed back to the form with error messages indicating which validation rules were not met. */
     public function store(Request $request) {
         /* Use the validate function within the $request parameter to set validation rules for data to be supplied by the user.
          * The first argument represents validation rules such as required, unique, and type of data accepted.

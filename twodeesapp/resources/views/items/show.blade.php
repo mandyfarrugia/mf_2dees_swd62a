@@ -29,6 +29,7 @@
                             <p><small id="release_date_sm">Released on {{ $formattedReleaseDate }}</small></p>
                             <p>{{ $item->description }}</p>
                             <div class="button-spacing">
+                                <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ route('items.index') }}" class="btn btn-primary">Return to all items</a>
                             </div>
                         </div>

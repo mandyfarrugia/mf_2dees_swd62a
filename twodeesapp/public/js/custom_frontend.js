@@ -5,7 +5,7 @@ const displayErrorAlert = (message) => {
     errorAlertDivElement.setAttribute('class', 'alert alert-danger');
     errorAlertDivElement.innerHTML = message;
     containerAfterMain.prepend(errorAlertDivElement);
-    setTimeout(() => errorAlertDivElement.style.display = 'none', ALERT_DURATION_MILLISECONDS);
+    setTimeout(() => errorAlertDivElement.remove(), ALERT_DURATION_MILLISECONDS); 
 };
 
 const lower = (value) => {

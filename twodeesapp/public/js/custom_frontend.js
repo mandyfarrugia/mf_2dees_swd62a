@@ -137,9 +137,15 @@ if (categoryFilterDropdown !== null) {
     });
 
     deleteBtns.forEach((deleteBtn) => {
-        attachEvent(deleteBtn, 'click', (event) => {
+        deleteBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            alert('delete');
+            if(confirm('Are you sure?')) {
+                let action = event.target.getAttribute('href');
+                console.log(action);
+                let form = document.getElementById('form_delete');
+                form.setAttribute('action', action);
+                form.submit();
+            }
         });
     });
 };

@@ -144,4 +144,16 @@ class ItemController extends Controller
 
         return redirect()->route('items.show', $itemToUpdate->id)->with('success', 'Item updated successfully!');
     }
+
+    public function destroy($id) {
+        $itemToDelete = Item::find($id);
+
+        if($itemToDelete->image_path && file_exists(public_path($itemToDelete->image_path))) {
+            unlink(public_path($itemToDelete->image_path));
+        }
+
+        $itemToDelete->delete();
+
+        return back()->with('success', 'Item deleted successfully!');
+    }
 }

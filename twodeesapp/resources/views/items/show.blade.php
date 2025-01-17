@@ -12,8 +12,10 @@
                     {{ $message }}
                 </div>
             @endif
-            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset($item->image_path) }}"
-                alt="..." />
+            @if($item->image_path != null)
+                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ asset($item->image_path) }}"
+            alt="..." />
+            @endif
             <div class="about-heading-content">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 mx-auto">

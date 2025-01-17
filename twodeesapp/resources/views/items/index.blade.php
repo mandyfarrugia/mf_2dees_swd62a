@@ -92,10 +92,10 @@
                                                                 title="Edit">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a href="#"
-                                                                class="btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
-                                                                title="Delete" onclick="confirm('Are you sure?')">
-                                                                <i class="fa fa-times"></i>
+                                                            <a href="{{ route('items.destroy', $item->id) }}"
+                                                                class="btn-delete btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
+                                                                title="Delete">
+                                                                <i class="fa fa-trash"></i>
                                                             </a>
                                                         </div>
                                                     </td>

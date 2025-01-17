@@ -85,6 +85,7 @@ const searchBtn = document.getElementById('btn_search');
 const searchInput = document.getElementById('search_input');
 
 const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
+const deleteBtns = document.querySelectorAll('.btn-delete');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -132,6 +133,13 @@ if (categoryFilterDropdown !== null) {
             let headerName = target.previousSibling.textContent.trim(); //Use trim() to remove extra whitespace as textContent tends to leave trailing whitespace at the end of the string when accessing previousSibling property.
             let queryParameter = formQueryParameterFromHeader(headerName);
             processSort(queryParameter, classesAssigned.at(1));
+        });
+    });
+
+    deleteBtns.forEach((deleteBtn) => {
+        attachEvent(deleteBtn, 'click', (event) => {
+            event.preventDefault();
+            alert('delete');
         });
     });
 };

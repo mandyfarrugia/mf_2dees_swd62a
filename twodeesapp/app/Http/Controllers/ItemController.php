@@ -104,8 +104,14 @@ class ItemController extends Controller
     public function edit($id) 
     {
         $item = Item::find($id);
-        $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
-        return view('items.edit', compact('categories', 'item'));     
+
+        if($item != null) {
+            $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
+            return view('items.edit', compact('categories', 'item'));
+        }
+        else {
+            return redirect()->route('items.index')->with('error', 'We could not find the item. It may have been removed or does not exist. Please try another item.');
+        } 
     }
 
     public function update($id, Request $request) {
@@ -118,5 +124,24 @@ class ItemController extends Controller
 
         $itemToUpdate = Item::find($id);
 
+        if($request->hasFile('image_path')) {
+            if($itemToUpdate->image_path && file_exists(public_path('images/' . $itemToUpdate->image_path))) {
+                unlink(public_path($itemToUpdate->image_path));
+            }
+
+            $imageFilename = time() . '.' . $request->image_path->extension();
+            $request->image_path->move(public_path('images'), $imageFilename);
+            $itemToUpdate->image_path = 'images/' . $imageFilename;
+        }
+
+        $itemToUpdate->name = $request->name;
+        $itemToUpdate->price = $request->price;
+        $itemToUpdate->release_date = $request->release_date;
+        $itemToUpdate->description = trim($request->description);
+        $itemToUpdate->category_id = $request->category_id;
+
+        $itemToUpdate->save();
+
+        return redirect()->route('items.show', $itemToUpdate->id)->with('success', 'Item updated successfully!');
     }
 }

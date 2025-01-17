@@ -84,7 +84,7 @@ class ItemController extends Controller
         $itemToCreate->description = trim($request->description);
 
         //If an image has been uploaded...
-        if($request->image_path != null) {
+        if($request->hasFile('image_path')) {
             $imageFilename = time() . '.' . $request->image_path->extension();
             $request->image_path->move(public_path('images'), $imageFilename);
             $itemToCreate->image_path = 'images/' . $imageFilename;
@@ -106,5 +106,17 @@ class ItemController extends Controller
         $item = Item::find($id);
         $categories = Category::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All categories', '');
         return view('items.edit', compact('categories', 'item'));     
+    }
+
+    public function update($id, Request $request) {
+        $request->validate([
+            'name' => 'required|unique:items,name,' . $id,
+            'price' => 'required|numeric',
+            'image_path' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category_id' => 'required|exists:categories,id'
+        ]);
+
+        $itemToUpdate = Item::find($id);
+
     }
 }

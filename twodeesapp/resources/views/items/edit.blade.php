@@ -10,9 +10,10 @@
                 <strong>Edit Item</strong>
               </div>           
               <div class="card-body">
-                <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  @include('items._form')
+                <form action="{{ route('items.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
+                    @include('items._form')
                 </form>
               </div>
             </div>

@@ -1,4 +1,17 @@
 @include('items._date_format')
+<div class="card-body p-0">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Item <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('item') == 'asc' || request('item') == null ? 'up' : (request('item') == 'desc' ? 'down' : '')  }}"></i></th>
+                    <th scope="col">Release Date <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('release_date') == 'asc' || request('release_date') == null ? 'up' : (request('release_date') == 'desc' ? 'down' : '')  }}"></i></th>
+                    <th scope="col">Price <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('price') == 'asc' || request('price') == null ? 'up' : (request('price') == 'desc' ? 'down' : '')  }}"></i></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 <div class="card-body p-4">
     <div class="row">
         @foreach ($items as $item)

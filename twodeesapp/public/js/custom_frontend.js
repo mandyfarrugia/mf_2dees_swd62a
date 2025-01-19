@@ -71,10 +71,10 @@ const processViewMode = (parameter, currentViewMode) => {
         viewModeValue = 'table';
     }
     else if(currentViewMode === 'fa-images') {
-        viewModeValue = 'images';
+        viewModeValue = 'cards';
     }
 
-    console.log(Object.entries({[parameter]: viewModeValue}));
+    window.location.href = attachQueryParametersToUrl({[parameter]: viewModeValue});
 };
 
 const processSort = (parameter, arrowDirection) => {
@@ -185,6 +185,18 @@ if (categoryFilterDropdown !== null) {
 
     attachEvent(viewModeBtn, 'click', (event) => {
         event.preventDefault();
-        console.log(event.target.classList);
+        let target = event.target;
+        let tagName = target.tagName;
+
+        let classes = null;
+
+        if(tagName === 'I') {
+            classes = Array.from(target.classList);
+        } else if(tagName === 'A') {
+            classes = Array.from(target.firstChild.classList);
+        }
+
+        let viewMode = classes.at(1);
+        processViewMode('view_mode', viewMode);
     });
 };

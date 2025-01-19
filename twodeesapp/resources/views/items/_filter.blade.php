@@ -19,7 +19,7 @@
         <label for="filter_date">Date Filter</label>
         <select id="filter_date" class="form-control">
             @foreach ($dateFilterOptions as $order => $option)
-                <option {{ $order == request('date') ? 'selected' : '' }} value="{{ $order }}">
+                <option {{ $order == request('release_date') ? 'selected' : '' }} value="{{ $order }}">
                     {{ $option }}</option>
             @endforeach
         </select>

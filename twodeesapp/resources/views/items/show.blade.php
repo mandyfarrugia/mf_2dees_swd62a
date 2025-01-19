@@ -1,15 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-    @php
-        $stringifiedReleaseDate = strtotime($item->release_date);
-        $formattedReleaseDate = date('j F Y', $stringifiedReleaseDate);
-    @endphp
+    @include('items._date_format')
     <section class="page-section about-heading">
         <div class="container">
             @include('items._message')
             <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}"
-            alt="..." />
+            alt="{{ $item->name }}" />
             <div class="about-heading-content">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 mx-auto">
@@ -27,7 +24,7 @@
                                     id="main_currency">{{ $mainCurrency }}</span>.<span
                                     id="fractional_currency">{{ str_pad($fractionalCurrency, 2, 0, STR_PAD_RIGHT) }}</span>
                             </h4>
-                            <p><small id="release_date_sm">Released on {{ $formattedReleaseDate }}</small></p>
+                            <p><small id="release_date_sm">Released on {{ format_date($item->release_date) }}</small></p>
                             <p>{{ $item->description }}</p>
                             <div class="button-spacing">
                                 <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">Edit</a>

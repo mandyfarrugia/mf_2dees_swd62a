@@ -64,6 +64,19 @@ const handleCategoryDropdownSelection = (event) => {
     window.location.href = attachQueryParametersToUrl({ 'category_id': selectedCategoryId });
 };
 
+const processViewMode = (parameter, currentViewMode) => {
+    let viewModeValue = null;
+
+    if(currentViewMode === 'fa-table') {
+        viewModeValue = 'table';
+    }
+    else if(currentViewMode === 'fa-images') {
+        viewModeValue = 'images';
+    }
+
+    console.log(Object.entries({[parameter]: viewModeValue}));
+};
+
 const processSort = (parameter, arrowDirection) => {
     let sortValue = null;
 
@@ -86,6 +99,8 @@ const searchInput = document.getElementById('search_input');
 
 const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
 const deleteBtns = document.querySelectorAll('.btn-delete');
+
+const viewModeBtn = document.getElementById('view_mode');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -166,5 +181,10 @@ if (categoryFilterDropdown !== null) {
                 }
             });
         });
+    });
+
+    attachEvent(viewModeBtn, 'click', (event) => {
+        event.preventDefault();
+        console.log(event.target.classList);
     });
 };

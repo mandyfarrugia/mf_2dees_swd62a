@@ -41,6 +41,8 @@
                                 <div class="ml-auto" id="btn_placeholder">
                                     <a href="{{ route('items.create') }}" class="btn btn-success"><i
                                             class="fa fa-plus-circle"></i> Add New</a>
+                                    <a href="" class="btn btn-secondary" id="view_mode"><i class="fa fa-table" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

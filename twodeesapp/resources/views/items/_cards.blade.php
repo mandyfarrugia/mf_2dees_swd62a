@@ -10,9 +10,23 @@
                             <h6 class="card-subtitle mb-2 text-muted">{{ $item->category->name }}</h6>
                             <h5>&euro;{{ $item->price }}</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="{{ route('items.show', $item->id) }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                            <a href="{{ route('items.edit', $item->id)}}" class="btn btn-secondary"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('items.destroy', $item->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <div class="btn-group w-100" role="group">
+                                <a href="{{ route('items.show', $item->id) }}"
+                                    class="btn btn-sm btn-circle btn-primary d-block d-md-inline-block mb-2 mb-md-0"
+                                    title="Show">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="{{ route('items.edit', $item->id) }}"
+                                    class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0"
+                                    title="Edit">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="{{ route('items.destroy', $item->id) }}"
+                                    class="btn-delete btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
+                                    title="Delete">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </div>
                           </div>
                     </div>
                 </div>

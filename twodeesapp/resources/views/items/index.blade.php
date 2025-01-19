@@ -63,6 +63,10 @@
                                 <p style="text-align: center;">{{ $randomMessage }}</p>
                             </div>
                         @endif
+                        <form id="form_delete" method="POST">
+                            @method('DELETE')
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </div>

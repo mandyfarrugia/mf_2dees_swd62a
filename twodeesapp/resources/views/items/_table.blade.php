@@ -42,10 +42,6 @@
                         </td>
                     </tr>
                 @endforeach
-                <form id="form_delete" method="POST">
-                    @method('DELETE')
-                    @csrf
-                </form>
             </tbody>
         </table>
     </div>

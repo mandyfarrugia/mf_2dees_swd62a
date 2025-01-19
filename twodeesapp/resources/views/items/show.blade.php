@@ -7,11 +7,7 @@
     @endphp
     <section class="page-section about-heading">
         <div class="container">
-            @if($message = session('success'))
-                <div class="alert alert-success">
-                    {{ $message }}
-                </div>
-            @endif
+            @include('items._message')
             <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}"
             alt="..." />
             <div class="about-heading-content">

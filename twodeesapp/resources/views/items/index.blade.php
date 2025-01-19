@@ -21,15 +21,7 @@
     @endphp
     <main class="py-5">
         <div class="container">
-            @if($message = session('success'))
-                <div class="alert alert-success">
-                    {{ $message }}
-                </div>
-            @elseif($message = session('error'))
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-            @endif
+            @include('items._message')
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">

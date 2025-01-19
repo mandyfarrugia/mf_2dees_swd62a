@@ -45,67 +45,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body p-0">
+                        <div>
                             @include('items._search')
                             <hr>
                             @include('items._filter')
                             <hr>
-                            @if ($items->count())
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Item <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('item') == 'asc' || request('item') == null ? 'up' : (request('item') == 'desc' ? 'down' : '')  }}"></i></th>
-                                                <th scope="col">Release Date <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('release_date') == 'asc' || request('release_date') == null ? 'up' : (request('release_date') == 'desc' ? 'down' : '')  }}"></i></th>
-                                                <th scope="col">Price <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('price') == 'asc' || request('price') == null ? 'up' : (request('price') == 'desc' ? 'down' : '')  }}"></i></th>
-                                                @if(request('category_id') == null)
-                                                    <th scope="col">Category</th>
-                                                @endif
-                                                <th scope="col">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($items as $index => $item)
-                                                <tr>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->release_date }}</td>
-                                                    <td>&euro;{{ $item->price }}</td>
-                                                    @if(request('category_id') == null)
-                                                        <td>{{ $item->category->name }}</td>
-                                                    @endif
-                                                    <td width="150">
-                                                        <div class="btn-group w-100" role="group">
-                                                            <a href="{{ route('items.show', $item->id) }}"
-                                                                class="btn btn-sm btn-circle btn-primary d-block d-md-inline-block mb-2 mb-md-0"
-                                                                title="Show">
-                                                                <i class="fa fa-eye"></i>
-                                                            </a>
-                                                            <a href="{{ route('items.edit', $item->id) }}"
-                                                                class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0"
-                                                                title="Edit">
-                                                                <i class="fa fa-edit"></i>
-                                                            </a>
-                                                            <a href="{{ route('items.destroy', $item->id) }}"
-                                                                class="btn-delete btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
-                                                                title="Delete">
-                                                                <i class="fa fa-trash"></i>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            <form id="form_delete" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                            </form>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            @else
+                        </div>
+                        @if($items->count())
+                            @if(request('view_mode') == 'table' || request('view_mode') == null)
+                                @include('items._table')
+                            @elseif(request('view_mode') == 'cards')
+                                @include('items._cards')
+                            @endif
+                        @else
+                            <div class="card-body">
                                 <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
                                 <p style="text-align: center;">{{ $randomMessage }}</p>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

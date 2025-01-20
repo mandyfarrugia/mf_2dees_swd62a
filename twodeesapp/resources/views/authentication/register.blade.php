@@ -6,10 +6,10 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header card-title">
-              <strong>Register</strong>
+              <strong>Join us today!</strong>
             </div>           
             <div class="card-body">
-              <form action="" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('authentication.register_post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @include('authentication._register_form')
               </form>

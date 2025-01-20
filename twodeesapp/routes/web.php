@@ -101,4 +101,4 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name(
 
 //This route uses a GET request to render a view to display a form for user registration.
 Route::get('/register', [AuthenticationController::class, 'register'])->name('authentication.register');
-Route::post('/register', [AuthenticationController::class, 'store'])->name('authentication.register_post');
+Route::post('/register', [AuthenticationController::class, 'register_post'])->name('authentication.register_post');

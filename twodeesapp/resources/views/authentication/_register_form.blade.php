@@ -25,8 +25,19 @@
         <div class="form-group row">
             <label for="password" class="col-md-3 col-form-label">Password</label>
             <div class="col-md-9">
-                <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror">
+                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
                 @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="password_confirmation" class="col-md-3 col-form-label">Confirm Password</label>
+            <div class="col-md-9">
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror">
+                @error('password_confirmation')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

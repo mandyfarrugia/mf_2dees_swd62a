@@ -20,7 +20,7 @@
                         <div class="card-body">
                             <h4 class="card-title">{{ $category->name }}</h4>
                             <div class="btn-group w-100" role="group">
-                                <a href="{{ route('items.show', $category->id) }}"
+                                <a href="{{ route('categories.show', $category->id) }}"
                                     class="btn btn-sm btn-circle btn-primary d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Show">
                                     <i class="fa fa-eye"></i>

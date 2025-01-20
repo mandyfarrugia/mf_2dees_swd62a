@@ -5,6 +5,15 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\CategoryController;
 
+/* 
+  _____   ____   ____ _______ 
+ |  __ \ / __ \ / __ |__   __|
+ | |__) | |  | | |  | | | |   
+ |  _  /| |  | | |  | | | |   
+ | | \ \| |__| | |__| | | |   
+ |_|  \_\\____/ \____/  |_|   
+                              
+ * The below route uses a GET request to render a view to display the home page. */
 Route::get('/', function () {
     return view('welcome');
 })->name('/');

@@ -13,11 +13,6 @@
                         <td>{{ $category->name }}</td>
                         <td width="150">
                             <div class="btn-group w-100" role="group">
-                                <a href="{{ route('categories.show', $category->id) }}"
-                                    class="btn btn-sm btn-circle btn-primary d-block d-md-inline-block mb-2 mb-md-0"
-                                    title="Show">
-                                    <i class="fa fa-eye"></i>
-                                </a>
                                 <a href=""
                                     class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Edit">

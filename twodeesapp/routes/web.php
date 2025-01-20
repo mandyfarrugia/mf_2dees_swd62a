@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AuthenticationController;
 
 /* 
   _____   ____   ____ _______ 
@@ -87,3 +88,17 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('categori
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+/* 
+          _    _ _______ _    _ ______ _   _ _______ _____ _____       _______ _____ ____  _   _ 
+     /\  | |  | |__   __| |  | |  ____| \ | |__   __|_   _/ ____|   /\|__   __|_   _/ __ \| \ | |
+    /  \ | |  | |  | |  | |__| | |__  |  \| |  | |    | || |       /  \  | |    | || |  | |  \| |
+   / /\ \| |  | |  | |  |  __  |  __| | . ` |  | |    | || |      / /\ \ | |    | || |  | | . ` |
+  / ____ | |__| |  | |  | |  | | |____| |\  |  | |   _| || |____ / ____ \| |   _| || |__| | |\  |
+ /_/    \_\____/   |_|  |_|  |_|______|_| \_|  |_|  |_____\_____/_/    \_|_|  |_____\____/|_| \_|
+                                                                                                 
+  * The below routes define HTTP endpoints related to user authentication and registration. */
+
+//This route uses a GET request to render a view to display a form for user registration.
+Route::get('/register', [AuthenticationController::class, 'register'])->name('authentication.register');
+Route::post('/register', [AuthenticationController::class, 'store'])->name('authentication.register_post');

@@ -15,6 +15,10 @@ class CategoryController extends Controller
             $categories->orderBy('name', request('category'));
         }
 
+        if(request('search') != null) {
+            $categories->where('name', 'like', '%' . request('search') . '%');
+        }
+
         $categories = $categories->get();
 
         return view('categories.index', compact('categories'));

@@ -7,7 +7,6 @@
                 (request('item') == 'desc' ? 'down' : '') }}">
             </i>
         </div>
-
         <div class="col header-item">
             Release Date
             <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
@@ -15,7 +14,6 @@
                 (request('release_date') == 'desc' ? 'down' : '') }}">
             </i>
         </div>
-
         <div class="col header-item">
             Price
             <i id="arrow_filter" class="fa-solid fa-arrow-{{ 

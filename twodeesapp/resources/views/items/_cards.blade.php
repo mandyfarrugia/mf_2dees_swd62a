@@ -1,21 +1,36 @@
 <div class="card-body p-0">
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Item <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('item') == 'asc' || request('item') == null ? 'up' : (request('item') == 'desc' ? 'down' : '')  }}"></i></th>
-                    <th scope="col">Release Date <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('release_date') == 'asc' || request('release_date') == null ? 'up' : (request('release_date') == 'desc' ? 'down' : '')  }}"></i></th>
-                    <th scope="col">Price <i id="arrow_filter" class="fa-solid fa-arrow-{{ request('price') == 'asc' || request('price') == null ? 'up' : (request('price') == 'desc' ? 'down' : '')  }}"></i></th>
-                </tr>
-            </thead>
-        </table>
+    <div class="row table-responsive-header text-center">
+        <div class="col header-item">
+            Item
+            <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
+                request('item') == 'asc' || request('item') == null ? 'up' : 
+                (request('item') == 'desc' ? 'down' : '') }}">
+            </i>
+        </div>
+
+        <div class="col header-item">
+            Release Date
+            <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
+                request('release_date') == 'asc' || request('release_date') == null ? 'up' : 
+                (request('release_date') == 'desc' ? 'down' : '') }}">
+            </i>
+        </div>
+
+        <div class="col header-item">
+            Price
+            <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
+                request('price') == 'asc' || request('price') == null ? 'up' : 
+                (request('price') == 'desc' ? 'down' : '') }}">
+            </i>
+        </div>
     </div>
 </div>
+<hr>
 <div class="card-body p-4">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         @foreach ($items as $item)
             <div class="col-md-4 col-12 mb-4">
-                <div class="card" style="width: 100%;">
+                <div class="card" style="width: 100%; height: 100%;">
                     <img class="card-img-top" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}" alt="{{ $item->name }}"/>
                     <div class="card-body">
                         <div class="card-body">

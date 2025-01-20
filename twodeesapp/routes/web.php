@@ -8,7 +8,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
-/* The below routes define HTTP endpoints to interact with items. 
+/* 
+  _____ _______ ______ __  __  _____   _____   ____  _    _ _______ ______  _____ 
+ |_   _|__   __|  ____|  \/  |/ ____| |  __ \ / __ \| |  | |__   __|  ____|/ ____|
+   | |    | |  | |__  | \  / | (___   | |__) | |  | | |  | |  | |  | |__  | (___  
+   | |    | |  |  __| | |\/| |\___ \  |  _  /| |  | | |  | |  | |  |  __|  \___ \ 
+  _| |_   | |  | |____| |  | |____) | | | \ \| |__| | |__| |  | |  | |____ ____) |
+ |_____|  |_|  |______|_|  |_|_____/  |_|  \_\\____/ \____/   |_|  |______|_____/ 
+
+ * The below routes define HTTP endpoints to interact with items. 
  * Each route is mapped to its respective method, better known as a controller action, inside ItemController. */
 
 //This route uses a GET request to render a view to display all items persisted in the database.
@@ -38,6 +46,18 @@ Route::put('/items/{id}', [ItemController::class, 'update'])->name('items.update
 //This route uses a DELETE request to remove an item from the database based on the id supplied.
 Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
 
+/* 
+   _____       _______ ______ _____  ____  _____  _____ ______  _____   _____   ____  _    _ _______ ______  _____ 
+  / ____|   /\|__   __|  ____/ ____|/ __ \|  __ \|_   _|  ____|/ ____| |  __ \ / __ \| |  | |__   __|  ____|/ ____|
+ | |       /  \  | |  | |__ | |  __| |  | | |__) | | | | |__  | (___   | |__) | |  | | |  | |  | |  | |__  | (___  
+ | |      / /\ \ | |  |  __|| | |_ | |  | |  _  /  | | |  __|  \___ \  |  _  /| |  | | |  | |  | |  |  __|  \___ \ 
+ | |____ / ____ \| |  | |___| |__| | |__| | | \ \ _| |_| |____ ____) | | | \ \| |__| | |__| |  | |  | |____ ____) |
+ \_____/_/    \_|_|  |______\_____|\____/|_|  \_|_____|______|_____/  |_|  \_\\____/ \____/   |_|  |______|_____/ 
+                                                                                                                   
+ * The below routes define HTTP endpoints to interact with categories.
+ * Each route is mapped to its respective method, better known as a controller action, inside CategoryController. */
+
+//This route uses a GET request to render a view to display all categories persisted in the database.
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 
 Route::get('/about', [NavigationController::class, 'about'])->name('navigation.about');

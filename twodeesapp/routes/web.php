@@ -10,6 +10,19 @@ Route::get('/', function () {
 })->name('/');
 
 /* 
+  _   _     __      _______ _____       _______ _____ ____  _   _ 
+ | \ | |   /\ \    / |_   _/ ____|   /\|__   __|_   _/ __ \| \ | |
+ |  \| |  /  \ \  / /  | || |  __   /  \  | |    | || |  | |  \| |
+ | . ` | / /\ \ \/ /   | || | |_ | / /\ \ | |    | || |  | | . ` |
+ | |\  |/ ____ \  /   _| || |__| |/ ____ \| |   _| || |__| | |\  |
+ |_| \_/_/    \_\/   |_____\_____/_/    \_|_|  |_____\____/|_| \_|
+                                                                  
+  * The below routes define HTTP endpoints to interact with the navigation bar. */
+
+//This route uses a GET request to render a view to display the about page.
+Route::get('/about', [NavigationController::class, 'about'])->name('navigation.about');
+
+/* 
   _____ _______ ______ __  __  _____   _____   ____  _    _ _______ ______  _____ 
  |_   _|__   __|  ____|  \/  |/ ____| |  __ \ / __ \| |  | |__   __|  ____|/ ____|
    | |    | |  | |__  | \  / | (___   | |__) | |  | | |  | |  | |  | |__  | (___  
@@ -65,5 +78,3 @@ Route::post('/categories', [CategoryController::class, 'store'])->name('categori
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
-
-Route::get('/about', [NavigationController::class, 'about'])->name('navigation.about');

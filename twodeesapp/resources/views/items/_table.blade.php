@@ -16,7 +16,7 @@
                 @foreach ($items as $index => $item)
                     <tr>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->release_date }}</td>
+                        <td>{{ format_date($item->release_date) }}</td>
                         <td>&euro;{{ $item->price }}</td>
                         @if(request('category_id') == null)
                             <td>{{ $item->category->name }}</td>

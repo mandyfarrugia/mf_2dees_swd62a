@@ -61,5 +61,6 @@ Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.de
 //This route uses a GET request to render a view to display all categories persisted in the database.
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
 
 Route::get('/about', [NavigationController::class, 'about'])->name('navigation.about');

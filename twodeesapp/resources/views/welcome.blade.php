@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <section class="page-section clearfix">
         <div class="container">
@@ -44,7 +43,7 @@
                 </div>
                 <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{ asset('home/xbox_og.jpg') }}" alt="..." />
                 <div class="product-item-description d-flex me-auto">
-                    <div class="bg-faded p-5 rounded"><p class="mb-0">Real-time procedurally generated startup</p></div>
+                    <div class="bg-faded p-5 rounded"><p class="mb-0">Throwback to Microsoft's foray into the console gaming market, often associated with the famous alien-like look and feel and the real-time procedurally generated startup on 64 megabytes worth of memory unit.</p></div>
                 </div>
             </div>
         </div>

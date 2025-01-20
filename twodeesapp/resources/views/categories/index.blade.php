@@ -32,12 +32,10 @@
                             <p style="text-align: center;"></p>
                         </div>
                     @endif
-                        
-                    {{-- @endif
                     <form id="form_delete" method="POST">
                         @method('DELETE')
                         @csrf
-                    </form> --}}
+                    </form>
                 </div>
             </div>
         </div>

@@ -20,12 +20,12 @@
                         <div class="card-body">
                             <h4 class="card-title">{{ $category->name }}</h4>
                             <div class="btn-group w-100" role="group">
-                                <a href="{{ route('items.edit', $category->id) }}"
+                                <a href="{{ route('categories.edit', $category->id) }}"
                                     class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Edit">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="{{ route('items.destroy', $category->id) }}"
+                                <a href="{{ route('categories.destroy', $category->id) }}"
                                     class="btn-delete btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Delete">
                                     <i class="fa fa-trash"></i>

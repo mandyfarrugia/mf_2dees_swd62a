@@ -13,12 +13,12 @@
                         <td>{{ $category->name }}</td>
                         <td width="150">
                             <div class="btn-group w-100" role="group">
-                                <a href=""
+                                <a href="{{ route('categories.edit', $category->id) }}"
                                     class="btn btn-sm btn-circle btn-secondary d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Edit">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href=""
+                                <a href="{{ route('categories.destroy', $category->id) }}"
                                     class="btn-delete btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Delete">
                                     <i class="fa fa-trash"></i>

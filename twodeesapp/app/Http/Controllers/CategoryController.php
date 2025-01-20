@@ -29,11 +29,6 @@ class CategoryController extends Controller
         return view('categories.create', compact('category'));
     }
 
-    public function show() {
-        $category = Category::find(request('id'));
-        return view('categories.show', compact('category'));
-    }
-
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|unique:categories,name',

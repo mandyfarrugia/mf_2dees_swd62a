@@ -8,12 +8,34 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
+/* The below routes define HTTP endpoints to interact with items. 
+ * Each route is mapped to its respective method, better known as a controller action, inside ItemController. */
+
+//This route uses a GET request to render a view to display all items persisted in the database.
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+
+//This route uses a GET request to render a view to create a new item by interacting with a form.
 Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
+
+/* This route uses a POST request to validate the data furnished by the user. 
+ * Upon successful validation checks, persist a new item to the database.
+ * Otherwise, the user is redirected to items.create to fix errors and re-submit. */
 Route::post('/items', [ItemController::class, 'store'])->name('items.store');
+
+/* This route uses a GET request to render a view to display a single item persisted in the database,
+ * accepting a dynamic parameter with the name id which uniquely identifies each item.
+ * Upon supplying a valid id, the user is redirected to a page containing information pertaining to the item bearing this id. */
 Route::get('/items/{id}', [ItemController::class, 'show'])->name('items.show');
+
+//This route uses a GET request to render a view with a form to edit an existing item based on the id supplied.
 Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('items.edit');
+
+/* This route uses a PUT request to validate the data furnished by the user.
+ * Upon successful validation checks, update the item in the database.
+ * Otherwise, the user is redirected to items.edit to fix errors and re-submit. */
 Route::put('/items/{id}', [ItemController::class, 'update'])->name('items.update');
+
+//This route uses a DELETE request to remove an item from the database based on the id supplied.
 Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.destroy');
 
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');

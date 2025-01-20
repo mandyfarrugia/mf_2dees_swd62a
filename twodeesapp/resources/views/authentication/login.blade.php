@@ -6,10 +6,10 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header card-title">
-              <strong>Join us today!</strong>
+              <strong>Login</strong>
             </div>           
             <div class="card-body">
-              <form action="{{ route('authentication.login_post') }}" method="POST">
+              <form action="" method="POST">
                 @csrf
                 @include('authentication._login_form')
               </form>

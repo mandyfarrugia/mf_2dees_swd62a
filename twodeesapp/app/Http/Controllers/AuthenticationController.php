@@ -34,5 +34,9 @@ class AuthenticationController extends Controller {
 
         return redirect()->route('/')->with('success', 'You have successfully registered!');
     }
+
+    public function login() {
+        return view('authentication.login');
+    }
 }
 ?>

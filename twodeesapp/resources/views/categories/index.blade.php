@@ -20,6 +20,9 @@
                         {{-- @include('categories._search') --}}
                         <hr>
                     </div>
+                    @if(request('view_mode') == 'table' || request('view_mode') == null)
+                        @include('categories._table')
+                    @endif
                     {{-- @if($items->count())
                         @include('items._date_format')
                         @if(request('view_mode') == 'table' || request('view_mode') == null)

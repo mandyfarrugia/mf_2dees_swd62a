@@ -26,7 +26,7 @@
         <div class="form-group row mb-0">
             <div class="col-md-9 offset-md-3">
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a href="{{ route('items.index') }}" class="btn btn-outline-secondary">Return to items</a>
+                <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary">Return to items</a>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
                 <strong>Add New Category</strong>
               </div>           
               <div class="card-body">
-                <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
                   @csrf
                   @include('categories._form')
                 </form>

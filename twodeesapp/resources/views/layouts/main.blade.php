@@ -38,7 +38,7 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                 href="{{ route('navigation.about') }}">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="#">Categories</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('categories.index') }}">Categories</a></li>
                     </ul>
                 </div>
             </div>

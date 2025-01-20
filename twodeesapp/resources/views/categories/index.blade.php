@@ -20,21 +20,19 @@
                         @include('common._search')
                         <hr>
                     </div>
-                    @if(request('view_mode') == 'table' || request('view_mode') == null)
-                        @include('categories._table')
-                    @endif
-                    {{-- @if($items->count())
-                        @include('items._date_format')
+                    @if($categories->count())
                         @if(request('view_mode') == 'table' || request('view_mode') == null)
-                            @include('items._table')
+                            @include('categories._table')
                         @elseif(request('view_mode') == 'cards')
-                            @include('items._cards')
+                            @include('categories._cards')
                         @endif
-                    @else --}}
+                    @else
                         <div class="card-body">
                             <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
                             <p style="text-align: center;"></p>
                         </div>
+                    @endif
+                        
                     {{-- @endif
                     <form id="form_delete" method="POST">
                         @method('DELETE')

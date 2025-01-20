@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div>
-                            @include('items._search')
+                            @include('common._search')
                             <hr>
                             @include('items._filter')
                             <hr>

@@ -106,24 +106,28 @@ if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
         handleCategoryDropdownSelection(event);
     });
+}
 
+if(dateFilterDropdown !== null) {
     attachEvent(dateFilterDropdown, 'change', (event) => {
         handleDateDropdownSelection(event);
     });
+}
 
+if(applyFilterBtn !== null) {
     attachEvent(applyFilterBtn, 'click', (event) => {
         event.preventDefault();
-
+    
         let minPrice = document.getElementById('min_price').value;
         let maxPrice = document.getElementById('max_price').value;
-
+    
         if(minPrice === '') {
             minPrice = 0;
         }
-
+    
         minPrice = parseFloat(minPrice);
         maxPrice = parseFloat(maxPrice);
-
+    
         if(isNaN(minPrice) || isNaN(maxPrice)) {
             displayErrorAlert('Please ensure that prices are in numeric format!');
         }
@@ -131,7 +135,9 @@ if (categoryFilterDropdown !== null) {
             handlePriceFilter(minPrice, maxPrice);
         }
     });
+}
 
+if(searchBtn !== null) {
     attachEvent(searchBtn, 'click', () => handleSearch(searchInput.value));
 
     attachEvent(searchInput, 'keydown', (event) => {
@@ -140,7 +146,9 @@ if (categoryFilterDropdown !== null) {
             handleSearch(target.value);
         }
     });
+}
 
+if(arrowFilterBtn !== null) {
     arrowFilterBtn.forEach((arrow) => {
         attachEvent(arrow, 'click', (event) => {
             let target = event.target;
@@ -150,7 +158,9 @@ if (categoryFilterDropdown !== null) {
             processSort(queryParameter, classesAssigned.at(1));
         });
     });
+}
 
+if(deleteBtns !== null) {
     deleteBtns.forEach((deleteBtn) => {
         deleteBtn.addEventListener('click', function(event) {
             event.preventDefault();
@@ -182,7 +192,9 @@ if (categoryFilterDropdown !== null) {
             });
         });
     });
+}
 
+if(viewModeBtn !== null) {
     attachEvent(viewModeBtn, 'click', (event) => {
         event.preventDefault();
         let target = event.target;
@@ -199,4 +211,4 @@ if (categoryFilterDropdown !== null) {
         let viewMode = classes.at(1);
         processViewMode('view_mode', viewMode);
     });
-};
+}

@@ -1,10 +1,32 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Username</label>
+            <label for="name" class="col-md-3 col-form-label">Name</label>
             <div class="col-md-9">
                 <input type="text" autocomplete="off" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
                 @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-md-3 col-form-label">Surname</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" name="surname" id="surname" value="{{ old('surname') }}" class="form-control @error('surname') is-invalid @enderror">
+                @error('surname')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-md-3 col-form-label">Username</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" name="username" id="username" value="{{ old('username') }}" class="form-control @error('username') is-invalid @enderror">
+                @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

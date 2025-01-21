@@ -7,13 +7,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthenticationController;
 
 /* 
-  _____   ____   ____ _______ 
- |  __ \ / __ \ / __ |__   __|
- | |__) | |  | | |  | | | |   
- |  _  /| |  | | |  | | | |   
- | | \ \| |__| | |__| | | |   
- |_|  \_\\____/ \____/  |_|   
-                              
+  _____   ____   ____ _______           _   _     __      _______ _____       _______ _____ ____  _   _ 
+ |  __ \ / __ \ / __ |__   __|    _    | \ | |   /\ \    / |_   _/ ____|   /\|__   __|_   _/ __ \| \ | |
+ | |__) | |  | | |  | | | |     _| |_  |  \| |  /  \ \  / /  | || |  __   /  \  | |    | || |  | |  \| |
+ |  _  /| |  | | |  | | | |    |_   _| | . ` | / /\ \ \/ /   | || | |_ | / /\ \ | |    | || |  | | . ` |
+ | | \ \| |__| | |__| | | |      |_|   | |\  |/ ____ \  /   _| || |__| |/ ____ \| |   _| || |__| | |\  |
+ |_|  \_\\____/ \____/  |_|            |_| \_/_/    \_\/   |_____\_____/_/    \_|_|  |_____\____/|_| \_|
+                                                                                                               
  * The below route uses a GET request to render a view to display the home page. */
 Route::get('/', [NavigationController::class, 'welcome'])->name('/');
 
@@ -137,4 +137,4 @@ Route::get('logout', [AuthenticationController::class, 'logout'])->name('authent
  |_|    |_|  \_\\____/|_|    |_____|______|______|
                                                   
   * The below route uses a GET request to render a view to display the profile of an authenticated user. */
-Route::get('/profile/{id}', [ProfileController::class, 'profile'])->name('profile.index');
+Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.index');

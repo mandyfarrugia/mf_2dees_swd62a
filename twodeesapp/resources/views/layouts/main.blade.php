@@ -21,16 +21,8 @@
     <body>
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
-                <span id="current_user">
-                    @if(file_exists(auth()->user()->profile_picture))
-                        <img src="{{ asset(auth()->user()->profile_picture) }}" class="rounded-circle shadow-4"
-                        style="width: 50px; height: 50px;" alt="Avatar" /></span>
-                    @else
-                        <span>Currently logged in as</span>
-                    @endif
-
-                    <span class="px-2">{{ auth()->user()->name }}</span>
-                </span>
+                <img src="{{ (file_exists(auth()->user()->profile_picture)) ? asset(auth()->user()->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max'}}" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/></span>
+                <span class="px-2" id="current_user">{{ auth()->user()->name }}</span>
             @endif
         </div>
         <header>

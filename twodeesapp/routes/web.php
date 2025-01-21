@@ -126,3 +126,6 @@ Route::get('/login', [AuthenticationController::class, 'login'])->name('authenti
 
 //This route uses a POST request to authenticate a user based on the credentials supplied.
 Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('authentication.authenticate');
+
+//This route uses a GET request to log out a user.
+Route::get('logout', [AuthenticationController::class, 'logout'])->name('authentication.logout');

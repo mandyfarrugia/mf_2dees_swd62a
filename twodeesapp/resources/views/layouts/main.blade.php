@@ -45,9 +45,9 @@
                             }
                         @else
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
-                                    href="{{ route('login') }}">Login</a></li>
+                                    href="{{ route('authentication.login') }}">Login</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
-                                    href="{{ route('register') }}">Register</a></li>
+                                    href="{{ route('authentication.register') }}">Register</a></li>
                         @endif
                     </ul>
                 </div>

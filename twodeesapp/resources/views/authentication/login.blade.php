@@ -2,6 +2,7 @@
 @section('content')
 <main class="py-5">
     <div class="container">
+      @include('common._message')
       <div class="row justify-content-md-center">
         <div class="col-md-8">
           <div class="card">

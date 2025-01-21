@@ -33,7 +33,7 @@ class AuthenticationController extends Controller {
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return redirect()->route('/')->with('success', 'You have successfully registered!');
+        return redirect()->route('authentication.login')->with('success', 'You have successfully registered!');
     }
 
     public function login() {
@@ -49,7 +49,7 @@ class AuthenticationController extends Controller {
         $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)) {
-            return redirect()->route('items.index')->with('success', 'You have successfully logged in!');
+            return redirect()->route('/')->with('success', 'You have successfully logged in!');
         }
         else {
             return back()->with('error', 'Invalid credentials. Please try again.');

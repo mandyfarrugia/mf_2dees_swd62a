@@ -21,7 +21,7 @@
     @endphp
     <main class="py-5">
         <div class="container">
-            @include('items._message')
+            @include('common._message')
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">

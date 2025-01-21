@@ -4,7 +4,7 @@
     @include('items._date_format')
     <section class="page-section about-heading">
         <div class="container">
-            @include('items._message')
+            @include('common._message')
             <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}"
             alt="{{ $item->name }}" />
             <div class="about-heading-content">

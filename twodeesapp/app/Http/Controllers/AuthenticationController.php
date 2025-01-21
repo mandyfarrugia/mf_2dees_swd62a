@@ -33,6 +33,8 @@ class AuthenticationController extends Controller {
         }
 
         $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->save();

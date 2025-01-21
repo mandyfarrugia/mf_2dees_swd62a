@@ -22,7 +22,7 @@
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
                 <img src="{{ (file_exists(auth()->user()->profile_picture)) ? asset(auth()->user()->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max'}}" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/>
-                <span class="px-2" id="current_user">{{ auth()->user()->name }}</span>
+                <span class="px-2" id="current_user">{{ auth()->user()->name }} {{ auth()->user()->surname }} ({{ auth()->user()->username }})</span>
             @endif
         </div>
         <header>

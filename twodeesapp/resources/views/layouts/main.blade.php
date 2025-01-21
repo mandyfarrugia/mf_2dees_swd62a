@@ -19,6 +19,11 @@
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
     <body>
+        <div class="py-4 px-4" style="text-align: right; color: #f6e1c5;">
+            @if(auth()->check())
+                <span>Currently logged in as {{ auth()->user()->name }}</span>
+            @endif
+        </div>
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
                 <span class="site-heading-upper text-primary mb-3">Exploring Legions, One Lore At A Time</span>

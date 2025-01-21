@@ -21,7 +21,7 @@
     <body>
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
-                <span class="px-1"><img src="{{ (auth()->user()->profile_picture != null) ?: 'https://prisons.kp.gov.pk/wp-content/uploads/2024/09/no-profile-picture-icon-14.jpg' }}" class="rounded-circle shadow-4"
+                <span class="px-2"><img src="{{ (auth()->user()->profile_picture != null) ?: 'https://prisons.kp.gov.pk/wp-content/uploads/2024/09/no-profile-picture-icon-14.jpg' }}" class="rounded-circle shadow-4"
                     style="width: 50px; height: 50px;" alt="Avatar" /></span>
                 <span>{{ auth()->user()->name }}</span>
             @endif

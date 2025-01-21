@@ -41,7 +41,7 @@
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('categories.index') }}">Categories</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
-                                    href="">Logout</a></li>
+                                    href="{{ route('authentication.logout') }}">Logout</a></li>
                             }
                         @else
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"

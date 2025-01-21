@@ -16,6 +16,8 @@ class AuthenticationController extends Controller {
     public function register_post(Request $request) {
         $request->validate([
             'name' => 'required',
+            'surname' => 'required',
+            'username' => 'required|unique:users,username',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password',

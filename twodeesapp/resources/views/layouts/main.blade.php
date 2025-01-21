@@ -21,9 +21,16 @@
     <body>
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
-                <span class="px-2"><img src="{{ (auth()->user()->profile_picture != null) ?: 'https://prisons.kp.gov.pk/wp-content/uploads/2024/09/no-profile-picture-icon-14.jpg' }}" class="rounded-circle shadow-4"
-                    style="width: 50px; height: 50px;" alt="Avatar" /></span>
-                <span>{{ auth()->user()->name }}</span>
+                <span id="current_user">
+                    @if(file_exists(auth()->user()->profile_picture))
+                        <img src="{{ asset(auth()->user()->profile_picture) }}" class="rounded-circle shadow-4"
+                        style="width: 50px; height: 50px;" alt="Avatar" /></span>
+                    @else
+                        <span>Currently logged in as</span>
+                    @endif
+
+                    <span class="px-2">{{ auth()->user()->name }}</span>
+                </span>
             @endif
         </div>
         <header>
@@ -44,12 +51,11 @@
                                 href="{{ route('/') }}">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                 href="{{ route('navigation.about') }}">About</a></li>
-                        @if(auth()->check()) {
+                        @if(auth()->check())
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('categories.index') }}">Categories</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                     href="{{ route('authentication.logout') }}">Logout</a></li>
-                            }
                         @else
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                     href="{{ route('authentication.login') }}">Login</a></li>

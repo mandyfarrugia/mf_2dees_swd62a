@@ -15,7 +15,7 @@
         @foreach ($categories as $category)
             <div class="col-md-4 col-12 mb-4">
                 <div class="card" style="width: 100%; height: 100%;">
-                    <img class="card-img-top" src="{{ ($category->image_path != null) ? asset($category->image_path) : '' }}" alt="{{ $category->name }}"/>
+                    <img class="card-img-top" src="{{ ($category->image_path != null) ? asset($category->image_path) : 'https://placehold.co/600x400?text=' . (implode('+', explode(' ', $category->name))) }}" alt="{{ $category->name }}"/>
                     <div class="card-body">
                         <div class="card-body">
                             <h4 class="card-title">{{ $category->name }}</h4>

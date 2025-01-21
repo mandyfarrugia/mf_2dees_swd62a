@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -42,7 +44,7 @@ class AuthenticationController extends Controller {
 
     public function authenticate(Request $request) {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|exists:users,email',
             'password' => 'required'
         ]);
 

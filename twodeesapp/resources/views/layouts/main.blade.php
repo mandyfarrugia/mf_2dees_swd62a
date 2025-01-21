@@ -19,7 +19,7 @@
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     </head>
     <body>
-        <div class="py-4 px-4" style="text-align: right; color: #f6e1c5;">
+        <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
                 <span>Currently logged in as {{ auth()->user()->name }}</span>
             @endif

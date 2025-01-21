@@ -129,3 +129,14 @@ Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('
 
 //This route uses a GET request to log out a user.
 Route::get('logout', [AuthenticationController::class, 'logout'])->name('authentication.logout');
+
+/* 
+  _____  _____   ____  ______ _____ _      ______ 
+ |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____|
+ | |__) | |__) | |  | | |__    | | | |    | |__   
+ |  ___/|  _  /| |  | |  __|   | | | |    |  __|  
+ | |    | | \ \| |__| | |     _| |_| |____| |____ 
+ |_|    |_|  \_\\____/|_|    |_____|______|______|
+                                                  
+  * The below route uses a GET request to render a view to display the profile of an authenticated user. */
+Route::get('/profile/{id}', [ProfileController::class, 'profile'])->name('profile.index');

@@ -21,7 +21,9 @@
     <body>
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
-                <span>Currently logged in as {{ auth()->user()->name }}</span>
+                <span class="px-1"><img src="{{ auth()->user()->profile_picture }}" class="rounded-circle shadow-4"
+                    style="width: 50px; height: 50px;" alt="Avatar" /></span>
+                <span>{{ auth()->user()->name }}</span>
             @endif
         </div>
         <header>

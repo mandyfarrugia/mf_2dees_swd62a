@@ -83,10 +83,24 @@ Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('items.de
 
 //This route uses a GET request to render a view to display all categories persisted in the database.
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+
+//This route uses a GET request to render a view to create a new category by interacting with a form.
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+
+/* This route uses a POST request to validate the data furnished by the user. 
+ * Upon successful validation checks, persist a new category to the database.
+ * Otherwise, the user is redirected to categories.create to fix errors and re-submit. */
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+
+//This route uses a GET request to render a view with a form to edit an existing category based on the id supplied.
+ Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+
+/* This route uses a PUT request to validate the data furnished by the user.
+ * Upon successful validation checks, update the category in the database.
+ * Otherwise, the user is redirected to categories.edit to fix errors and re-submit. */
 Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
+
+//This route uses a DELETE request to remove a category from the database based on the id supplied.
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 /* 
@@ -101,7 +115,14 @@ Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name(
 
 //This route uses a GET request to render a view to display a form for user registration.
 Route::get('/register', [AuthenticationController::class, 'register'])->name('authentication.register');
+
+/* This route uses a POST request to validate the data furnished by the user. 
+ * Upon successful validation checks, persist a new user to the database. 
+ * Otherwise, the user is redirected to authentication.register to fix errors and re-submit. */
 Route::post('/register', [AuthenticationController::class, 'register_post'])->name('authentication.register_post');
 
 //This route uses a GET request to render a view to display a form for user login.
 Route::get('/login', [AuthenticationController::class, 'login'])->name('authentication.login');
+
+//This route uses a POST request to authenticate a user based on the credentials supplied.
+Route::post('/login', [AuthenticationController::class, 'login_post'])->name('authentication.login_post');

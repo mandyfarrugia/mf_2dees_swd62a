@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -37,6 +38,22 @@ class AuthenticationController extends Controller {
 
     public function login() {
         return view('authentication.login');
+    }
+
+    public function authenticate(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if(Auth::attempt($credentials)) {
+            return redirect()->route('items.index')->with('success', 'You have successfully logged in!');
+        }
+        else {
+            return back()->with('error', 'Invalid credentials. Please try again.');
+        }
     }
 }
 ?>

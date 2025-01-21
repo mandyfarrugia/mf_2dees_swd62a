@@ -37,8 +37,18 @@
                                 href="{{ route('/') }}">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                 href="{{ route('navigation.about') }}">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('categories.index') }}">Categories</a></li>
+                        @if(auth()->check()) {
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('categories.index') }}">Categories</a></li>
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
+                                    href="">Logout</a></li>
+                            }
+                        @else
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
+                                    href="{{ route('login') }}">Login</a></li>
+                            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
+                                    href="{{ route('register') }}">Register</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

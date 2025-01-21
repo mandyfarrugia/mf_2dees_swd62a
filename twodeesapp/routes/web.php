@@ -125,4 +125,4 @@ Route::post('/register', [AuthenticationController::class, 'register_post'])->na
 Route::get('/login', [AuthenticationController::class, 'login'])->name('authentication.login');
 
 //This route uses a POST request to authenticate a user based on the credentials supplied.
-Route::post('/login', [AuthenticationController::class, 'login_post'])->name('authentication.login_post');
+Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('authentication.authenticate');

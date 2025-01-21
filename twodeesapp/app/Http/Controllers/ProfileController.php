@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller {
     public function index($id) {
-        $user = User::find($id);
+        $user = User::where($id);
         return view('profile.show', compact('user'));
     }
 }

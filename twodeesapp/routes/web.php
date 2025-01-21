@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ProfileController;
 
 /* 
   _____   ____   ____ _______           _   _     __      _______ _____       _______ _____ ____  _   _ 

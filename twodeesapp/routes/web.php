@@ -15,9 +15,7 @@ use App\Http\Controllers\AuthenticationController;
  |_|  \_\\____/ \____/  |_|   
                               
  * The below route uses a GET request to render a view to display the home page. */
-Route::get('/', function () {
-    return view('welcome');
-})->name('/');
+Route::get('/', [NavigationController::class, 'welcome'])->name('/');
 
 /* 
   _   _     __      _______ _____       _______ _____ ____  _   _ 

@@ -16,8 +16,8 @@
                             <div class="d-flex justify-content-center mb-2">
                                 {{-- <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button> --}}
                                 @if ($user->id == auth()->user()->id)
-                                    <a class="btn btn-primary">Edit</a>
-                                    <a class="btn btn-danger ms-1">Delete</a>
+                                    <a class="btn btn-primary">Edit profile</a>
+                                    <a class="btn btn-danger ms-1">Delete profile</a>
                                 @endif
                             </div>
                         </div>

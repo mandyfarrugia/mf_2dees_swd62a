@@ -22,6 +22,8 @@ class AuthenticationController extends Controller {
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password',
+            'birth_date' => 'required|date|before:' .now()->subYears(18)->toDateString(),
+            'location_id' => 'required|exists:locations,id',
             'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 

@@ -9,7 +9,7 @@ class Region extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["name"];
+    protected $fillable = ["name", "country_id"];
 
     public function country() {
         return $this->belongsTo(Country::class);

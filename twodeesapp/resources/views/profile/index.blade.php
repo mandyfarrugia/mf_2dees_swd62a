@@ -15,9 +15,11 @@
               <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
                             <div class="d-flex justify-content-center mb-2">
                                 {{-- <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button> --}}
-                                @if ($user->id == auth()->user()->id)
-                                    <a class="btn btn-primary">Edit profile</a>
-                                    <a class="btn btn-danger ms-1">Delete profile</a>
+                                @if(Auth::check())
+                                    @if ($user->id == auth()->user()->id)
+                                        <a class="btn btn-primary">Edit profile</a>
+                                        <a class="btn btn-danger ms-1">Delete profile</a>
+                                    @endif
                                 @endif
                             </div>
                         </div>

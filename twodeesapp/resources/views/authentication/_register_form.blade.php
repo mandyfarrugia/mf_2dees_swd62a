@@ -81,8 +81,8 @@
             <label for="location_id" class="col-md-3 col-form-label">Category</label>
             <div class="col-md-9">
                 <select name="location_id" id="location_id" class="form-control @error('location_id') is-invalid @enderror">
-                    @foreach ($categories as $id => $name)
-                        <option {{ $id == old('location_id', $item->category_id) ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
+                    @foreach ($locations as $id => $name)
+                        <option {{ $id == old('location_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
                     @endforeach
                 </select>
                 @error('location_id')

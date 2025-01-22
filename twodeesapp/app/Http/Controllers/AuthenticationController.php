@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Mailable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Location;
 
 class AuthenticationController extends Controller {
     public function register() {
-        return view('authentication.register');
+        $locations = Location::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All locations', '0');
+        return view('authentication.register', compact('locations'));
     }
 
     public function register_post(Request $request) {

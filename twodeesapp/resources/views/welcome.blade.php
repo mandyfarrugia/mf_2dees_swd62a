@@ -2,6 +2,7 @@
 @section('content')
     <section class="page-section clearfix">
         <div class="container">
+            @include('common._message')
             <div class="intro">
                 <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ asset('home/xbox-playstation-group-0057-64c3e751a896f.jpg') }}" alt="..." />
                 <div class="intro-text left-0 text-center bg-faded p-5 rounded">

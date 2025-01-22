@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller {
     public function index($id) {
         $user = User::where('id', $id)->first();
-        return view('profile.index', compact('user'));
+
+        if($user != null) {
+            return view('profile.index', compact('user'));
+        } else {
+            return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
+        }
     }
 }
 ?>

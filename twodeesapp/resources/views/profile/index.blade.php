@@ -48,6 +48,15 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
+                                    <p class="mb-0">Location</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ $user->location->name }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
                                     <p class="mb-0">Bio</p>
                                 </div>
                                 <div class="col-sm-9">
@@ -60,16 +69,20 @@
                                     </p>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="row mt-3">
-                                <div class="col-sm-12">
-                                    <p class="text-muted"><small>Please remember that it is your responsibility to ensure all the information on your profile is accurate and up to date. Should you notice any mistakes, feel free to make the necessary corrections.</small></p>
-                                </div>
-                            </div>
+                            @if(Auth::check())
+                                @if ($user->id == auth()->user()->id)
+                                    <hr>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-12">
+                                            <p class="text-muted"><small>Please remember that it is your responsibility to ensure all the information on your profile is accurate and up to date. Should you notice any mistakes, feel free to make the necessary corrections.</small></p>
+                                        </div>
+                                    </div>        
+                                @endif
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </section>
-    @endsection
+    </section>
+@endsection

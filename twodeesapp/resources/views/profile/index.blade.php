@@ -15,12 +15,18 @@
               <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
                             @if(Auth::check())
                                 @if ($user->id == auth()->user()->id)
+                                    @if(file_exists($user->profile_picture))
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <a class="btn btn-success btn-sm">Update profile picture</a>
+                                        </div>
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <a class="btn btn-success btn-sm ms-1">Remove profile picture</a>
+                                        </div>
+                                    @else
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-success">Update profile picture</a>
+                                        <a class="btn btn-success btn-sm">Update profile picture</a>
                                     </div>
-                                    <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-success ms-1">Remove profile picture</a>
-                                    </div>
+                                    @endif
                                     <div class="d-flex justify-content-center mb-2">
                                         <a class="btn btn-primary">Edit profile</a>
                                         <a class="btn btn-danger ms-1">Delete profile</a>

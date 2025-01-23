@@ -96,11 +96,10 @@ const dateFilterDropdown = document.getElementById('filter_date');
 const applyFilterBtn = document.getElementById('apply_filter_btn');
 const searchBtn = document.getElementById('btn_search');
 const searchInput = document.getElementById('search_input');
+const viewModeBtn = document.getElementById('view_mode');
 
 const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
 const deleteBtns = document.querySelectorAll('.btn-delete');
-
-const viewModeBtn = document.getElementById('view_mode');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -129,7 +128,7 @@ if(applyFilterBtn !== null) {
         maxPrice = parseFloat(maxPrice);
     
         if(isNaN(minPrice) || isNaN(maxPrice)) {
-            displayErrorAlert('Please ensure that prices are in numeric format!');
+            reportError('Please ensure that prices are in numeric format!');
         }
         else {
             handlePriceFilter(minPrice, maxPrice);
@@ -212,3 +211,10 @@ if(viewModeBtn !== null) {
         processViewMode('view_mode', viewMode);
     });
 }
+
+Fancybox.bind("[data-fancybox]", {
+    hideScrollbar: false,
+    dragToClose: true,
+    showClass: "f-fadeIn",
+    hideClass: "f-scaleOut"
+});

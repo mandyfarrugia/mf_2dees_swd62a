@@ -6,8 +6,13 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <a href="" data-fancybox><img src="{{ file_exists($user->profile_picture) ? asset($user->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max' }}"
-                                class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="Avatar" /></a>
+                            @if(file_exists($user->profile_picture))
+                                <a href="{{ asset($user->profile_picture) }}" data-fancybox data-caption="{{ $user->username }}">
+                                    <img src="{{ asset($user->profile_picture) }}" class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="{{ $user->username }}"/>
+                                </a>
+                            @else
+                                <img src="https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max" class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="No profile picture available"/>
+                            @endif
                             <h5 class="my-3">{{ $user->name }} {{ $user->surname }}</h5>
                             {{-- <p class="text-muted mb-1">Full Stack Developer</p>
                             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}

@@ -7,7 +7,7 @@
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             @if(file_exists($user->profile_picture))
-                                <a href="{{ asset($user->profile_picture) }}" data-fancybox data-caption="{{ $user->username }}">
+                                <a href="{{ asset($user->profile_picture) }}" data-fancybox data-caption="{{ $user->name }} {{ $user->surname }}">
                                     <img src="{{ asset($user->profile_picture) }}" class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="{{ $user->username }}"/>
                                 </a>
                             @else

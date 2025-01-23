@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="location_id" class="col-md-3 col-form-label">Category</label>
+            <label for="location_id" class="col-md-3 col-form-label">Location</label>
             <div class="col-md-9">
                 <select name="location_id" id="location_id" class="form-control @error('location_id') is-invalid @enderror">
                     @foreach ($locations as $id => $name)

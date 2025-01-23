@@ -21,9 +21,8 @@
     <body>
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
-                <span class="px-2"><img src="{{ (auth()->user()->profile_picture != null) ?: 'https://prisons.kp.gov.pk/wp-content/uploads/2024/09/no-profile-picture-icon-14.jpg' }}" class="rounded-circle shadow-4"
-                    style="width: 50px; height: 50px;" alt="Avatar" /></span>
-                <span>{{ auth()->user()->name }}</span>
+                <img src="{{ (file_exists(auth()->user()->profile_picture)) ? asset(auth()->user()->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max'}}" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/>
+                <span class="px-2" id="current_user">{{ auth()->user()->name }} {{ auth()->user()->surname }} ({{ auth()->user()->username }})</span>
             @endif
         </div>
         <header>
@@ -44,12 +43,11 @@
                                 href="{{ route('/') }}">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                 href="{{ route('navigation.about') }}">About</a></li>
-                        @if(auth()->check()) {
+                        @if(auth()->check())
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('items.index') }}">Items</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{ route('categories.index') }}">Categories</a></li>
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                     href="{{ route('authentication.logout') }}">Logout</a></li>
-                            }
                         @else
                             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase"
                                     href="{{ route('authentication.login') }}">Login</a></li>

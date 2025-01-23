@@ -5,19 +5,18 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ProfileController;
 
 /* 
-  _____   ____   ____ _______ 
- |  __ \ / __ \ / __ |__   __|
- | |__) | |  | | |  | | | |   
- |  _  /| |  | | |  | | | |   
- | | \ \| |__| | |__| | | |   
- |_|  \_\\____/ \____/  |_|   
-                              
+  _____   ____   ____ _______           _   _     __      _______ _____       _______ _____ ____  _   _ 
+ |  __ \ / __ \ / __ |__   __|    _    | \ | |   /\ \    / |_   _/ ____|   /\|__   __|_   _/ __ \| \ | |
+ | |__) | |  | | |  | | | |     _| |_  |  \| |  /  \ \  / /  | || |  __   /  \  | |    | || |  | |  \| |
+ |  _  /| |  | | |  | | | |    |_   _| | . ` | / /\ \ \/ /   | || | |_ | / /\ \ | |    | || |  | | . ` |
+ | | \ \| |__| | |__| | | |      |_|   | |\  |/ ____ \  /   _| || |__| |/ ____ \| |   _| || |__| | |\  |
+ |_|  \_\\____/ \____/  |_|            |_| \_/_/    \_\/   |_____\_____/_/    \_|_|  |_____\____/|_| \_|
+                                                                                                               
  * The below route uses a GET request to render a view to display the home page. */
-Route::get('/', function () {
-    return view('welcome');
-})->name('/');
+Route::get('/', [NavigationController::class, 'welcome'])->name('/');
 
 /* 
   _   _     __      _______ _____       _______ _____ ____  _   _ 
@@ -129,3 +128,14 @@ Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('
 
 //This route uses a GET request to log out a user.
 Route::get('logout', [AuthenticationController::class, 'logout'])->name('authentication.logout');
+
+/* 
+  _____  _____   ____  ______ _____ _      ______ 
+ |  __ \|  __ \ / __ \|  ____|_   _| |    |  ____|
+ | |__) | |__) | |  | | |__    | | | |    | |__   
+ |  ___/|  _  /| |  | |  __|   | | | |    |  __|  
+ | |    | | \ \| |__| | |     _| |_| |____| |____ 
+ |_|    |_|  \_\\____/|_|    |_____|______|______|
+                                                  
+  * The below route uses a GET request to render a view to display the profile of an authenticated user. */
+Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.index');

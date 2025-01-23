@@ -1,10 +1,32 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Username</label>
+            <label for="name" class="col-md-3 col-form-label">Name</label>
             <div class="col-md-9">
                 <input type="text" autocomplete="off" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
                 @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-md-3 col-form-label">Surname</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" name="surname" id="surname" value="{{ old('surname') }}" class="form-control @error('surname') is-invalid @enderror">
+                @error('surname')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-md-3 col-form-label">Username</label>
+            <div class="col-md-9">
+                <input type="text" autocomplete="off" name="username" id="username" value="{{ old('username') }}" class="form-control @error('username') is-invalid @enderror">
+                @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -38,6 +60,32 @@
             <div class="col-md-9">
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror">
                 @error('password_confirmation')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="birth_date" class="col-md-3 col-form-label">Date of birth</label>
+            <div class="col-md-9">
+                <input type="date" name="birth_date" id="birth_date" value="{{ old('birth_date') }}" class="form-control @error('birth_date') is-invalid @enderror">
+                @error('birth_date')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="location_id" class="col-md-3 col-form-label">Location</label>
+            <div class="col-md-9">
+                <select name="location_id" id="location_id" class="form-control @error('location_id') is-invalid @enderror">
+                    @foreach ($locations as $id => $name)
+                        <option {{ $id == old('location_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
+                    @endforeach
+                </select>
+                @error('location_id')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

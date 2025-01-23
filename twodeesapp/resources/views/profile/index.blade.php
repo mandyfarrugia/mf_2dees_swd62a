@@ -6,30 +6,28 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            {{-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> --}}
-                            <img src="{{ file_exists($user->profile_picture) ? asset($user->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max' }}"
-                                class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="Avatar" />
+                            <a href="" data-fancybox><img src="{{ file_exists($user->profile_picture) ? asset($user->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max' }}"
+                                class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="Avatar" /></a>
                             <h5 class="my-3">{{ $user->name }} {{ $user->surname }}</h5>
                             {{-- <p class="text-muted mb-1">Full Stack Developer</p>
-              <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
+                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
                             @if(Auth::check())
                                 @if ($user->id == auth()->user()->id)
                                     @if(file_exists($user->profile_picture))
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a class="btn btn-success btn-sm">Update profile picture</a>
+                                            <a class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
                                         </div>
                                         <div class="d-flex justify-content-center mb-2">
                                             <a class="btn btn-success btn-sm ms-1">Remove profile picture</a>
                                         </div>
                                     @else
-                                    <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-success btn-sm">Update profile picture</a>
-                                    </div>
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <a class="btn btn-success btn-sm"><i class="fa-solid fa-upload"></i> Upload profile picture</a>
+                                        </div>
                                     @endif
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-primary">Edit profile</a>
-                                        <a class="btn btn-danger ms-1">Delete profile</a>
+                                        <a class="btn btn-primary"><i class="fas fa-user-edit"></i> Edit profile</a>
+                                        <a class="btn btn-danger ms-1"><i class="fas fa-user-times"></i> Delete profile</a>
                                     </div>
                                 @endif
                             @endif

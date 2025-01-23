@@ -40,6 +40,8 @@ class AuthenticationController extends Controller {
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->birth_date = $request->birth_date;
+        $user->location_id = $request->location_id;
         $user->save();
 
         return redirect()->route('authentication.login')->with('success', 'You have successfully registered!');

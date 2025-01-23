@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <section">
+    <section>
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-4">
@@ -13,15 +13,20 @@
                             <h5 class="my-3">{{ $user->name }} {{ $user->surname }}</h5>
                             {{-- <p class="text-muted mb-1">Full Stack Developer</p>
               <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
-                            <div class="d-flex justify-content-center mb-2">
-                                {{-- <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button> --}}
-                                @if(Auth::check())
-                                    @if ($user->id == auth()->user()->id)
+                            @if(Auth::check())
+                                @if ($user->id == auth()->user()->id)
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <a class="btn btn-success">Update profile picture</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <a class="btn btn-success ms-1">Remove profile picture</a>
+                                    </div>
+                                    <div class="d-flex justify-content-center mb-2">
                                         <a class="btn btn-primary">Edit profile</a>
                                         <a class="btn btn-danger ms-1">Delete profile</a>
-                                    @endif
+                                    </div>
                                 @endif
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -51,7 +56,18 @@
                                     <p class="mb-0">Location</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{ $user->location->name }}</p>
+                                    <p class="text-muted mb-0">{{ $user->location->name }}, {{ $country->name }}</p>
+                                    <p class="text-muted mb-0"><small>{{ $region->name }}</small></p>
+                                </div>
+                            </div>
+                            <hr>
+                            @include('common._date_format')
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Birthday</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ format_date($user->birth_date) }}</p>
                                 </div>
                             </div>
                             <hr>

@@ -52,7 +52,7 @@
                             <hr>
                         </div>
                         @if($items->count())
-                            @include('items._date_format')
+                            @include('common._date_format')
                             @if(request('view_mode') == 'table' || request('view_mode') == null)
                                 @include('items._table')
                             @elseif(request('view_mode') == 'cards')

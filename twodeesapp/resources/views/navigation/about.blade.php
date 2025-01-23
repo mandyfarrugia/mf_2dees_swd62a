@@ -3,7 +3,7 @@
 @section('content')
 <section class="page-section about-heading">
     <div class="container">
-        @include('items._date_format')
+        @include('common._date_format')
         @php
             $galleryFolder = 'gallery';
             $images = array();

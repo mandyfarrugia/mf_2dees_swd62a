@@ -10,7 +10,7 @@ const displayErrorAlert = (message) => {
     errorAlertDivElement.setAttribute('class', 'alert alert-danger');
     errorAlertDivElement.innerHTML = message;
     containerAfterMain.prepend(errorAlertDivElement);
-    setTimeout(() => errorAlertDivElement.remove(), ALERT_DURATION_MILLISECONDS); 
+    setTimeout(() => errorAlertDivElement.remove(), ALERT_DURATION_MILLISECONDS);
 };
 
 const lower = (value) => value.toLowerCase();
@@ -39,12 +39,12 @@ const attachQueryParametersToUrl = (parameters) => {
 };
 
 const handleSearch = (searchTerm) => {
-    if(searchTerm == '') {
+    if (searchTerm == '') {
         let errorMessage = 'Nothing to see here... yet. Type something and we will make some magic happen!';
         reportError(errorMessage);
     }
     else {
-        window.location.href = attachQueryParametersToUrl({'search': searchTerm});
+        window.location.href = attachQueryParametersToUrl({ 'search': searchTerm });
     }
 }
 
@@ -72,26 +72,26 @@ const handleCategoryDropdownSelection = (event) => {
 const processViewMode = (parameter, currentViewMode) => {
     let viewModeValue = null;
 
-    if(currentViewMode === 'fa-table') {
+    if (currentViewMode === 'fa-table') {
         viewModeValue = 'table';
     }
-    else if(currentViewMode === 'fa-images') {
+    else if (currentViewMode === 'fa-images') {
         viewModeValue = 'cards';
     }
 
-    window.location.href = attachQueryParametersToUrl({[parameter]: viewModeValue});
+    window.location.href = attachQueryParametersToUrl({ [parameter]: viewModeValue });
 };
 
 const processSort = (parameter, arrowDirection) => {
     let sortValue = null;
 
-    if(arrowDirection === 'fa-arrow-up') {
+    if (arrowDirection === 'fa-arrow-up') {
         sortValue = 'desc';
-    } else if(arrowDirection === 'fa-arrow-down') {
+    } else if (arrowDirection === 'fa-arrow-down') {
         sortValue = 'asc';
     }
 
-    window.location.href = attachQueryParametersToUrl({[parameter]: sortValue});
+    window.location.href = attachQueryParametersToUrl({ [parameter]: sortValue });
 }
 
 const attachEvent = (target, event, callback) => target.addEventListener(event, callback);
@@ -113,27 +113,27 @@ if (categoryFilterDropdown !== null) {
     });
 }
 
-if(dateFilterDropdown !== null) {
+if (dateFilterDropdown !== null) {
     attachEvent(dateFilterDropdown, 'change', (event) => {
         handleDateDropdownSelection(event);
     });
 }
 
-if(applyFilterBtn !== null) {
+if (applyFilterBtn !== null) {
     attachEvent(applyFilterBtn, 'click', (event) => {
         event.preventDefault();
-    
+
         let minPrice = document.getElementById('min_price').value;
         let maxPrice = document.getElementById('max_price').value;
-    
-        if(minPrice === '') {
+
+        if (minPrice === '') {
             minPrice = 0;
         }
-    
+
         minPrice = parseFloat(minPrice);
         maxPrice = parseFloat(maxPrice);
-    
-        if(isNaN(minPrice) || isNaN(maxPrice)) {
+
+        if (isNaN(minPrice) || isNaN(maxPrice)) {
             reportError('Please ensure that prices are in numeric format!');
         }
         else {
@@ -142,18 +142,18 @@ if(applyFilterBtn !== null) {
     });
 }
 
-if(searchBtn !== null) {
+if (searchBtn !== null) {
     attachEvent(searchBtn, 'click', () => handleSearch(searchInput.value));
 
     attachEvent(searchInput, 'keydown', (event) => {
-        if(event.keyCode == 13) {
+        if (event.keyCode == 13) {
             let target = event.target;
             handleSearch(target.value);
         }
     });
 }
 
-if(arrowFilterBtn !== null) {
+if (arrowFilterBtn !== null) {
     arrowFilterBtn.forEach((arrow) => {
         attachEvent(arrow, 'click', (event) => {
             let target = event.target;
@@ -165,9 +165,9 @@ if(arrowFilterBtn !== null) {
     });
 }
 
-if(deleteBtns !== null) {
+if (deleteBtns !== null) {
     deleteBtns.forEach((deleteBtn) => {
-        deleteBtn.addEventListener('click', function(event) {
+        deleteBtn.addEventListener('click', function (event) {
             event.preventDefault();
 
             $.confirm({
@@ -199,7 +199,7 @@ if(deleteBtns !== null) {
     });
 }
 
-if(viewModeBtn !== null) {
+if (viewModeBtn !== null) {
     attachEvent(viewModeBtn, 'click', (event) => {
         event.preventDefault();
         let target = event.target;
@@ -207,9 +207,9 @@ if(viewModeBtn !== null) {
 
         let classes = null;
 
-        if(tagName === 'I') {
+        if (tagName === 'I') {
             classes = Array.from(target.classList);
-        } else if(tagName === 'A') {
+        } else if (tagName === 'A') {
             classes = Array.from(target.firstChild.classList);
         }
 
@@ -218,7 +218,7 @@ if(viewModeBtn !== null) {
     });
 }
 
-if(removeProfilePictureBtn !== null) {
+if (removeProfilePictureBtn !== null) {
     attachEvent(removeProfilePictureBtn, 'click', (event) => {
         event.preventDefault();
         removeProfilePicture(event);

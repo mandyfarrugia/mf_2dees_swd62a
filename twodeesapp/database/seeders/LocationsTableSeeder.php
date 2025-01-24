@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Location;
 use App\Models\Region;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class LocationsTableSeeder extends Seeder

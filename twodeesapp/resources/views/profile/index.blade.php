@@ -23,7 +23,7 @@
                                             <a class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
                                         </div>
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a class="btn btn-success btn-sm ms-1">Remove profile picture</a>
+                                            <a class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-center mb-2">
@@ -73,7 +73,7 @@
                             @include('common._date_format')
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Birthday</p>
+                                    <p class="mb-0">Date of birth</p>
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{ format_date($user->birth_date) }}</p>

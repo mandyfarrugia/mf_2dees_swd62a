@@ -12,7 +12,7 @@ class RegionsTableSeeder extends Seeder
     {
         $malta = Country::where('name', 'Malta')->first()->id;
 
-        $region_objects = [
+        $regionObjects = [
             ['name' => 'Eastern Region', 'country_id' => $malta],
             ['name' => 'Gozo Region', 'country_id' => $malta],
             ['name' => 'Northern Region', 'country_id' => $malta],
@@ -21,8 +21,8 @@ class RegionsTableSeeder extends Seeder
             ['name' => 'Western Region', 'country_id' => $malta]
         ];
 
-        foreach($region_objects as $region_object) {
-            Region::create($region_object);
+        foreach($regionObjects as $regionObject) {
+            Region::create($regionObject);
         }
     }
 }

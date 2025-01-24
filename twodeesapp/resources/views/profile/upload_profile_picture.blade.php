@@ -9,7 +9,7 @@
                             <strong>Upload profile picture</strong>
                         </div>
                         <div class="card-body">
-                            <form method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('profile.process_profile_picture_upload', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @include('profile._upload_form')
                             </form>

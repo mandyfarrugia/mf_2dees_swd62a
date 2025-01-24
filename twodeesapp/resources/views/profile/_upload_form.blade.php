@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <div class="form-group row">
             <div class="col-md-12">
-                <input type="file" name="image_path" id="image_path" class="form-control @error('image_path') is-invalid @enderror"/>
-                @error('image_path')
+                <input type="file" name="profile_picture" id="profile_picture" class="form-control @error('profile_picture') is-invalid @enderror"/>
+                @error('profile_picture')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

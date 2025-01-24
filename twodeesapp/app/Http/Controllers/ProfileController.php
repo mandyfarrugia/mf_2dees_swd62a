@@ -21,5 +21,15 @@ class ProfileController extends Controller {
             return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
         }
     }
+
+    public function upload_profile_picture($id) {
+        $user = User::find($id);
+
+        if($user != null) {
+            return view('profile.upload_profile_picture', compact('user'));
+        } else {
+            return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
+        }
+    }
 }
 ?>

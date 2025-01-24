@@ -139,3 +139,4 @@ Route::get('logout', [AuthenticationController::class, 'logout'])->name('authent
                                                   
   * The below route uses a GET request to render a view to display the profile of an authenticated user. */
 Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('/profile/{id}/upload_profile_picture', [ProfileController::class, 'upload_profile_picture'])->name('profile.upload_profile_picture');

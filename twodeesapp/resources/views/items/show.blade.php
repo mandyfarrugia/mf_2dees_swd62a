@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    @include('items._date_format')
+    @include('common._date_format')
     <section class="page-section about-heading">
         <div class="container">
             @include('common._message')

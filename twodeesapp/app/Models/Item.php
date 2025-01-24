@@ -9,7 +9,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["name", "price", "release_date", "description", "image_path", "category_id"]; //Technique to enable mass assignment.
+    protected $fillable = ['name', 'price', 'release_date', 'description', 'image_path', 'category_id']; //Technique to enable mass assignment.
 
     //Establishing a relationship between Item and Category model (one-to-many relationship whereby one category can be assigned to many items).
     public function category() {

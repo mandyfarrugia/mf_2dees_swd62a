@@ -8,6 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
         <title>TwoDees</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -21,7 +22,7 @@
     <body>
         <div class="py-4 px-4 text-faded text-end">
             @if(auth()->check())
-                <img src="{{ (file_exists(auth()->user()->profile_picture)) ? asset(auth()->user()->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max'}}" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/>
+                <a href="{{ route('profile.index', auth()->user()->id) }}"><img src="{{ (file_exists(auth()->user()->profile_picture)) ? asset(auth()->user()->profile_picture) : 'https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max'}}" class="rounded-circle shadow-4" style="width: 50px; height: 50px;" alt="Avatar"/></a>
                 <span class="px-2" id="current_user">{{ auth()->user()->name }} {{ auth()->user()->surname }} ({{ auth()->user()->username }})</span>
             @endif
         </div>
@@ -66,6 +67,7 @@
             </div>
         </footer>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

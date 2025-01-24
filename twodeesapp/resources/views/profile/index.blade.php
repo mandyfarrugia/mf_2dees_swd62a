@@ -27,7 +27,7 @@
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a class="btn btn-success btn-sm"><i class="fa-solid fa-upload"></i> Upload profile picture</a>
+                                            <a href="{{ route('profile.upload_profile_picture', $user->id) }}" class="btn btn-success btn-sm"><i class="fa-solid fa-upload"></i> Upload profile picture</a>
                                         </div>
                                     @endif
                                     <div class="d-flex justify-content-center mb-2">

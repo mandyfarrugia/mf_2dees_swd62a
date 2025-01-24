@@ -24,7 +24,11 @@
                                             <a class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
                                         </div>
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
+                                            <form action="{{ route('profile.remove_profile_picture', $user->id) }}" method="POST" enctype="multipart/form-data">
+                                                @method('PUT')
+                                                @csrf
+                                                <button type="submit" class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</button>
+                                            </form>
                                         </div>
                                     @else
                                         <div class="d-flex justify-content-center mb-2">

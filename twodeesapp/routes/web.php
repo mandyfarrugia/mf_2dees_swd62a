@@ -127,7 +127,7 @@ Route::get('/login', [AuthenticationController::class, 'login'])->name('authenti
 Route::post('/login', [AuthenticationController::class, 'authenticate'])->name('authentication.authenticate');
 
 //This route uses a GET request to log out a user.
-Route::get('logout', [AuthenticationController::class, 'logout'])->name('authentication.logout');
+Route::get('/logout', [AuthenticationController::class, 'logout'])->name('authentication.logout');
 
 /* 
   _____  _____   ____  ______ _____ _      ______ 
@@ -137,7 +137,16 @@ Route::get('logout', [AuthenticationController::class, 'logout'])->name('authent
  | |    | | \ \| |__| | |     _| |_| |____| |____ 
  |_|    |_|  \_\\____/|_|    |_____|______|______|
                                                   
-  * The below route uses a GET request to render a view to display the profile of an authenticated user. */
+ */
+
+//The below route uses a GET request to render a view to display the profile of an authenticated user.
 Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.index');
+
+//The below route uses a GET request to render a view to display a form to upload a profile picture.
 Route::get('/profile/{id}/upload_profile_picture', [ProfileController::class, 'upload_profile_picture'])->name('profile.upload_profile_picture');
+
+//The below route uses a POST request to validate the data furnished by the user. If successful, persist the profile picture to the database.
 Route::post('/profile/{id}', [ProfileController::class, 'process_profile_picture_upload'])->name('profile.process_profile_picture_upload');
+
+//The below route uses a PUT request to remove the profile picture of an authenticated user.
+Route::put('/profile/{id}', [ProfileController::class, 'remove_profile_picture'])->name('profile.remove_profile_picture');

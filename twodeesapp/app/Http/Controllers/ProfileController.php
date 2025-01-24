@@ -52,5 +52,22 @@ class ProfileController extends Controller {
             return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
         }
     }
+
+    public function remove_profile_picture($id, Request $request) {
+        $user = User::find($id);
+
+        if($user != null) {
+            if(file_exists(public_path($user->profile_picture))) {
+                unlink(public_path($user->profile_picture));
+            }
+
+            $user->profile_picture = null;
+            $user->save();
+
+            return redirect()->route('profile.index', $user->id)->with('success', "Your profile picture has been removed! \u{1F622}");
+        } else {
+            return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
+        }
+    }
 }
 ?>

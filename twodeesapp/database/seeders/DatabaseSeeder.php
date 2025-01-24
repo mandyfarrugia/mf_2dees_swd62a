@@ -10,7 +10,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CountriesTableSeeder::class,
-            RegionsTableSeeder::class
+            RegionsTableSeeder::class,
+            LocationsTableSeeder::class
         ]);
     }
 }

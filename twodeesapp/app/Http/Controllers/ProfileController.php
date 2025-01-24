@@ -47,7 +47,7 @@ class ProfileController extends Controller {
             $user->profile_picture = 'profile_pictures/' . $profile_picture_name;
             $user->save();
 
-            return redirect()->route('profile.index', $user->id)->with('success', 'Profile picture uploaded successfully!');
+            return redirect()->route('profile.index', $user->id)->with('success', "Your profile picture has been updated! Looking great! \u{1F60A}");
         } else {
             return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
         }

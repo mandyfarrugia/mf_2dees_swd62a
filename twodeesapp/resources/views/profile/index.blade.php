@@ -2,6 +2,7 @@
 @section('content')
     <section>
         <div class="container py-5">
+            @include('common._message')
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card mb-4">

@@ -6,12 +6,12 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header card-title">
-                            <strong>Add New Item</strong>
+                            <strong>Upload profile picture</strong>
                         </div>
                         <div class="card-body">
                             <form method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @include('items._form')
+                                @include('profile._upload_form')
                             </form>
                         </div>
                     </div>

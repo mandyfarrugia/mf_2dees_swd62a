@@ -34,6 +34,7 @@ class LocationsTableSeeder extends Seeder
             ['name' => 'Victoria', 'region_id' => $gozoRegion],
             ['name' => 'Xaghra', 'region_id' => $gozoRegion],
             ['name' => 'Xewkija', 'region_id' => $gozoRegion],
+            ['name' => 'Xlendi', 'region_id' => $gozoRegion],
             ['name' => 'Zebbug (Gozo)', 'region_id' => $gozoRegion],
             ['name' => 'Birkirkara', 'region_id' => $easternRegion],
             ['name' => 'Gharghur', 'region_id' => $easternRegion],

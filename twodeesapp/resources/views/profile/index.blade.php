@@ -27,7 +27,7 @@
                                             <form action="{{ route('profile.remove_profile_picture', $user->id) }}" method="POST" enctype="multipart/form-data">
                                                 @method('PUT')
                                                 @csrf
-                                                <button type="submit" class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</button>
+                                                <a id="btn_remove_profile_picture" class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
                                             </form>
                                         </div>
                                     @else

@@ -1,3 +1,8 @@
+const removeProfilePicture = (event) => {
+    let form = event.target.parentElement;
+    form.submit();
+};
+
 const displayErrorAlert = (message) => {
     const ALERT_DURATION_MILLISECONDS = 5000;
     const containerAfterMain = document.querySelector('main.py-5 > .container');
@@ -97,6 +102,7 @@ const applyFilterBtn = document.getElementById('apply_filter_btn');
 const searchBtn = document.getElementById('btn_search');
 const searchInput = document.getElementById('search_input');
 const viewModeBtn = document.getElementById('view_mode');
+const removeProfilePictureBtn = document.getElementById('btn_remove_profile_picture');
 
 const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
 const deleteBtns = document.querySelectorAll('.btn-delete');
@@ -209,6 +215,13 @@ if(viewModeBtn !== null) {
 
         let viewMode = classes.at(1);
         processViewMode('view_mode', viewMode);
+    });
+}
+
+if(removeProfilePictureBtn !== null) {
+    attachEvent(removeProfilePictureBtn, 'click', (event) => {
+        event.preventDefault();
+        removeProfilePicture(event);
     });
 }
 

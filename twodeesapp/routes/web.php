@@ -155,7 +155,10 @@ Route::put('/profile/{id}/remove_profile_picture', [ProfileController::class, 'r
 Route::get('/profile/{id}/change_profile_picture', [ProfileController::class, 'change_profile_picture'])->name('profile.change_profile_picture');
 
 //The below route uses a PUT request to validate the data furnished by the user. If successful, update the profile picture in the database.
-Route::put('/profile/{id}', [ProfileController::class, 'process_profile_picture_update'])->name('profile.process_profile_picture_update');
+Route::put('/profile/{id}/process_profile_picture_update', [ProfileController::class, 'process_profile_picture_update'])->name('profile.process_profile_picture_update');
 
 //The below route uses a GET request to render a view to display a form to edit the profile of an authenticated user.
 Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+//The below route uses a PUT request to validate the data furnished by the user. If successful, persist changes inflicted on the profile to the database.
+Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');

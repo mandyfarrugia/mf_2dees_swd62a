@@ -34,6 +34,28 @@
             </div>
         </div>
         <div class="form-group row">
+            <label for="email" class="col-md-3 col-form-label">Email Address</label>
+            <div class="col-md-9">
+                <input type="email" autocomplete="off" name="email" id="email" value="{{ old('email', $user->email) }}" class="form-control @error('email') is-invalid @enderror">
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="password" class="col-md-3 col-form-label">Password</label>
+            <div class="col-md-9">
+                <input type="password" name="password" id="password" placeholder="Enter the new password" class="form-control @error('password') is-invalid @enderror">
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="birth_date" class="col-md-3 col-form-label">Date of birth</label>
             <div class="col-md-9">
                 <input type="date" name="birth_date" id="birth_date" value="{{ old('birth_date', $user->birth_date) }}" class="form-control @error('birth_date') is-invalid @enderror">
@@ -81,7 +103,7 @@
         <hr>
         <div class="form-group row mb-0">
             <div class="col-md-9 offset-md-3">
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <a href="{{ route('/') }}" class="btn btn-outline-secondary">Return to homepage</a>
             </div>
         </div>

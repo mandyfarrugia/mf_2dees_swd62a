@@ -9,10 +9,9 @@
                             <strong>Join us today!</strong>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('authentication.register_post') }}" method="POST"
-                                enctype="multipart/form-data">
+                            <form method="POST" enctype="multipart/form-data">
                                 @csrf
-                                @include('profile._form')
+                                @include('profile._edit_form')
                             </form>
                         </div>
                     </div>

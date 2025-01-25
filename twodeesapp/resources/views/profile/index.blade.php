@@ -21,13 +21,13 @@
                                 @if ($user->id == auth()->user()->id)
                                     @if(file_exists($user->profile_picture))
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a href="{{ route('profile.change_profile_picture', $user->id) }}" class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
+                                            <a href="{{ route('profile.change_profile_picture', $user->id) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
                                         </div>
                                         <div class="d-flex justify-content-center mb-2">
                                             <form action="{{ route('profile.remove_profile_picture', $user->id) }}" method="POST" enctype="multipart/form-data">
                                                 @method('PUT')
                                                 @csrf
-                                                <a id="btn_remove_profile_picture" class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
+                                                <a id="btn_remove_profile_picture" class="btn btn-outline-secondary btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
                                             </form>
                                         </div>
                                     @else
@@ -36,10 +36,14 @@
                                         </div>
                                     @endif
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-primary"><i class="fas fa-user-edit"></i> Edit profile</a>
+                                        <a class="btn btn-secondary"><i class="fas fa-user-edit"></i> Edit profile</a>
                                         <a class="btn btn-danger ms-1"><i class="fas fa-user-times"></i> Delete profile</a>
                                     </div>
                                 @endif
+                            @else
+                                <div class="d-flex justify-content-center">
+                                    <p class="text-muted"><small>To interact with {{ $user->name }}, please log in first.</small></p>
+                                </div>
                             @endif
                         </div>
                     </div>

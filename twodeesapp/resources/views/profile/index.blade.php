@@ -36,7 +36,7 @@
                                         </div>
                                     @endif
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-secondary"><i class="fas fa-user-edit"></i> Edit profile</a>
+                                        <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-secondary"><i class="fas fa-user-edit"></i> Edit profile</a>
                                         <a class="btn btn-danger ms-1"><i class="fas fa-user-times"></i> Delete profile</a>
                                     </div>
                                 @endif

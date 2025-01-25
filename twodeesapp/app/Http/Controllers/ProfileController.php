@@ -81,7 +81,7 @@ class ProfileController extends Controller {
 
     }
 
-    public function process_profile_picture_change($id, Request $request) {
+    public function process_profile_picture_update($id, Request $request) {
         $user = User::find($id);
 
         if($user != null) {

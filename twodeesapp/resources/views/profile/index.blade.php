@@ -21,7 +21,7 @@
                                 @if ($user->id == auth()->user()->id)
                                     @if(file_exists($user->profile_picture))
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
+                                            <a href="{{ route('profile.change_profile_picture', $user->id) }}" class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
                                         </div>
                                         <div class="d-flex justify-content-center mb-2">
                                             <form action="{{ route('profile.remove_profile_picture', $user->id) }}" method="POST" enctype="multipart/form-data">

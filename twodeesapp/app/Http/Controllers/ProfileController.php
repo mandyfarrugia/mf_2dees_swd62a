@@ -80,5 +80,30 @@ class ProfileController extends Controller {
         }
 
     }
+
+    public function process_profile_picture_change($id, Request $request) {
+        $user = User::find($id);
+
+        if($user != null) {
+            $request->validate([
+                'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+
+            if(file_exists(public_path($user->profile_picture))) {
+                unlink(public_path($user->profile_picture));
+            }
+
+            $profile_picture = $request->file('profile_picture');
+            $profile_picture_name = time() . '.' . $request->profile_picture->extension();
+            $profile_picture->move(public_path('profile_pictures'), $profile_picture_name);
+            
+            $user->profile_picture = 'profile_pictures/' . $profile_picture_name;
+            $user->save();
+
+            return redirect()->route('profile.index', $user->id)->with('success', "Your profile picture has been updated! Looking great! \u{1F60A}");
+        } else {
+            return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
+        }
+    }
 }
 ?>

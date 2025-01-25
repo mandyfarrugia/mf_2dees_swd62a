@@ -9,7 +9,7 @@
               <strong>Join us today!</strong>
             </div>           
             <div class="card-body">
-              <form action="{{ route('authentication.register_post') }}" method="POST" enctype="multipart/form-data">
+              <form id="register_form" action="{{ route('authentication.register_post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @include('authentication._register_form')
               </form>

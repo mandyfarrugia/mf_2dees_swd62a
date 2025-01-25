@@ -225,6 +225,17 @@ if (removeProfilePictureBtn !== null) {
     });
 }
 
+// $(document).ready(function () {
+//     $('#register_form').validate({
+//         rules: {
+//             name: {
+//                 required: true,
+//                 minlength: 3
+//             }
+//         }
+//     });
+// });
+
 Fancybox.bind("[data-fancybox]", {
     hideScrollbar: false,
     dragToClose: true,

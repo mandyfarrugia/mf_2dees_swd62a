@@ -2,8 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Location;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller {
     public function index($id) {
@@ -101,6 +101,17 @@ class ProfileController extends Controller {
             $user->save();
 
             return redirect()->route('profile.index', $user->id)->with('success', "Your profile picture has been updated! Looking great! \u{1F60A}");
+        } else {
+            return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
+        }
+    }
+
+    public function edit($id) {
+        $user = User::find($id);
+        $locations = Location::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All locations', '');
+
+        if($user != null) {
+            return view('profile.edit', compact('user', 'locations'));
         } else {
             return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
         }

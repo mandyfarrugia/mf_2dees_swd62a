@@ -150,3 +150,5 @@ Route::post('/profile/{id}', [ProfileController::class, 'process_profile_picture
 
 //The below route uses a PUT request to remove the profile picture of an authenticated user.
 Route::put('/profile/{id}', [ProfileController::class, 'remove_profile_picture'])->name('profile.remove_profile_picture');
+
+Route::get('/profile/{id}/change_profile_picture', [ProfileController::class, 'change_profile_picture'])->name('profile.change_profile_picture');

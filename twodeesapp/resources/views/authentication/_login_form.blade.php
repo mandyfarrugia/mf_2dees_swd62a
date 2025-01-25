@@ -13,8 +13,11 @@
         </div>
         <div class="form-group row">
             <label for="password" class="col-md-3 col-form-label">Password</label>
-            <div class="col-md-9">
-                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
+            <div class="input-group col-md-9">
+                <input type="password" required name="password" id="password" class="form-control rounded @error('password') is-invalid @enderror">
+                <button id="toggle-password" type="button" class="d-none"
+                    aria-label="Show password as plain text. Warning: this will display your password on the screen.">
+                </button>
                 @error('password')
                     <div class="invalid-feedback">
                         {{ $message }}

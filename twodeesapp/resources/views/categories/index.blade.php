@@ -29,7 +29,7 @@
                     @else
                         <div class="card-body">
                             <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
-                            <p style="text-align: center;"></p>
+                            <p style="text-align: center;">Oops! It looks like there are no gaming categories available right now.<br><small>Whether you're into consoles, Warhammer, video games, or anything else in the gaming world, come back soon to explore more!</small></p>
                         </div>
                     @endif
                     <form id="form_delete" method="POST">

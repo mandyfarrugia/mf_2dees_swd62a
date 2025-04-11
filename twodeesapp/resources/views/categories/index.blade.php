@@ -12,7 +12,9 @@
                             <div class="ml-auto" id="btn_placeholder">
                                 <a href="{{ route('categories.create') }}" class="btn btn-success"><i
                                         class="fa fa-plus-circle"></i> Add New</a>
-                                <a href="" class="btn btn-secondary" id="view_mode"><i class="fa fa-{{ request('view_mode') == 'table' || request('view_mode') == null ? 'images' : (request('view_mode') == 'cards' ?  'table' : '')}}"></i></a>
+                                @if($categories->count())
+                                    <a href="" class="btn btn-secondary" id="view_mode"><i class="fa fa-{{ request('view_mode') == 'table' || request('view_mode') == null ? 'images' : (request('view_mode') == 'cards' ?  'table' : '')}}"></i></a>
+                                @endif
                             </div>
                         </div>
                     </div>

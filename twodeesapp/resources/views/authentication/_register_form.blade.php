@@ -52,7 +52,7 @@
             <label for="password" class="col-md-3 col-form-label">Password</label>
             <div class="input-group col-md-9">
                 <input type="password" required name="password" id="password"
-                    class="form-control rounded @error('password') is-invalid @enderror">
+                    class="form-control rounded @error('password') is-invalid @enderror"/>
                 <button id="toggle-password" type="button" class="d-none"
                     aria-label="Show password as plain text. Warning: this will display your password on the screen.">
                 </button>
@@ -67,7 +67,10 @@
             <label for="password_confirmation" class="col-md-3 col-form-label">Confirm Password</label>
             <div class="input-group col-md-9">
                 <input type="password" required name="password_confirmation" id="password_confirmation"
-                    class="form-control @error('password_confirmation') is-invalid @enderror">
+                    class="form-control @error('password_confirmation') is-invalid @enderror"/>
+                <button id="toggle-password" type="button" class="d-none"
+                    aria-label="Show password as plain text. Warning: this will display your password on the screen.">
+                </button>
                 @error('password_confirmation')
                     <div class="invalid-feedback">
                         {{ $message }}

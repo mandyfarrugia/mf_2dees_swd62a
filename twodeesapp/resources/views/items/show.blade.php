@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', $item->name)
 @section('content')
     @include('common._date_format')
     <section class="page-section about-heading">

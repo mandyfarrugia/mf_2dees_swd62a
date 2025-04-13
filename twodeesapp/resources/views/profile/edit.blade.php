@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Edit your profile')
 @section('content')
     <main class="py-5">
         <div class="container">

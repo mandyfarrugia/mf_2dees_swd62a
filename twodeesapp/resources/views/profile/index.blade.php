@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', Auth::check() ? ($user->id == auth()->user()->id ? 'Your profile' : $user->username) : null)
 @section('content')
     <section>
         <div class="container py-5">
@@ -18,7 +19,7 @@
                             {{-- <p class="text-muted mb-1">Full Stack Developer</p>
                             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
                             @if(Auth::check())
-                                @if ($user->id == auth()->user()->id)
+                                @if($user->id == auth()->user()->id)
                                     @if(file_exists($user->profile_picture))
                                         <div class="d-flex justify-content-center mb-2">
                                             <a href="{{ route('profile.change_profile_picture', $user->id) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>

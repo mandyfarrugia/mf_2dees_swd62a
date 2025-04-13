@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Add category')
 @section('content')
     <main class="py-5">
       <div class="container">

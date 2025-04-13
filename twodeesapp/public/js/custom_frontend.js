@@ -1,3 +1,30 @@
+const processPasswordToggleView = (togglePasswordButton) => {
+    attachEvent(togglePasswordButton, 'click', (event) => {
+        let passwordElement = event.target.previousElementSibling;
+        if (passwordElement.type === 'password') {
+            passwordElement.type = 'text';
+            togglePasswordButton.setAttribute('aria-label', 'Hide password.');
+        } else {
+            passwordElement.type = 'password';
+            togglePasswordButton.setAttribute(
+                'aria-label',
+                'Show password as plain text.' +
+                'Warning: this will display your password on the screen.'
+            );
+        }
+    });
+};
+
+const handlePasswordViewClick = () => {
+    var passwordElements = document.querySelectorAll('[type="password"]');
+    passwordElements.forEach((passwordElement) => {
+        passwordElement.classList.add('input-password');
+        var togglePasswordButton = passwordElement.nextElementSibling;
+        togglePasswordButton.classList.remove('d-none');
+        processPasswordToggleView(togglePasswordButton);
+    });
+};
+
 const removeProfilePicture = (event) => {
     let form = event.target.parentElement;
     form.submit();
@@ -224,6 +251,8 @@ if (removeProfilePictureBtn !== null) {
         removeProfilePicture(event);
     });
 }
+
+handlePasswordViewClick();
 
 Fancybox.bind("[data-fancybox]", {
     hideScrollbar: false,

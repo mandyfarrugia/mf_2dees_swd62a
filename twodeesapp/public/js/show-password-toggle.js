@@ -11,8 +11,9 @@ passwordElements.forEach(passwordElement => {
     var togglePasswordButton = passwordElement.nextElementSibling;
     togglePasswordButton.classList.remove('d-none');
 
-    togglePasswordButton.addEventListener('click', function() {
+    togglePasswordButton.addEventListener('click', function(event) {
       alert('Clicked!');
+      console.log(event);
     });
   });
 });

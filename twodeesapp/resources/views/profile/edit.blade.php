@@ -10,7 +10,7 @@
                             <strong>Edit profile</strong>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form novalidate action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
                                 @include('profile._edit_form')

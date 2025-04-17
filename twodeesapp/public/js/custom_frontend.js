@@ -1,28 +1,20 @@
 const processPasswordToggleView = (togglePasswordButton) => {
     attachEvent(togglePasswordButton, 'click', (event) => {
         let passwordElement = event.target.previousElementSibling;
-        if (passwordElement.type === 'password') {
-            passwordElement.type = 'text';
-            togglePasswordButton.setAttribute('aria-label', 'Hide password.');
-        } else {
-            passwordElement.type = 'password';
-            togglePasswordButton.setAttribute(
-                'aria-label',
-                'Show password as plain text.' +
-                'Warning: this will display your password on the screen.'
-            );
-        }
+        const isPassword = passwordElement.type === 'password';
+        passwordElement.type = isPassword ? 'text' : 'password';
+        togglePasswordButton.setAttribute('aria-label', isPassword ? 'Hide password.' : 'Show password as plain text. Warning: this will display your password on the screen.');
     });
 };
 
-const handlePasswordViewClick = () => {
-    var passwordElements = document.querySelectorAll('[type="password"]');
-    passwordElements.forEach((passwordElement) => {
-        passwordElement.classList.add('input-password');
-        var togglePasswordButton = passwordElement.nextElementSibling;
+const handlePasswordViewClick = (passwordElement) => {
+    passwordElement.classList.add('input-password');
+    const togglePasswordButton = passwordElement.nextElementSibling;
+
+    if (togglePasswordButton && togglePasswordButton.classList.contains('toggle-password')) {
         togglePasswordButton.classList.remove('d-none');
         processPasswordToggleView(togglePasswordButton);
-    });
+    }
 };
 
 const removeProfilePicture = (event) => {
@@ -133,6 +125,7 @@ const removeProfilePictureBtn = document.getElementById('btn_remove_profile_pict
 
 const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
 const deleteBtns = document.querySelectorAll('.btn-delete');
+const passwordElements = document.querySelectorAll('input[type="password"]');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -252,7 +245,11 @@ if (removeProfilePictureBtn !== null) {
     });
 }
 
-handlePasswordViewClick();
+attachEvent(window, 'load', () => {
+    if (passwordElements !== null) {
+        passwordElements.forEach((passwordElement) => handlePasswordViewClick(passwordElement));
+    }
+});
 
 Fancybox.bind("[data-fancybox]", {
     hideScrollbar: false,

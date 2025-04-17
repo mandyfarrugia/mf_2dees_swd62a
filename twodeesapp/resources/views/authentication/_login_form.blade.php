@@ -15,7 +15,7 @@
             <label for="password" class="col-md-3 col-form-label">Password</label>
             <div class="input-group col-md-9">
                 <input type="password" required name="password" id="password" class="form-control rounded @error('password') is-invalid @enderror">
-                <button class="toggle-password" type="button" class="d-none"
+                <button class="toggle-password d-none" type="button" 
                     aria-label="Show password as plain text. Warning: this will display your password on the screen.">
                 </button>
                 @error('password')

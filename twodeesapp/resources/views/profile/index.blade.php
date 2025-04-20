@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', Auth::check() ? ($user->id == auth()->user()->id ? 'Your profile' : $user->username) : null)
+@section('title', Auth::check() ? ($user->id == auth()->user()->id ? 'Your profile' : $user->username) : $user->username)
 @section('content')
     <section>
         <div class="container py-5">
@@ -16,8 +16,6 @@
                                 <img src="https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max" class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="No profile picture available"/>
                             @endif
                             <h5 class="my-3">{{ $user->name }} {{ $user->surname }}</h5>
-                            {{-- <p class="text-muted mb-1">Full Stack Developer</p>
-                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
                             @if(Auth::check())
                                 @if($user->id == auth()->user()->id)
                                     @if(file_exists($user->profile_picture))
@@ -43,7 +41,7 @@
                                 @endif
                             @else
                                 <div class="d-flex justify-content-center">
-                                    <p class="text-muted"><small>To interact with {{ $user->name }}, please log in first.</small></p>
+                                    <p class="text-muted"><small>To interact with {{ $user->name }}, please <a style="text-decoration: none;" href="{{ route('authentication.login') }}">log in</a> first.</small></p>
                                 </div>
                             @endif
                         </div>

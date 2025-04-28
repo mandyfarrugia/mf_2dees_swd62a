@@ -148,7 +148,6 @@ class ProfileController extends Controller {
             $user->email = $request->email;
             $user->username = $request->username;
             $user->birth_date = $request->birth_date;
-            $user->password = bcrypt(value: $user->password);
             $user->location_id = $request->location_id;
             $user->bio = trim($request->bio);
             $user->save();

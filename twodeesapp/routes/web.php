@@ -31,6 +31,9 @@ Route::get('/', [NavigationController::class, 'welcome'])->name('/');
 //This route uses a GET request to render a view to display the about page.
 Route::get('/about', [NavigationController::class, 'about'])->name('navigation.about');
 
+//This route uses a GET request to render a view to display all registered users.
+Route::get('/users', [NavigationController::class, 'users'])->name('navigation.users');
+
 /* 
   _____ _______ ______ __  __  _____   _____   ____  _    _ _______ ______  _____ 
  |_   _|__   __|  ____|  \/  |/ ____| |  __ \ / __ \| |  | |__   __|  ____|/ ____|

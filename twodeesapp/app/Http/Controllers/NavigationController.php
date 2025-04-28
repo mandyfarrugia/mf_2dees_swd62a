@@ -10,5 +10,9 @@ class NavigationController extends Controller {
     public function about() {
         return view('navigation.about');
     }
+
+    public function users() {
+        return view('navigation.users');
+    }
 }
 ?>

@@ -3,22 +3,22 @@
         <div class="col header-item">
             Item
             <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
-                request('item') == 'asc' || request('item') == null ? 'up' : 
-                (request('item') == 'desc' ? 'down' : '') }}">
+                request('item') == 'asc' || request('item') == null ? 'up' :
+    (request('item') == 'desc' ? 'down' : '') }}">
             </i>
         </div>
         <div class="col header-item">
             Release Date
             <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
-                request('release_date') == 'asc' || request('release_date') == null ? 'up' : 
-                (request('release_date') == 'desc' ? 'down' : '') }}">
+                request('release_date') == 'asc' || request('release_date') == null ? 'up' :
+    (request('release_date') == 'desc' ? 'down' : '') }}">
             </i>
         </div>
         <div class="col header-item">
             Price
             <i id="arrow_filter" class="fa-solid fa-arrow-{{ 
-                request('price') == 'asc' || request('price') == null ? 'up' : 
-                (request('price') == 'desc' ? 'down' : '') }}">
+                request('price') == 'asc' || request('price') == null ? 'up' :
+    (request('price') == 'desc' ? 'down' : '') }}">
             </i>
         </div>
     </div>
@@ -29,7 +29,8 @@
         @foreach ($items as $item)
             <div class="col-md-4 col-12 mb-4">
                 <div class="card" style="width: 100%; height: 100%;">
-                    <img class="card-img-top" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}" alt="{{ $item->name }}"/>
+                    <img class="card-img-top" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}"
+                        alt="{{ $item->name }}" />
                     <div class="card-body">
                         <div class="card-body">
                             <h4 class="card-title">{{ $item->name }}</h4>
@@ -53,7 +54,7 @@
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>

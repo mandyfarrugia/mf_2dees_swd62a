@@ -165,3 +165,6 @@ Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('prof
 
 //The below route uses a PUT request to validate the data furnished by the user. If successful, persist changes inflicted on the profile to the database.
 Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+//This route uses a DELETE request to remove an user from the database based on the id supplied.
+Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');

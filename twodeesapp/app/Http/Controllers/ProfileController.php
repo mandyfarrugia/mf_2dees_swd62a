@@ -165,5 +165,17 @@ class ProfileController extends Controller
             return redirect()->route('/')->with('error', 'The profile you are searching for does not exist!');
         }
     }
+
+    public function destroy($id) {
+        $userToDelete = User::find($id);
+
+        if($userToDelete->profile_picture && file_exists(public_path($userToDelete->profile_picture))) {
+            unlink(public_path($userToDelete->profile_picture));
+        }
+
+        $userToDelete->delete();
+
+        return back()->with('success', 'Profile deleted successfully!');
+    }
 }
 ?>

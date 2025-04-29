@@ -5,6 +5,7 @@
         <div class="container">
             @include('common._message')
             @include('common._date_format')
+            @include('common._age_calculation')
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -39,7 +40,8 @@
                                                         @endif
                                                     </div>
                                                     <div class="card-body mt-auto text-center">
-                                                        <h5 class="card-title mb-1">{{ $user->username }}</h5>
+                                                        
+                                                        <h5 class="card-title mb-1">{{ $user->username }}, {{ calculate_age($user->birth_date) }}</h5>
                                                         <p class="text-muted mb-0">{{ $user->location->name }}, {{ $user->location->region->country->name }}</p>
                                                         <p class="card-text">{{ $user->bio }}</p>
                                                         <p><small class="text-muted mb-0">Joined on {{ format_date($user->created_at) }}</small></p>
@@ -66,7 +68,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
+                                <p class="text-center"><i class="fa-solid fa-face-frown"></i></p>
                             </div>
                         <form id="form_delete" method="POST">
                             @method('DELETE')

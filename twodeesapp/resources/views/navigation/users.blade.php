@@ -18,7 +18,7 @@
                             <p class="text-muted mb-0">{{ $user->location->name }}, {{ $user->location->region->country->name }}</p>
                             <p class="card-text">{{ $user->bio }}</p>
                             <div class="btn-group w-100" role="group">
-                                <a href=""
+                                <a href="{{ route('profile.index', $user->id) }}"
                                     class="btn btn-sm btn-circle btn-primary d-block d-md-inline-block mb-2 mb-md-0"
                                     title="Show">
                                     <i class="fa fa-eye"></i>

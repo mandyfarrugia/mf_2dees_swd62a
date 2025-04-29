@@ -22,6 +22,36 @@ const removeProfilePicture = (event) => {
     form.submit();
 };
 
+const deleteEntity = (event) => {
+    event.preventDefault();
+
+    $.confirm({
+        title: 'Delete Confirmation',
+        content: 'Once deleted, this action cannot be undone. Are you sure you want to proceed?',
+        buttons: {
+            confirm: {
+                text: 'Yes',
+                btnClass: 'btn-green',
+                keys: ['y'],
+                action: () => {
+                    let action = event.target.getAttribute('href');
+                    let form = document.getElementById('form_delete');
+                    form.setAttribute('action', action);
+                    form.submit();
+                }
+            },
+            cancel: {
+                text: 'No',
+                btnClass: 'btn-red',
+                keys: ['n'],
+                action: () => {
+                    return;
+                }
+            }
+        }
+    });
+};
+
 const displayErrorAlert = (message) => {
     const ALERT_DURATION_MILLISECONDS = 5000;
     const containerAfterMain = document.querySelector('main.py-5 > .container');
@@ -186,37 +216,7 @@ if (arrowFilterBtn !== null) {
 }
 
 if (deleteBtns !== null) {
-    deleteBtns.forEach((deleteBtn) => {
-        deleteBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            $.confirm({
-                title: 'Delete Confirmation',
-                content: 'Once deleted, this action cannot be undone. Are you sure you want to proceed?',
-                buttons: {
-                    confirm: {
-                        text: 'Yes',
-                        btnClass: 'btn-green',
-                        keys: ['y'],
-                        action: () => {
-                            let action = deleteBtn.getAttribute('href');
-                            let form = document.getElementById('form_delete');
-                            form.setAttribute('action', action);
-                            form.submit();
-                        }
-                    },
-                    cancel: {
-                        text: 'No',
-                        btnClass: 'btn-red',
-                        keys: ['n'],
-                        action: () => {
-                            return;
-                        }
-                    }
-                }
-            });
-        });
-    });
+    deleteBtns.forEach((deleteBtn) => attachEvent(deleteBtn, 'click', (event) => deleteEntity(event)));
 }
 
 if (viewModeBtn !== null) {

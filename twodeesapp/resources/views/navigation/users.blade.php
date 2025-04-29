@@ -56,7 +56,7 @@
                                                                 title="Edit">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a href=""
+                                                            <a href="{{ route('profile.destroy', $user->id) }}"
                                                                 class="btn-delete btn btn-sm btn-circle btn-danger d-block d-md-inline-block mb-2 mb-md-0"
                                                                 title="Delete">
                                                                 <i class="fa fa-trash"></i>

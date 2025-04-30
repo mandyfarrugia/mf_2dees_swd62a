@@ -12952,3 +12952,27 @@ a:has(.fa-brands) {
 #current_user {
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+#game-controller-emoji {
+  font-size: 4rem;
+}
+
+h1#error-404 {
+  color: #e6a756;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+h2#error-404 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+p#error-404 {
+  font-size: 1rem;
+  color: #ccc;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}

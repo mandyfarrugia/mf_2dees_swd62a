@@ -168,3 +168,5 @@ Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile
 
 //This route uses a DELETE request to remove an user from the database based on the id supplied.
 Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::fallback(fn() => response()->view('errors.404', [], 404));

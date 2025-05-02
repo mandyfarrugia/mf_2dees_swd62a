@@ -3101,7 +3101,9 @@ textarea.form-control.is-valid {
   z-index: 3;
 }
 
-.invalid-feedback {
+.invalid-feedback,
+#email-error,
+#password-error {
   display: none;
   width: 100%;
   margin-top: 0.25rem;

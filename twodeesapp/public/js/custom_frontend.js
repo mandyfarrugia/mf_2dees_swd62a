@@ -259,29 +259,40 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 $(document).ready(function () {
-    $("#login_form").validate({
-        rules: {
-            email: {
-                required: true
+    if($('#login_form') !== null) {
+        $('#login_form').validate({
+            rules: {
+                email: {
+                    required: true
+                },
+                password: {
+                    required: true
+                }
             },
-            password: {
-                required: true
+            messages: {
+                email: {
+                    required: "🚫 Access denied. Email required to continue your quest.",
+                    email: "💌 Emails have an '@', not potions or swords!"
+                },
+                password: {
+                    required: "🔒 You must forge a password to enter the dungeon."
+                }
+            },
+            errorClass: "is-invalid",
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
             }
-        },
-        errorClass: "is-invalid",
-        highlight: function (element, errorClass) {
-            $(element).addClass(errorClass);
-        },
-        unhighlight: function (element, errorClass) {
-            $(element).removeClass(errorClass);
-        }
-    });
-
-    $("#email").on("blur", function () {
-        $("#login_form").validate().element("#email");
-    });
-
-    $("#password").on("blur", function () {
-        $("#login_form").validate().element("#password");
-    });
+        });
+    
+        $("#email").on("blur", function () {
+            $("#login_form").validate().element("#email");
+        });
+    
+        $("#password").on("blur", function () {
+            $("#login_form").validate().element("#password");
+        });
+    }
 });

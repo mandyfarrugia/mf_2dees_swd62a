@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Home')
 @section('content')
     <section class="page-section clearfix">
         <div class="container">

@@ -31,6 +31,9 @@ Route::get('/', [NavigationController::class, 'welcome'])->name('/');
 //This route uses a GET request to render a view to display the about page.
 Route::get('/about', [NavigationController::class, 'about'])->name('navigation.about');
 
+//This route uses a GET request to render a view to display all registered users.
+Route::get('/users', [NavigationController::class, 'users'])->name('navigation.users');
+
 /* 
   _____ _______ ______ __  __  _____   _____   ____  _    _ _______ ______  _____ 
  |_   _|__   __|  ____|  \/  |/ ____| |  __ \ / __ \| |  | |__   __|  ____|/ ____|
@@ -149,4 +152,21 @@ Route::get('/profile/{id}/upload_profile_picture', [ProfileController::class, 'u
 Route::post('/profile/{id}', [ProfileController::class, 'process_profile_picture_upload'])->name('profile.process_profile_picture_upload');
 
 //The below route uses a PUT request to remove the profile picture of an authenticated user.
-Route::put('/profile/{id}', [ProfileController::class, 'remove_profile_picture'])->name('profile.remove_profile_picture');
+Route::put('/profile/{id}/remove_profile_picture', [ProfileController::class, 'remove_profile_picture'])->name('profile.remove_profile_picture');
+
+//The below route uses a GET request to render a view to display a form to change the profile picture of an authenticated user.
+Route::get('/profile/{id}/change_profile_picture', [ProfileController::class, 'change_profile_picture'])->name('profile.change_profile_picture');
+
+//The below route uses a PUT request to validate the data furnished by the user. If successful, update the profile picture in the database.
+Route::put('/profile/{id}/process_profile_picture_update', [ProfileController::class, 'process_profile_picture_update'])->name('profile.process_profile_picture_update');
+
+//The below route uses a GET request to render a view to display a form to edit the profile of an authenticated user.
+Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+//The below route uses a PUT request to validate the data furnished by the user. If successful, persist changes inflicted on the profile to the database.
+Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+//This route uses a DELETE request to remove an user from the database based on the id supplied.
+Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::fallback(fn() => response()->view('errors.404', [], 404));

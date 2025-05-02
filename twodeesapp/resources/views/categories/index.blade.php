@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'All categories')
 @section('content')
 <main class="py-5">
     <div class="container">
@@ -12,7 +13,9 @@
                             <div class="ml-auto" id="btn_placeholder">
                                 <a href="{{ route('categories.create') }}" class="btn btn-success"><i
                                         class="fa fa-plus-circle"></i> Add New</a>
-                                <a href="" class="btn btn-secondary" id="view_mode"><i class="fa fa-{{ request('view_mode') == 'table' || request('view_mode') == null ? 'images' : (request('view_mode') == 'cards' ?  'table' : '')}}"></i></a>
+                                @if($categories->count())
+                                    <a href="" class="btn btn-secondary" id="view_mode"><i class="fa fa-{{ request('view_mode') == 'table' || request('view_mode') == null ? 'images' : (request('view_mode') == 'cards' ?  'table' : '')}}"></i></a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -29,7 +32,7 @@
                     @else
                         <div class="card-body">
                             <p style="text-align: center;"><i class="fa-solid fa-face-frown"></i></p>
-                            <p style="text-align: center;"></p>
+                            <p style="text-align: center;">Oops! It looks like there are no gaming categories available right now.<br><small>Whether you're into consoles, Warhammer, video games, or anything else in the gaming world, come back soon to explore more!</small></p>
                         </div>
                     @endif
                     <form id="form_delete" method="POST">

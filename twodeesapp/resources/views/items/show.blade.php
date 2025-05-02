@@ -1,13 +1,15 @@
 @extends('layouts.main')
-
+@section('title', $item->name)
 @section('content')
     @include('common._date_format')
     <section class="page-section about-heading">
         <div class="container">
             @include('common._message')
-            <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ ($item->image_path != null) ? asset($item->image_path) : '' }}"
+            @if($item->image_path != null)
+                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ ($item->image_path) ? asset($item->image_path) : '' }}"
             alt="{{ $item->name }}" />
-            <div class="about-heading-content">
+            @endif
+            <div class="about-heading-content {{ (!$item->image_path) ? 'mt-auto' : null }}">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 mx-auto">
                         <div class="bg-faded rounded p-5">

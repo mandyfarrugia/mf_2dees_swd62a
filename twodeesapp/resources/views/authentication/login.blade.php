@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Login')
 @section('content')
 <main class="py-5">
     <div class="container">
@@ -10,7 +11,7 @@
               <strong>Login</strong>
             </div>           
             <div class="card-body">
-              <form action="" method="POST">
+              <form novalidate action="{{ route('authentication.login') }}" method="POST">
                 @csrf
                 @include('authentication._login_form')
               </form>

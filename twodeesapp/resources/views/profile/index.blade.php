@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', Auth::check() ? ($user->id == auth()->user()->id ? 'Your profile' : $user->username) : $user->username)
 @section('content')
     <section>
         <div class="container py-5">
@@ -15,19 +16,17 @@
                                 <img src="https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max" class="rounded-circle shadow-4 img-fluid" style="width: 150px;" alt="No profile picture available"/>
                             @endif
                             <h5 class="my-3">{{ $user->name }} {{ $user->surname }}</h5>
-                            {{-- <p class="text-muted mb-1">Full Stack Developer</p>
-                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p> --}}
                             @if(Auth::check())
-                                @if ($user->id == auth()->user()->id)
+                                @if($user->id == auth()->user()->id)
                                     @if(file_exists($user->profile_picture))
                                         <div class="d-flex justify-content-center mb-2">
-                                            <a class="btn btn-success btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
+                                            <a href="{{ route('profile.change_profile_picture', $user->id) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-user-large"></i> Update profile picture</a>
                                         </div>
                                         <div class="d-flex justify-content-center mb-2">
                                             <form action="{{ route('profile.remove_profile_picture', $user->id) }}" method="POST" enctype="multipart/form-data">
                                                 @method('PUT')
                                                 @csrf
-                                                <a id="btn_remove_profile_picture" class="btn btn-success btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
+                                                <a id="btn_remove_profile_picture" class="btn btn-outline-secondary btn-sm ms-1"><i class="fa-solid fa-xmark"></i> Remove profile picture</a>
                                             </form>
                                         </div>
                                     @else
@@ -36,10 +35,14 @@
                                         </div>
                                     @endif
                                     <div class="d-flex justify-content-center mb-2">
-                                        <a class="btn btn-primary"><i class="fas fa-user-edit"></i> Edit profile</a>
+                                        <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-secondary"><i class="fas fa-user-edit"></i> Edit profile</a>
                                         <a class="btn btn-danger ms-1"><i class="fas fa-user-times"></i> Delete profile</a>
                                     </div>
                                 @endif
+                            @else
+                                <div class="d-flex justify-content-center">
+                                    <p class="text-muted"><small>To interact with {{ $user->name }}, please <a style="text-decoration: none;" href="{{ route('authentication.login') }}">log in</a> first.</small></p>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -82,6 +85,16 @@
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{ format_date($user->birth_date) }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            @include('common._age_calculation')
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Age</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ calculate_age($user->birth_date) }} years</p>
                                 </div>
                             </div>
                             <hr>

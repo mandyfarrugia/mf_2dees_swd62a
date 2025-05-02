@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Edit item')
+@section('title', 'Update your profile picture')
 @section('content')
     <main class="py-5">
         <div class="container">
@@ -7,13 +7,13 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header card-title">
-                            <strong>Edit Item</strong>
+                            <strong>Update profile picture</strong>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('items.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('profile.process_profile_picture_update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
-                                @include('items._form')
+                                @include('profile._upload_form')
                             </form>
                         </div>
                     </div>

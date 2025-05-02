@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'All items')
 @section('content')
     @php
         /* An array of humoristic messages inspired by Discord, the Warhammer lore, and Gears of War.

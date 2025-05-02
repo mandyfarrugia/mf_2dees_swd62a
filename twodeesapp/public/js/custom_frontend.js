@@ -1,6 +1,55 @@
+const processPasswordToggleView = (togglePasswordButton) => {
+    attachEvent(togglePasswordButton, 'click', (event) => {
+        let passwordElement = event.target.previousElementSibling;
+        const isPassword = passwordElement.type === 'password';
+        passwordElement.type = isPassword ? 'text' : 'password';
+        togglePasswordButton.setAttribute('aria-label', isPassword ? 'Hide password.' : 'Show password as plain text. Warning: this will display your password on the screen.');
+    });
+};
+
+const handlePasswordViewClick = (passwordElement) => {
+    passwordElement.classList.add('input-password');
+    const togglePasswordButton = passwordElement.nextElementSibling;
+
+    if (togglePasswordButton && togglePasswordButton.classList.contains('toggle-password')) {
+        togglePasswordButton.classList.remove('d-none');
+        processPasswordToggleView(togglePasswordButton);
+    }
+};
+
 const removeProfilePicture = (event) => {
     let form = event.target.parentElement;
     form.submit();
+};
+
+const deleteEntity = (event) => {
+    event.preventDefault();
+
+    $.confirm({
+        title: 'Delete Confirmation',
+        content: 'Once deleted, this action cannot be undone. Are you sure you want to proceed?',
+        buttons: {
+            confirm: {
+                text: 'Yes',
+                btnClass: 'btn-green',
+                keys: ['y'],
+                action: () => {
+                    let action = event.target.getAttribute('href');
+                    let form = document.getElementById('form_delete');
+                    form.setAttribute('action', action);
+                    form.submit();
+                }
+            },
+            cancel: {
+                text: 'No',
+                btnClass: 'btn-red',
+                keys: ['n'],
+                action: () => {
+                    return;
+                }
+            }
+        }
+    });
 };
 
 const displayErrorAlert = (message) => {
@@ -106,6 +155,7 @@ const removeProfilePictureBtn = document.getElementById('btn_remove_profile_pict
 
 const arrowFilterBtn = document.querySelectorAll('#arrow_filter');
 const deleteBtns = document.querySelectorAll('.btn-delete');
+const passwordElements = document.querySelectorAll('input[type="password"]');
 
 if (categoryFilterDropdown !== null) {
     attachEvent(categoryFilterDropdown, 'change', (event) => {
@@ -166,37 +216,7 @@ if (arrowFilterBtn !== null) {
 }
 
 if (deleteBtns !== null) {
-    deleteBtns.forEach((deleteBtn) => {
-        deleteBtn.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            $.confirm({
-                title: 'Delete Confirmation',
-                content: 'Once deleted, this action cannot be undone. Are you sure you want to proceed?',
-                buttons: {
-                    confirm: {
-                        text: 'Yes',
-                        btnClass: 'btn-green',
-                        keys: ['y'],
-                        action: () => {
-                            let action = deleteBtn.getAttribute('href');
-                            let form = document.getElementById('form_delete');
-                            form.setAttribute('action', action);
-                            form.submit();
-                        }
-                    },
-                    cancel: {
-                        text: 'No',
-                        btnClass: 'btn-red',
-                        keys: ['n'],
-                        action: () => {
-                            return;
-                        }
-                    }
-                }
-            });
-        });
-    });
+    deleteBtns.forEach((deleteBtn) => attachEvent(deleteBtn, 'click', (event) => deleteEntity(event)));
 }
 
 if (viewModeBtn !== null) {
@@ -224,6 +244,12 @@ if (removeProfilePictureBtn !== null) {
         removeProfilePicture(event);
     });
 }
+
+attachEvent(window, 'load', () => {
+    if (passwordElements !== null) {
+        passwordElements.forEach((passwordElement) => handlePasswordViewClick(passwordElement));
+    }
+});
 
 Fancybox.bind("[data-fancybox]", {
     hideScrollbar: false,

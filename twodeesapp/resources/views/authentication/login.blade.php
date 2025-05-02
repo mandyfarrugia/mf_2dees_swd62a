@@ -11,7 +11,7 @@
               <strong>Login</strong>
             </div>           
             <div class="card-body">
-              <form novalidate action="{{ route('authentication.login') }}" method="POST">
+              <form id="login_form" novalidate action="{{ route('authentication.login') }}" method="POST">
                 @csrf
                 @include('authentication._login_form')
               </form>

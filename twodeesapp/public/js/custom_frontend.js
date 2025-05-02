@@ -257,3 +257,31 @@ Fancybox.bind("[data-fancybox]", {
     showClass: "f-fadeIn",
     hideClass: "f-scaleOut"
 });
+
+$(document).ready(function () {
+    $("#login_form").validate({
+        rules: {
+            email: {
+                required: true
+            },
+            password: {
+                required: true
+            }
+        },
+        errorClass: "is-invalid",
+        highlight: function (element, errorClass) {
+            $(element).addClass(errorClass);
+        },
+        unhighlight: function (element, errorClass) {
+            $(element).removeClass(errorClass);
+        }
+    });
+
+    $("#email").on("blur", function () {
+        $("#login_form").validate().element("#email");
+    });
+
+    $("#password").on("blur", function () {
+        $("#login_form").validate().element("#password");
+    });
+});

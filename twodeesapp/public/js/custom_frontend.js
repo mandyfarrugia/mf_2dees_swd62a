@@ -271,10 +271,16 @@ $(document).ready(function () {
                 username: {
                     required: true
                 },
+                email: {
+                    required: true
+                },
                 password: {
                     required: true
                 },
                 password_confirmation: {
+                    required: true
+                },
+                location_id: {
                     required: true
                 }
             },

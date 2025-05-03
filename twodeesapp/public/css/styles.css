@@ -3106,7 +3106,7 @@ textarea.form-control.is-valid {
 #surname-error,
 #username-error,
 #email-error,
-#password-error
+#password-error,
 #password_confirmation-error {
   display: none;
   width: 100%;

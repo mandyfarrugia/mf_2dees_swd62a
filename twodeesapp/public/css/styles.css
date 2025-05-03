@@ -3103,9 +3103,11 @@ textarea.form-control.is-valid {
 
 .invalid-feedback,
 #name-error,
-#password_confirmation-error,
+#surname-error,
+#username-error,
 #email-error,
-#password-error {
+#password-error
+#password_confirmation-error {
   display: none;
   width: 100%;
   margin-top: 0.25rem;

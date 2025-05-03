@@ -265,6 +265,15 @@ $(document).ready(function () {
                 name: {
                     required: true
                 },
+                surname: {
+                    required: true
+                },
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
+                },
                 password_confirmation: {
                     required: true
                 }

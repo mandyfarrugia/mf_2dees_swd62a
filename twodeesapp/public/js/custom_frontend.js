@@ -322,12 +322,12 @@ $(document).ready(function () {
             }
         });
     
-        $("#email").on("blur", function () {
-            $("#login_form").validate().element("#email");
-        });
+        // $("#email").on("blur", function () {
+        //     $("#login_form").validate().element("#email");
+        // });
     
-        $("#password").on("blur", function () {
-            $("#login_form").validate().element("#password");
-        });
+        // $("#password").on("blur", function () {
+        //     $("#login_form").validate().element("#password");
+        // });
     }
 });

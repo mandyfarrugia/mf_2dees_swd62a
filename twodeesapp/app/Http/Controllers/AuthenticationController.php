@@ -10,7 +10,7 @@ use App\Models\Location;
 
 class AuthenticationController extends Controller {
     public function register() {
-        $locations = Location::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All locations', '0');
+        $locations = Location::orderBy('name', 'asc')->pluck('name', 'id')->prepend('All locations', '');
         return view('authentication.register', compact('locations'));
     }
 

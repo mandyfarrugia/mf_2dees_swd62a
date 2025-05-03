@@ -259,6 +259,9 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 $(document).ready(function () {
+    $.toast('Here you can put the text of the toast')
+    $.toast('Today I am going to growl')
+
     if($('#register_form').length) {
         $('#register_form').validate({
             rules: {
@@ -303,23 +306,31 @@ $(document).ready(function () {
                 password: {
                     required: true
                 }
+            // },
+            // messages: {
+            //     email: {
+            //         required: "🚫 Access denied. Email required to continue your quest.",
+            //         email: "💌 Emails have an '@', not potions or swords!"
+            //     },
+            //     password: {
+            //         required: "🔒 You must forge a password to enter the dungeon."
+            //     }
+            // },
+            // errorClass: "is-invalid",
+            // highlight: function (element, errorClass) {
+            //     $(element).addClass(errorClass);
+            // },
+            // unhighlight: function (element, errorClass) {
+            //     $(element).removeClass(errorClass);
+            // }
             },
-            messages: {
-                email: {
-                    required: "🚫 Access denied. Email required to continue your quest.",
-                    email: "💌 Emails have an '@', not potions or swords!"
-                },
-                password: {
-                    required: "🔒 You must forge a password to enter the dungeon."
-                }
-            },
-            errorClass: "is-invalid",
-            highlight: function (element, errorClass) {
-                $(element).addClass(errorClass);
-            },
-            unhighlight: function (element, errorClass) {
-                $(element).removeClass(errorClass);
-            }
+            errorPlacement: function() {
+                return false;
+              },
+              showErrors: function(errorMap, errorList) {
+                $.toast(`${errorList[0].message}`)
+                return false;
+              }
         });
     
         $("#email").on("blur", function () {

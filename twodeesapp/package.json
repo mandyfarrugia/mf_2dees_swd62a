@@ -10,6 +10,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "bootstrap-show-password-toggle": "^1.4.1"
+        "bootstrap-show-password-toggle": "^1.4.1",
+        "jquery-toast-plugin": "^1.3.2"
     }
 }

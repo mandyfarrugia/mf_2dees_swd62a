@@ -245,7 +245,7 @@ if (removeProfilePictureBtn !== null) {
     });
 }
 
-attachEvent(window, 'load', () => {
+attachEvent(document, 'DOMContentLoaded', () => {
     if (passwordElements !== null) {
         passwordElements.forEach((passwordElement) => handlePasswordViewClick(passwordElement));
     }
@@ -259,7 +259,7 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 $(document).ready(function () {
-    if($('#register_form') != null) {
+    if($('#register_form').length) {
         $('#register_form').validate({
             rules: {
                 name: {
@@ -294,7 +294,7 @@ $(document).ready(function () {
         });
     }
 
-    if($('#login_form') !== null) {
+    if($('#login_form').length) {
         $('#login_form').validate({
             rules: {
                 email: {
@@ -322,12 +322,12 @@ $(document).ready(function () {
             }
         });
     
-        // $("#email").on("blur", function () {
-        //     $("#login_form").validate().element("#email");
-        // });
+        $("#email").on("blur", function () {
+            $("#login_form").validate().element("#email");
+        });
     
-        // $("#password").on("blur", function () {
-        //     $("#login_form").validate().element("#password");
-        // });
+        $("#password").on("blur", function () {
+            $("#login_form").validate().element("#password");
+        });
     }
 });

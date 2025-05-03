@@ -259,9 +259,6 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 $(document).ready(function () {
-    $.toast('Here you can put the text of the toast')
-    $.toast('Today I am going to growl')
-
     if($('#register_form').length) {
         $('#register_form').validate({
             rules: {
@@ -298,7 +295,7 @@ $(document).ready(function () {
     }
 
     if($('#login_form').length) {
-        $('#login_form').validate({
+        const validator = $('#login_form').validate({
             rules: {
                 email: {
                     required: true
@@ -306,30 +303,20 @@ $(document).ready(function () {
                 password: {
                     required: true
                 }
-            // },
-            // messages: {
-            //     email: {
-            //         required: "🚫 Access denied. Email required to continue your quest.",
-            //         email: "💌 Emails have an '@', not potions or swords!"
-            //     },
-            //     password: {
-            //         required: "🔒 You must forge a password to enter the dungeon."
-            //     }
-            // },
-            // errorClass: "is-invalid",
-            // highlight: function (element, errorClass) {
-            //     $(element).addClass(errorClass);
-            // },
-            // unhighlight: function (element, errorClass) {
-            //     $(element).removeClass(errorClass);
-            // }
             },
-            errorPlacement: function() {
-                return false;
-              },
+            messages: {
+                email: {
+                    required: "🚫 Access denied. Email required to continue your quest.",
+                    email: "💌 Emails have an '@', not potions or swords!"
+                },
+                password: {
+                    required: "🔒 You must forge a password to enter the dungeon."
+                }
+            },
+            errorPlacement: () => false,
               showErrors: function(errorMap, errorList) {
-                $.toast(`${errorList[0].message}`)
-                return false;
+            // Call the default showErrors method to handle the inline error message display
+            this.defaultShowErrors();
               }
         });
     
@@ -338,7 +325,14 @@ $(document).ready(function () {
         });
     
         $("#password").on("blur", function () {
-            $("#login_form").validate().element("#password");
+            const isValid = validator.element(this); // Validate the password field
+        if (!isValid) {
+            // Show toast error message if validation fails
+            const errorMessage = validator.errorMap[this.name];
+            if (errorMessage) {
+                $.toast(errorMessage); // Adjust as needed
+            }
+        }
         });
     }
 });

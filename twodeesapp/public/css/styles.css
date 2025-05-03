@@ -3102,6 +3102,8 @@ textarea.form-control.is-valid {
 }
 
 .invalid-feedback,
+#name-error,
+#password_confirmation-error,
 #email-error,
 #password-error {
   display: none;

@@ -259,6 +259,26 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 $(document).ready(function () {
+    if($('#register_form') != null) {
+        $('#register_form').validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                password_confirmation: {
+                    required: true
+                }
+            },
+            errorClass: "is-invalid",
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+            }
+        });
+    }
+
     if($('#login_form') !== null) {
         $('#login_form').validate({
             rules: {

@@ -19,11 +19,11 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        @include('common._search')
-                        <hr>
-                    </div>
-                    @if($categories->count())
+                        @if($categories->count())
+                            <div>
+                            @include('common._search')
+                            <hr>
+                        </div>
                         @if(request('view_mode') == 'table' || request('view_mode') == null)
                             @include('categories._table')
                         @elseif(request('view_mode') == 'cards')

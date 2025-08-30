@@ -41,17 +41,19 @@
                                 <div class="ml-auto" id="btn_placeholder">
                                     <a href="{{ route('items.create') }}" class="btn btn-success"><i
                                             class="fa fa-plus-circle"></i> Add New</a>
-                                    <a href="#" class="btn btn-secondary" id="view_mode"><i class="fa fa-{{ request('view_mode') == 'table' || request('view_mode') == null ? 'images' : (request('view_mode') == 'cards' ?  'table' : '')}}"></i></a>
+                                    @if($items->count())
+                                        <a href="#" class="btn btn-secondary" id="view_mode"><i class="fa fa-{{ request('view_mode') == 'table' || request('view_mode') == null ? 'images' : (request('view_mode') == 'cards' ?  'table' : '')}}"></i></a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            @include('common._search')
-                            <hr>
-                            @include('items._filter')
-                            <hr>
-                        </div>
                         @if($items->count())
+                            <div>
+                                @include('common._search')
+                                <hr>
+                                @include('items._filter')
+                                <hr>
+                            </div>
                             @include('common._date_format')
                             @if(request('view_mode') == 'table' || request('view_mode') == null)
                                 @include('items._table')

@@ -321,18 +321,25 @@ $(document).ready(function () {
         });
     
         $("#email").on("blur", function () {
-            $("#login_form").validate().element("#email");
+            const isValid = validator.element(this); // Validate the password field
+            if (!isValid) {
+                // Show toast error message if validation fails
+                const errorMessage = validator.errorMap[this.name];
+                if (errorMessage) {
+                    $.toast(errorMessage); // Adjust as needed
+                }
+            }
         });
     
         $("#password").on("blur", function () {
             const isValid = validator.element(this); // Validate the password field
-        if (!isValid) {
-            // Show toast error message if validation fails
-            const errorMessage = validator.errorMap[this.name];
-            if (errorMessage) {
-                $.toast(errorMessage); // Adjust as needed
+            if (!isValid) {
+                // Show toast error message if validation fails
+                const errorMessage = validator.errorMap[this.name];
+                if (errorMessage) {
+                    $.toast(errorMessage); // Adjust as needed
+                }
             }
-        }
         });
     }
 });

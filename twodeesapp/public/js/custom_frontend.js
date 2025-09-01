@@ -301,7 +301,8 @@ jQuery(function () {
                     required: true
                 },
                 password: {
-                    required: true
+                    required: true,
+                    min: 8
                 }
             },
             messages: {
@@ -310,34 +311,41 @@ jQuery(function () {
                     email: "💌 Emails have an '@', not potions or swords!"
                 },
                 password: {
-                    required: "🔒 You must forge a password to enter the dungeon."
+                    required: "🔒 You must forge a password to enter the dungeon.",
+                    min: `Security called. They said "Nice try."`
                 }
             },
             errorPlacement: () => false,
               showErrors: function(errorMap, errorList) {
-            // Call the default showErrors method to handle the inline error message display
-            this.defaultShowErrors();
+                //Call the default showErrors method to handle the inline error message display
+                this.defaultShowErrors();
               }
         });
     
         $("#email").on("blur", function () {
-            const isValid = validator.element(this); // Validate the password field
+            const isValid = validator.element(this); //Validate the password field
             if (!isValid) {
-                // Show toast error message if validation fails
+                //Show toast error message if validation fails
                 const errorMessage = validator.errorMap[this.name];
                 if (errorMessage) {
-                    $.toast(errorMessage); // Adjust as needed
+                    $.toast({
+                        heading: 'Whoa there! Even ghosts leave an email address...',
+                        text: errorMessage,
+                        showHideTransition: 'slide',
+                        bgColor: '#a60000'
+                    });
+                    //$.toast(errorMessage); //Adjust as needed
                 }
             }
         });
     
         $("#password").on("blur", function () {
-            const isValid = validator.element(this); // Validate the password field
+            const isValid = validator.element(this); //Validate the password field
             if (!isValid) {
-                // Show toast error message if validation fails
+                //Show toast error message if validation fails
                 const errorMessage = validator.errorMap[this.name];
                 if (errorMessage) {
-                    $.toast(errorMessage); // Adjust as needed
+                    $.toast(errorMessage); //Adjust as needed
                 }
             }
         });

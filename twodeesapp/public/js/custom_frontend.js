@@ -258,7 +258,7 @@ Fancybox.bind("[data-fancybox]", {
     hideClass: "f-scaleOut"
 });
 
-$(document).ready(function () {
+jQuery(function () {
     if($('#register_form').length) {
         $('#register_form').validate({
             rules: {

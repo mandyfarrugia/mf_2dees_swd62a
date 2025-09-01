@@ -259,94 +259,80 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 jQuery(function () {
-    if($('#register_form').length) {
-        $('#register_form').validate({
-            rules: {
-                name: {
-                    required: true
-                },
-                surname: {
-                    required: true
-                },
-                username: {
-                    required: true
-                },
-                email: {
-                    required: true
-                },
-                password: {
-                    required: true
-                },
-                password_confirmation: {
-                    required: true
-                },
-                location_id: {
-                    required: true
-                }
-            },
+    function setupValidation(formSelector, rules, messages = {}, customHandlers = {}) {
+        if (!$(formSelector).length) return null;
+        return $(formSelector).validate({
+            rules,
+            messages,
             errorClass: "is-invalid",
             highlight: function (element, errorClass) {
                 $(element).addClass(errorClass);
             },
             unhighlight: function (element, errorClass) {
                 $(element).removeClass(errorClass);
-            }
+            },
+            ...customHandlers
         });
     }
 
-    if($('#login_form').length) {
-        const validator = $('#login_form').validate({
-            rules: {
-                email: {
-                    required: true
-                },
-                password: {
-                    required: true,
-                    min: 8
-                }
+    // Register form validation
+    setupValidation('#register_form', {
+        name: { required: true },
+        surname: { required: true },
+        username: { required: true },
+        email: { required: true },
+        password: { required: true },
+        password_confirmation: { required: true },
+        location_id: { required: true }
+    });
+
+    // Login form validation
+    const loginValidator = setupValidation(
+        '#login_form',
+        {
+            email: { required: true },
+            password: { required: true, min: 8 }
+        },
+        {
+            email: {
+                required: "🚫 Access denied. Email required to continue your quest.",
+                email: "💌 Emails have an '@', not potions or swords!"
             },
-            messages: {
-                email: {
-                    required: "🚫 Access denied. Email required to continue your quest.",
-                    email: "💌 Emails have an '@', not potions or swords!"
-                },
-                password: {
-                    required: "🔒 You must forge a password to enter the dungeon.",
-                    min: `Security called. They said "Nice try."`
-                }
-            },
+            password: {
+                required: "🔒 You must forge a password to enter the dungeon.",
+                min: `Security called. They said "Nice try."`
+            }
+        },
+        {
             errorPlacement: () => false,
-              showErrors: function(errorMap, errorList) {
-                //Call the default showErrors method to handle the inline error message display
+            showErrors: function(errorMap, errorList) {
                 this.defaultShowErrors();
-              }
-        });
-    
+            }
+        }
+    );
+
+    function showToastError(input, heading) {
+        const errorMessage = loginValidator?.errorMap[input.name];
+        if (errorMessage) {
+            $.toast({
+                heading: heading || '',
+                text: errorMessage,
+                showHideTransition: 'slide',
+                bgColor: '#a60000'
+            });
+        }
+    }
+
+    if (loginValidator) {
         $("#email").on("blur", function () {
-            const isValid = validator.element(this); //Validate the password field
-            if (!isValid) {
-                //Show toast error message if validation fails
-                const errorMessage = validator.errorMap[this.name];
-                if (errorMessage) {
-                    $.toast({
-                        heading: 'Whoa there! Even ghosts leave an email address...',
-                        text: errorMessage,
-                        showHideTransition: 'slide',
-                        bgColor: '#a60000'
-                    });
-                    //$.toast(errorMessage); //Adjust as needed
-                }
+            if (!loginValidator.element(this)) {
+                showToastError(this, 'Whoa there! Even ghosts leave an email address...');
             }
         });
-    
+
         $("#password").on("blur", function () {
-            const isValid = validator.element(this); //Validate the password field
-            if (!isValid) {
-                //Show toast error message if validation fails
-                const errorMessage = validator.errorMap[this.name];
-                if (errorMessage) {
-                    $.toast(errorMessage); //Adjust as needed
-                }
+            if (!loginValidator.element(this)) {
+                showToastError(this);
             }
         });
     }

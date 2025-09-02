@@ -12983,3 +12983,7 @@ p#error-404 {
   max-width: 500px;
   margin: 0 auto 20px;
 }
+
+#profile_picture ~ .invalid-feedback {
+    color: #dc3545 !important;
+}

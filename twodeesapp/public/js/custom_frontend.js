@@ -278,6 +278,10 @@ jQuery(function () {
             unhighlight: function (element, errorClass) {
                 $(element).removeClass(errorClass);
             },
+            errorPlacement: function(error, element) {
+                error.addClass("invalid-feedback");
+                element.closest('.col-md-9').append(error);
+            },
             ...customHandlers
         });
     }
@@ -298,7 +302,10 @@ jQuery(function () {
                 minlength: 8,
                 equalTo: password
             },
-            location_id: { required: true }
+            location_id: { required: true },
+            profile_picture: {
+                accept: "image/*"
+            }
         }, 
         {
             name: {
@@ -325,6 +332,9 @@ jQuery(function () {
             },
             location_id: {
                 required: "🌍 Location is required to find your way."
+            },
+            profile_picture: {
+                accept: "🖼️ Only image files allowed! No enchanted scrolls or treasure maps, please."
             }
         },
         {

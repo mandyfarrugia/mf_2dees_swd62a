@@ -281,9 +281,19 @@ jQuery(function () {
         surname: { required: true },
         username: { required: true },
         email: { required: true },
-        password: { required: true },
+        password: { 
+            required: true,
+            min: 8
+        },
         password_confirmation: { required: true },
         location_id: { required: true }
+    }, {
+        location_id: {
+            required: "🌍 Location is required to find your way."
+        },
+        password: {
+            min: `Security called. They said "Nice try."`
+        }
     });
 
     // Login form validation
@@ -291,7 +301,7 @@ jQuery(function () {
         '#login_form',
         {
             email: { required: true },
-            password: { required: true, min: 8 }
+            password: { required: true }
         },
         {
             email: {
@@ -299,8 +309,7 @@ jQuery(function () {
                 email: "💌 Emails have an '@', not potions or swords!"
             },
             password: {
-                required: "🔒 You must forge a password to enter the dungeon.",
-                min: `Security called. They said "Nice try."`
+                required: "🔒 You must forge a password to enter the dungeon."
             }
         },
         {

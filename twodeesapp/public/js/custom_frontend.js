@@ -295,7 +295,8 @@ jQuery(function () {
             },
             password_confirmation: { 
                 required: true,
-                minlength: 8
+                minlength: 8,
+                equalTo: password
             },
             location_id: { required: true }
         }, 
@@ -306,12 +307,21 @@ jQuery(function () {
             surname: {
                 required: "👨‍👩‍👧‍👦 Surname required! Even heroes have families."
             },
+            username: {
+                required: "🦸‍♂️ No username? Even superheroes need a secret identity!"
+            },
+            email: {
+                required: "🦉 No email? How will the owls deliver your messages?",
+                email: "🛸 That doesn't look like an email! Even aliens use '@' in their addresses."
+            },
             password: {
+                required: "🗝️ You need a password to unlock this adventure!",
                 minlength: `🚓 Security called. They said "Nice try."`
             },
             password_confirmation: {
-                required: "🔒 Please confirm your password.",
-                minlength: 8
+                required: "🔒 Please confirm your password. Even wizards double-check their spells!",
+                minlength: "🧙‍♂️ Your confirmation spell needs to be longer!",
+                equalTo: "🪄 The passwords don't match! The magic fizzled..."
             },
             location_id: {
                 required: "🌍 Location is required to find your way."

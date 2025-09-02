@@ -31,9 +31,7 @@
         <div class="form-group row">
             <label for="description" class="col-md-3 col-form-label">Description</label>
             <div class="col-md-9">
-                <textarea name="description" id="description" class="form-control">
-                    {{ old('description', $item->description) }}
-                </textarea>
+                <textarea name="description" id="description" class="form-control" rows="5">{{ old('description', trim($item->description)) }}</textarea>
             </div>
         </div>
         <div class="form-group row">

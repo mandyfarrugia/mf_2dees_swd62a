@@ -287,12 +287,13 @@ jQuery(function () {
         },
         password_confirmation: { required: true },
         location_id: { required: true }
-    }, {
+    }, 
+    {
         location_id: {
             required: "🌍 Location is required to find your way."
         },
         password: {
-            min: `Security called. They said "Nice try."`
+            min: `🚓 Security called. They said "Nice try."`
         }
     });
 

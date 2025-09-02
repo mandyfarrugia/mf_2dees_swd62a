@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="TwoDees is a platform for exploring, sharing, and discovering legendary items and lore. Dive into categories, manage your collection, and connect with fellow enthusiasts across the Maltese islands!" />
+        <meta name="author" content="Mandy Farrugia"/>
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
         <title>TwoDees - @yield('title')</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/two_dees.ico') }}" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"

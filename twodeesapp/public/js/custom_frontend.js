@@ -313,7 +313,6 @@ jQuery(function () {
             }
         },
         {
-            errorPlacement: () => false,
             showErrors: function(errorMap, errorList) {
                 this.defaultShowErrors();
             }
@@ -341,7 +340,7 @@ jQuery(function () {
 
         $("#password").on("blur", function () {
             if (!loginValidator.element(this)) {
-                showToastError(this);
+                showToastError(this, 'The Gatekeeper says Nope!');
             }
         });
     }

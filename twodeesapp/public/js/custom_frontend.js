@@ -304,7 +304,8 @@ jQuery(function () {
             },
             location_id: { required: true },
             profile_picture: {
-                accept: "image/*"
+                accept: "image/*",
+                extension: "jpeg|png|jpg|gif"
             }
         }, 
         {
@@ -334,7 +335,8 @@ jQuery(function () {
                 required: "🌍 Location is required to find your way."
             },
             profile_picture: {
-                accept: "🖼️ Only image files allowed! No enchanted scrolls or treasure maps, please."
+                accept: "🖼️ Only image files allowed! No enchanted scrolls or treasure maps, please.",
+                extension: "📁 That file type is forbidden by ancient magic! Please upload a jpg, jpeg, png, or gif."
             }
         },
         {

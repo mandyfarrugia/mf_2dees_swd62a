@@ -393,4 +393,54 @@ jQuery(function () {
             }
         });
     }
+
+    if (registerValidator) {
+        $("#name").on("blur", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "Don't forget your name! The adventure can't start without you.");
+            }
+        });
+
+        $("#surname").on("blur", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "Even heroes have families. Surname required!");
+            }
+        });
+
+        $("#username").on("blur", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "No username? Even superheroes need a secret identity!");
+            }
+        });
+
+        $("#email").on("blur", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "Whoa there! Even owls need an email to deliver your messages!");
+            }
+        });
+
+        $("#password").on("blur", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "You need a password to unlock this adventure!");
+            }
+        });
+
+        $("#password_confirmation").on("blur", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "Please confirm your password. Even wizards double-check their spells!");
+            }
+        });
+
+        $("#location_id").on("blur change", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "Location is required to find your way.");
+            }
+        });
+
+        $("#profile_picture").on("change", function () {
+            if (!registerValidator.element(this)) {
+                showToastError(registerValidator, this, "Only image files allowed! No enchanted scrolls or treasure maps, please.");
+            }
+        });
+    }
 });

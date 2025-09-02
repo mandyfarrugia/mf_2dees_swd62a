@@ -1,9 +1,16 @@
 const processPasswordToggleView = (togglePasswordButton) => {
     attachEvent(togglePasswordButton, 'click', (event) => {
-        let passwordElement = event.target.previousElementSibling;
+        const parent = event.target.closest('.input-group');
+        const passwordElement = parent.querySelector('input.input-password');
+        if (!passwordElement) return;
         const isPassword = passwordElement.type === 'password';
         passwordElement.type = isPassword ? 'text' : 'password';
-        togglePasswordButton.setAttribute('aria-label', isPassword ? 'Hide password.' : 'Show password as plain text. Warning: this will display your password on the screen.');
+        togglePasswordButton.setAttribute(
+            'aria-label',
+            isPassword
+                ? 'Hide password.'
+                : 'Show password as plain text. Warning: this will display your password on the screen.'
+        );
     });
 };
 

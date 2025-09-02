@@ -275,35 +275,48 @@ jQuery(function () {
         });
     }
 
-    // Register form validation
-    const registerValidator = setupValidation('#register_form', {
-        name: { required: true },
-        surname: { required: true },
-        username: { required: true },
-        email: { required: true },
-        password: { 
-            required: true,
-            min: 8
+    const registerValidator = setupValidation(
+        '#register_form', 
+        {
+            name: { required: true },
+            surname: { required: true },
+            username: { required: true },
+            email: { required: true },
+            password: { 
+                required: true,
+                minlength: 8
+            },
+            password_confirmation: { 
+                required: true,
+                minlength: 8
+            },
+            location_id: { required: true }
+        }, 
+        {
+            name: {
+                required: "👤 Name required! The adventure can't start without you."
+            },
+            surname: {
+                required: "👨‍👩‍👧‍👦 Surname required! Even heroes have families."
+            },
+            password: {
+                minlength: `🚓 Security called. They said "Nice try."`
+            },
+            password_confirmation: {
+                required: "🔒 Please confirm your password.",
+                minlength: 8
+            },
+            location_id: {
+                required: "🌍 Location is required to find your way."
+            }
         },
-        password_confirmation: { required: true },
-        location_id: { required: true }
-    }, 
-    {
-        name: {
-            required: "👤 Name is required to continue your quest."
-        },
-        password: {
-            min: `🚓 Security called. They said "Nice try."`
-        },
-        password_confirmation: {
-            required: "🔒 Please confirm your password."
-        },
-        location_id: {
-            required: "🌍 Location is required to find your way."
+        {
+            showErrors: function(errorMap, errorList) {
+                this.defaultShowErrors();
+            }
         }
-    });
+    );
 
-    // Login form validation
     const loginValidator = setupValidation(
         '#login_form',
         {

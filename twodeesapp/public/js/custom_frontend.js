@@ -276,7 +276,7 @@ jQuery(function () {
     }
 
     // Register form validation
-    setupValidation('#register_form', {
+    const registerValidator = setupValidation('#register_form', {
         name: { required: true },
         surname: { required: true },
         username: { required: true },
@@ -289,11 +289,17 @@ jQuery(function () {
         location_id: { required: true }
     }, 
     {
-        location_id: {
-            required: "🌍 Location is required to find your way."
+        name: {
+            required: "👤 Name is required to continue your quest."
         },
         password: {
             min: `🚓 Security called. They said "Nice try."`
+        },
+        password_confirmation: {
+            required: "🔒 Please confirm your password."
+        },
+        location_id: {
+            required: "🌍 Location is required to find your way."
         }
     });
 
@@ -320,8 +326,8 @@ jQuery(function () {
         }
     );
 
-    function showToastError(input, heading) {
-        const errorMessage = loginValidator?.errorMap[input.name];
+    function showToastError(validatorSelector, input, heading) {
+        const errorMessage = validatorSelector?.errorMap[input.name];
         if (errorMessage) {
             $.toast({
                 heading: heading || '',
@@ -335,13 +341,13 @@ jQuery(function () {
     if (loginValidator) {
         $("#email").on("blur", function () {
             if (!loginValidator.element(this)) {
-                showToastError(this, 'Whoa there! Even ghosts leave an email address...');
+                showToastError(loginValidator, this, 'Whoa there! Even ghosts leave an email address...');
             }
         });
 
         $("#password").on("blur", function () {
             if (!loginValidator.element(this)) {
-                showToastError(this, 'The Gatekeeper says Nope!');
+                showToastError(loginValidator, this, 'The Gatekeeper says Nope!');
             }
         });
     }

@@ -80,9 +80,7 @@
         <div class="form-group row">
             <label for="description" class="col-md-3 col-form-label">Bio</label>
             <div class="col-md-9">
-                <textarea name="bio" id="bio" class="form-control">
-                    {{ old('bio', $user->bio) }}
-                </textarea>
+                <textarea name="bio" id="bio" class="form-control">{{ old('bio', trim($user->bio)) }}</textarea>
             </div>
         </div>
         <div class="form-group row">

@@ -12987,3 +12987,14 @@ p#error-404 {
 #profile_picture ~ .invalid-feedback {
     color: #dc3545 !important;
 }
+
+.birthday-message {
+    color: #e67e22;
+    font-weight: bold;
+    background: #fffbe6;
+    padding: 4px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 1px 4px rgba(230, 126, 34, 0.15);
+    margin-top: 4px;
+}

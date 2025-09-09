@@ -106,7 +106,30 @@
                                     @endphp
 
                                     @if ($today->format('m-d') == $birthday->format('m-d'))
-                                        <small class="birthday-message">Happy birthday {{ $user->name }}! 🎉🎂🎈</small> 
+                                        <small class="birthday-message">Happy birthday {{ $user->name }}! 🎉🎂🎈</small>
+                                    @else
+                                        @php
+                                            $birthDate = new DateTime($user->birth_date);
+                                            $nextBirthday = new DateTime(
+                                                $today->format('Y') . '-' . $birthDate->format('m-d'),
+                                            );
+                                            if ($nextBirthday < $today) {
+                                                // If birthday already passed this year, check next year
+                                                $nextBirthday->modify('+1 year');
+                                            }
+
+                                            $interval = $today->diff($nextBirthday)->days + 1;
+                                        @endphp
+
+                                        @if ($interval > 0 && $interval <= 7)
+                                            @if ($interval == 1)
+                                                <small class="birthday-approaching-message">Your birthday is tomorrow!
+                                                    🎉🎂🎈</small>
+                                            @else
+                                                <small class="birthday-approaching-message">Your birthday is coming up in
+                                                    {{ $interval }} days! 🎉🎂🎈</small>
+                                            @endif
+                                        @endif
                                     @endif
                                 </div>
                             </div>

@@ -12998,3 +12998,21 @@ p#error-404 {
     box-shadow: 0 1px 4px rgba(230, 126, 34, 0.15);
     margin-top: 4px;
 }
+
+.birthday-approaching-message {
+    color: #2980b9;
+    font-weight: bold;
+    background: #eaf6ff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 1px 4px rgba(41, 128, 185, 0.15);
+    margin-top: 4px;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 12px 2px #2980b933;
+    }
+}
